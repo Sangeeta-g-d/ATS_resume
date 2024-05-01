@@ -19,8 +19,7 @@ def registration(request):
         email = request.POST.get('email')
         contact_no = request.POST.get('contact_no')  
         passw = make_password(password)
-        user = NewUser.objects.create(first_name=first_name,last_name=last_name,password=passw,email=email,
-                       phone_no=contact_no,)
+        user = NewUser.objects.create(first_name=first_name,last_name=last_name,password=passw,email=email,phone_no=contact_no,)
         success_message = f"Registered successfully!"
         return redirect('login_view')
 
@@ -37,5 +36,8 @@ def login_view(request):
             login(request, user)
             i = request.user.id
             return redirect('Templates')
-
     return render(request, 'login.html')
+
+
+def index(request):
+    return render(request,'index.html')
