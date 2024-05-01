@@ -8,7 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.http import JsonResponse
+from .models import  NewUser
 # Create your views here.
+
+
 
 
 def registration(request):
@@ -17,24 +20,30 @@ def registration(request):
         last_name = request.POST.get('last_name')
         password = request.POST.get('password')
         email = request.POST.get('email')
-        contact_no = request.POST.get('contact_no')  
+        contact_no = request.POST.get('phone_no')
+
+        # Check if email is unique
+        if NewUser.objects.filter(email=email).exists():
+            return render(request, 'registration.html', {'error_message': 'Email already exists'})
+        if len(contact_no) != 10:
+            return render(request, 'registration.html', {'error_message': 'Phone number must be 10 digits'})
+
         passw = make_password(password)
-        user = NewUser.objects.create(first_name=first_name,last_name=last_name,password=passw,email=email,
-                       phone_no=contact_no,)
-        success_message = f"Registered successfully!"
-        return redirect('login_view')
+        user = NewUser.objects.create(username=first_name, last_name=last_name, password=passw, email=email, contact_no=contact_no)
+
+        # Display a success message
+        return render(request, 'registration.html', {'success_message': 'Registration successful!'})
 
     return render(request, 'registration.html')
-
-
 def login_view(request):
-    id=request.user.id
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            i = request.user.id
             return redirect('Templates')
+        else:
+           
+            messages.error(request, 'Invalid email or password. Please try again.')
     return render(request, 'login.html')

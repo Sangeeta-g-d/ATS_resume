@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
+     <!-- Your existing HTML code -->
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style media="screen">
       *,
 *:before,
@@ -36,7 +37,7 @@ body{
 }
 
 form{
-    height: 520px;
+    height:auto;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -84,7 +85,7 @@ input{
     color: #e5e5e5;
 }
 button{
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -120,33 +121,73 @@ button{
     </style>
 </head>
 <body>
+
+ <script>
+  {% if success_message %}
+    <script>
+        swal({
+            title: "Success!",
+            text: "{{ success_message }}",
+            icon: "success",
+            button: "OK",
+        });
+    </script>
+{% endif %}
+
+ </script>
+ 
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="post">
-        {% csrf_token %}
-        <h3>Login Here</h3>
+    <form method="post" id="registrationForm">
+      {% csrf_token %}
+      <h3 style="color:white">Register Here!</h3>
+      <input type="text" name="first_name" placeholder="First Name" id="first_name">
+      <br>
+      <input type="text" name="last_name" placeholder="Last Name" id="last_name">
+      <br>
+      <input type="email" name="email" placeholder="Email" id="email">
+      <br>
+      <input type="password" name="password" placeholder="Password" id="password">
+      <br>
+      <input type="text" name="phone_no" placeholder="Phone number" id="phone_no">
+<br>
 
-        <label for="username">Email</label>
-        <input type="email" placeholder="Email" name="email" id="username">
+      <button type="submit" onclick="return validateForm()">Sign up</button>
+      <br><br>
+      <p style="text-align: center;">Already have an account?<a href="/" style="text-decoration: none;"> Sign in </a></p>
+  </form>
+  
+ 
+<script>
+  function validateForm() {
+      var email = document.getElementById("email").value;
+      var phone_no = document.getElementById("phone_no").value;
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" name="password" id="password">
+      if (!emailIsValid(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+      }
 
-        <button type="submit">Log In</button>
-        
-        <br><br>
-        <p style="text-align: center;">Don't have an account?<a href="registration" style="text-decoration: none;"> Sign up </a></p>
-    </form>
+      if (phone_no.length !== 10) {
+          alert("Phone number must be 10 digits.");
+          return false;
+      }
 
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
+      return true;
+  }
+
+  function emailIsValid(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+</script>
+
+{% if error_message %}
+  <p>{{ error_message }}</p>
 {% endif %}
+  
 </body>
 </html>
 <!-- partial -->
