@@ -3,5 +3,5 @@ from . import views
 from django.contrib import admin
 
 urlpatterns = [
-
+        path('',views.login_view,name='login_view'),
 ]

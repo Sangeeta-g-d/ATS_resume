@@ -37,5 +37,4 @@ def login_view(request):
             login(request, user)
             i = request.user.id
             return redirect('Templates')
-
     return render(request, 'login.html')
