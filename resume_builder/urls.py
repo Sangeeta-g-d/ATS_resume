@@ -4,4 +4,5 @@ from django.contrib import admin
 
 urlpatterns = [
     path('',views.index,name="index")
+    path('',views.login_view,name='login_view'),
 ]

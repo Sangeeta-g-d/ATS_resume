@@ -41,3 +41,4 @@ def login_view(request):
 
 def index(request):
     return render(request,'index.html')
+    return render(request, 'login.html')
