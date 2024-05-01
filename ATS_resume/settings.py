@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTHENTICATION_BACKENDS = [
+    'resume_builder.backends.CustomAuthenticationBackend',  # Path to your custom backend
+    'django.contrib.auth.backends.ModelBackend',
+    # Other authentication backends...
+]
 # Application definition
 
 INSTALLED_APPS = [
