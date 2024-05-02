@@ -111,7 +111,7 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: .5rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.2
 }
 
@@ -5091,7 +5091,9 @@ fieldset:disabled .btn {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, .55)
+    color: #282828 !important;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus,
