@@ -157,7 +157,7 @@ a.more {
 
 @media (min-width: 992px) {
   .hero {
-    padding: calc(8rem - 30px) 0 8rem 0;
+    padding: calc(10rem - 30px) 0 8rem 0;
   }
 }
 
@@ -255,7 +255,6 @@ a.more {
   border-radius: 30px;
   color: #ffffff;
   background: #2f2f2f;
-<<<<<<< HEAD
   border-color: #2f2f2f; }
   .btn:hover {
     color: #ffffff;
@@ -285,7 +284,6 @@ a.more {
     .btn.btn-white-outline:hover {
       border-color: white;
       color: #ffffff; }
-=======
   border-color: #2f2f2f;
 }
 .btn.exp-btn{
@@ -340,7 +338,6 @@ border: 0.5px solid white;
 .section-title1 {
   color: #e1e1e1;
 }
->>>>>>> ee82e7e6513e6bfc9f77ec4bd2b5b6ae67c685de
 
 .section-title {
   color: #2f2f2f;
