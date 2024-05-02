@@ -640,6 +640,10 @@ progress {
     max-width: 100%;
     height: 400px;
 }
+.img-fluid1 {
+    max-width: 100%;
+    height: 280px;
+}
 
 .img-thumbnail {
     padding: .25rem;
