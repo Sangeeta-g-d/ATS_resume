@@ -33,6 +33,9 @@ def registration(request):
 
         # Display a success message
         return render(request, 'registration.html', {'success_message': 'Registration successful!'})
+        user = NewUser.objects.create(first_name=first_name,last_name=last_name,password=passw,email=email,phone_no=contact_no,)
+        success_message = f"Registered successfully!"
+        return redirect('login_view')
 
     return render(request, 'registration.html')
 def login_view(request):
@@ -47,3 +50,12 @@ def login_view(request):
            
             messages.error(request, 'Invalid email or password. Please try again.')
     return render(request, 'login.html')
+    return render(request, 'login.html')
+
+
+def index(request):
+    return render(request,'index.html')
+
+
+def resumes(request):
+    return render(request,'resumes.html')
