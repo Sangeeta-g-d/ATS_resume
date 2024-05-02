@@ -636,13 +636,17 @@ progress {
     content: "— "
 }
 
-.img-fluid {
+.img-fluid-why {
     max-width: 100%;
-    height: 400px;
+    height: 450px;
 }
 .img-fluid1 {
     max-width: 100%;
     height: 280px;
+}
+.img-fluid {
+    max-width: 100%;
+    height: 200px;
 }
 
 .img-thumbnail {
