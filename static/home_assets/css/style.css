@@ -255,37 +255,6 @@ a.more {
   border-radius: 30px;
   color: #ffffff;
   background: #2f2f2f;
-<<<<<<< HEAD
-  border-color: #2f2f2f; }
-  .btn:hover {
-    color: #ffffff;
-    background: #222222;
-    border-color: #222222; }
-  .btn:active, .btn:focus {
-    outline: none !important;
-    -webkit-box-shadow: none;
-    box-shadow: none; }
-  .btn.btn-primary {
-    background: #3b5d50;
-    border-color: #3b5d50; }
-    .btn.btn-primary:hover {
-      background: #314d43;
-      border-color: #314d43; }
-  .btn.btn-secondary {
-    color: #2f2f2f;
-    background: #ced4da;;
-    border-color:#ced4da; }
-    .btn.btn-secondary:hover {
-      background:#ced4da;
-      border-color:#ced4da; }
-  .btn.btn-white-outline {
-    background: transparent;
-    border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.3); }
-    .btn.btn-white-outline:hover {
-      border-color: white;
-      color: #ffffff; }
-=======
   border-color: #2f2f2f;
 }
 .btn.exp-btn{
@@ -340,7 +309,6 @@ border: 0.5px solid white;
 .section-title1 {
   color: #e1e1e1;
 }
->>>>>>> ee82e7e6513e6bfc9f77ec4bd2b5b6ae67c685de
 
 .section-title {
   color: #2f2f2f;
@@ -956,11 +924,7 @@ border: 0.5px solid white;
 
 .untree_co-section {
   padding: 7rem 0;
-<<<<<<< HEAD
-background-color: rgb(39, 39, 43); }
-=======
 }
->>>>>>> ee82e7e6513e6bfc9f77ec4bd2b5b6ae67c685de
 
 .form-control {
   height: 50px;
