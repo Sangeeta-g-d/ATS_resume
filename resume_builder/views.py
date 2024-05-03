@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.http import JsonResponse
-from .models import  NewUser,Header,User_skills,Experience,Education
+from .models import  NewUser,Header,User_skills,Experience,Education,Project
 from datetime import datetime
 # Create your views here.
 
@@ -125,3 +125,16 @@ def education(request):
 
 def extra_details(request):
     return render(request,'extra_details.html')
+
+
+
+def project_details(request):
+    id = request.user.id
+    if request.method == 'POST':
+        project_name = request.POST.get('project_name')
+        tools = request.POST.get('tools')
+        link = request.POST.get('link')
+        description = request.POST.get('description')
+        data = Project.objects.create(project_name=project_name, project_link=link, tools_used=tools,
+                                      description=description, user_id_id=id)
+        return redirect('extra_details')

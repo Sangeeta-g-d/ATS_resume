@@ -14,5 +14,6 @@ urlpatterns = [
     path('extra_details',views.extra_details,name="extra_details"),
     path('add_experience_choice',views.add_experience_choice,name="add_experience_choice"),
     path('add_education_choice',views.add_education_choice,name="add_education_choice"),
+    path('project_details',views.project_details,name="project_details"),
     
 ]
