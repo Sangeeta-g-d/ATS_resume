@@ -294,45 +294,43 @@
                     </p>
 				</div>
 				
-                <form action="#" class="row g-6" style="background-color: transparent;">
+                <form action="#" class="row g-6" style="background-color: transparent;" method="post">
+                    {% csrf_token %}
                     <div class="row g-6">
                         <div class="col-lg-4">
-                            <label style="color: #222222;">FIRST NAME</label>
-                            <input type="text" class="form-control" placeholder="Eg: Vikas" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">JOB TITLE</label>
+                            <input type="text" name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                         <div class="col-lg-4">
-                            <label style="color: #222222;">LAST NAME</label>
-                            <input type="text" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">COMPANY NAME</label>
+                            <input type="text" name="comapany_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                     </div>
                     <div class="row g-6">
                         <div class="col-lg-4">
-                            <label style="color: #222222;">EMAIL</label>
-                            <input type="email" class="form-control" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">FROM</label>
+                            <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                         <div class="col-lg-4">
-                            <label style="color: #222222;">CONTACT NUMBER</label>
-                            <input type="text" class="form-control" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">TO</label>
+                            <div class="input-group">
+                                <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="toPresentCheckbox">
+                                    <label for="toPresentCheckbox">To Present</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row g-6">
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">LINKEDIN</label>
-                            <input type="text" class="form-control" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
-                        </div>
-                        
-                    </div>
+                    
                     
                     <div class="row g-6">
                         
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">SUMMARY</label>
-                            <textarea class="form-control" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                        <div class="col-lg-8">
+                            <label style="color: #222222;">DESCRIPTION</label>
+                            <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
                         </div>
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">SKILLS</label>
-                            <textarea class="form-control" rows="3" placeholder="Eg: Python,HTML,CSS" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                        </div>
+                     
 
 
 
