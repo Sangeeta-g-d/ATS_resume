@@ -61,6 +61,11 @@ def index(request):
 def resumes(request):
     return render(request,'resumes.html')
 
+def add_experience_choice(request):
+    return render(request,'add_experience_choice.html')
+
+def add_education_choice(request):
+    return render(request,'add_education_choice.html')
 
 def resume_options(request):
     return render(request,'resume_options.html')
@@ -100,7 +105,7 @@ def work_history(request):
         data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
                                          to_date=to_date, description=description, user_id_id=id)
         if data:
-            return redirect('education')
+            return redirect('add_experience_choice')
     return render(request, 'work_history.html')
 
 def education(request):
@@ -115,5 +120,8 @@ def education(request):
         data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
                                       to_date=to_date,city=city,cgpa=cgpa,user_id_id=id)
         if data:
-            return redirect(' ')
+            return redirect('add_education_choice')
     return render(request,'education.html')
+
+def extra_details(request):
+    return render(request,'extra_details.html')
