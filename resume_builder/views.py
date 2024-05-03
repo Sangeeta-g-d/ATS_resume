@@ -63,3 +63,7 @@ def resumes(request):
 
 def resume_options(request):
     return render(request,'resume_options.html')
+
+
+def personal_info(request):
+    return render(request,'personal_info.html')
