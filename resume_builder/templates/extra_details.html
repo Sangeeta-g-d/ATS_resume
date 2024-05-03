@@ -220,7 +220,7 @@
 .form-container {
     padding: 15px;
     border-radius: 10px; /* Rounded corners */
-    background-color: #f8f9fa; /* Subtle background color */
+    background-color: #eff2f1; /* Subtle background color */
     border: 1px solid #ddd; /* Light border */
     margin-bottom: 20px; /* Margin at the bottom */
 }
@@ -306,6 +306,7 @@
                             <h6 class="section-title">+ Add Project</h6>
                         </div>
                     </div>
+                    
         
                     <!-- Project form -->
                     <!-- Container for the form -->
@@ -348,7 +349,52 @@
                             </div>
                         </form>
                     </div>
-                    <!-- End of project form -->
+                    <!-- certificate -->
+                    <div id="addcertficates" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
+                        <div class="card-body" style="padding-bottom: 7px;">
+                            <h6 class="section-title">+ Add Certificates</h6>
+                        </div>
+                    </div>
+                    <!-- certificate form -->
+                    <div id="certificatesFormContainer" class="form-container" style="display: none;">
+        
+                        <form id="certificatesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                            {% csrf_token %}
+                            <div class="row g-6">
+                                <div class="col-lg-8">
+                                    <label style="color: #222222;">CERTIFICATE DETAILS</label>
+                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                                </div>
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <!-- End of certificates form -->
+                    <!-- languages known -->
+                    <div id="addlanguages" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
+                        <div class="card-body" style="padding-bottom: 7px;">
+                            <h6 class="section-title">+ Add Languages Known</h6>
+                        </div>
+                    </div>
+                    <!-- certificate form -->
+                    <div id="languagesFormContainer" class="form-container" style="display: none;">
+        
+                        <form id="languagesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                            {% csrf_token %}
+                            <div class="row g-6">
+                                <div class="col-lg-8">
+                                    <label style="color: #222222;">LANGUAGES KNOWN</label>
+                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end of languages known -->
                 </div>
             </div>
         </div>
