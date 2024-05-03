@@ -59,3 +59,7 @@ def index(request):
 
 def resumes(request):
     return render(request,'resumes.html')
+
+
+def resume_options(request):
+    return render(request,'resume_options.html')
