@@ -290,33 +290,44 @@
 			<div class="main-content" id="main-content">
 				<div style="margin-top: 70px;">
 					<h2 class="mb-4 section-title1" style="color: #222222;"> Empower your professional journey </h2>
-					<p style="font-size: 15px;color: #222222;">Add your contact information & summary.
-                    </p>
+					
 				</div>
-				
+				<script>
+                    function toggleCheckbox() {
+                        var toPresentCheckbox = document.getElementById("toPresentCheckbox");
+                        var toDateInput = document.getElementById("toDateInput");
+                
+                        if (toPresentCheckbox.checked) {
+                            toDateInput.value = ''; // Clear the "To" date input if "To Present" is checked
+                            toDateInput.disabled = true;
+                        } else {
+                            toDateInput.disabled = false;
+                        }
+                    }
+                </script>
                 <form action="#" class="row g-6" style="background-color: transparent;" method="post">
                     {% csrf_token %}
                     <div class="row g-6">
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">JOB TITLE</label>
-                            <input type="text" name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">JOB TITLE <span style="color: red;">*</span></label>
+                            <input type="text"required name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">COMPANY NAME</label>
-                            <input type="text" name="comapany_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">COMPANY NAME <span style="color: red;">*</span></label>
+                            <input type="text" required name="company_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                     </div>
                     <div class="row g-6">
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">FROM</label>
-                            <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">FROM <span style="color: red;">*</span></label>
+                            <input type="month" required class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">TO</label>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">TO <span style="color: red;">*</span></label>
                             <div class="input-group">
-                                <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                                <input type="month" class="form-control" name="to_date" id="toDateInput" style="background-color: transparent; border: 1px solid #666;">
                                 <div class="input-group-text">
-                                    <input type="checkbox" id="toPresentCheckbox">
+                                    <input type="checkbox" name="to_present" id="toPresentCheckbox" onchange="toggleCheckbox()">
                                     <label for="toPresentCheckbox">To Present</label>
                                 </div>
                             </div>
@@ -326,9 +337,9 @@
                     
                     <div class="row g-6">
                         
-                        <div class="col-lg-8">
-                            <label style="color: #222222;">DESCRIPTION</label>
-                            <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">DESCRIPTION <span style="color: red;">*</span></label>
+                            <textarea class="form-control" required name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
                         </div>
                      
 
@@ -336,7 +347,9 @@
 
 
                         
-                        
+                        <div class="button-container" style="text-align: right; margin-top: 20px;">
+							<a href="/education"><button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
+						</div>
                     </div>
                 </form>
 				

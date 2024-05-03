@@ -292,42 +292,46 @@
 					<h2 class="mb-4 section-title1" style="color: #222222;">Showcase your academic journey </h2>
 					<p style="font-size: 15px;color: #222222;">Explore Your Educational Pathway and Milestones.
                     </p>
+                    <span><span style="color: red;">*</span> indicates a required field</span>
 				</div>
 				
                 <form action="#" class="row g-6" style="background-color: transparent;" method="post">
                     {% csrf_token %}
                     <div class="row g-6">
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">COLLEGE NAME</label>
-                            <input type="text" name="college_name" class="form-control" placeholder="Eg: KLE University" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">COLLEGE NAME <span style="color: red;">*</span></label>
+                            <input type="text" required name="college_name" class="form-control" placeholder="Eg: KLE University" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">DEGREE</label>
-                            <input type="text" name="degree" class="form-control" placeholder="Eg: Bachelor of Engineering" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">DEGREE <span style="color: red;">*</span></label>
+                            <input type="text" required name="degree" class="form-control" placeholder="Eg: Bachelor of Engineering" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                     </div>
                     <div class="row g-6">
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">FROM</label>
-                            <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">FROM <span style="color: red;">*</span></label>
+                            <input type="month" required class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">TO</label>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">TO <span style="color: red;">*</span></label>
                             <div class="input-group">
-                                <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                                <input type="month" required class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
                                
                             </div>
                         </div>
                     </div>
                     <div class="row g-6">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <label style="color: #222222;">CITY</label>
-                            <input type="text" name="city" class="form-control" placeholder="Eg: Banglore" style="background-color: transparent; border: 1px solid #666;">
+                            <input type="text" required name="city" class="form-control" placeholder="Eg: Banglore" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <label style="color: #222222;">CGPA</label>
-                            <input type="text" name="cgpa" class="form-control" placeholder="Eg: 8.9" style="background-color: transparent; border: 1px solid #666;">
+                            <input type="text" name="cgpa" required class="form-control" placeholder="Eg: 8.9" style="background-color: transparent; border: 1px solid #666;">
                         </div>
+                        <div class="button-container" style="text-align: right; margin-top: 20px;">
+							<button type="submit" class="btn btn-primary me-2">Save and Next</button>
+						</div>
                     </div>
                     
                     

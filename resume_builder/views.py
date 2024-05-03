@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.http import JsonResponse
-from .models import  NewUser
+from .models import  NewUser,Header,User_skills,Experience,Education
+from datetime import datetime
 # Create your views here.
 
 
@@ -45,12 +46,12 @@ def login_view(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('Templates')
+            return redirect('personal_info')
         else:
            
             messages.error(request, 'Invalid email or password. Please try again.')
     return render(request, 'login.html')
-    return render(request, 'login.html')
+    
 
 
 def index(request):
@@ -66,10 +67,53 @@ def resume_options(request):
 
 
 def personal_info(request):
+    id=request.user.id
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        contact_no = request.POST.get('contact_no')
+        linkedin = request.POST.get('linkedin')
+        summary = request.POST.get('summary')
+        skills=request.POST.get('skills')
+        user=Header.objects.create(first_name=first_name,last_name=last_name,email=email,
+                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=id)
+        data=User_skills.objects.create(skills=skills,user_id_id=id)
+        if user:
+            return redirect('work_history')
     return render(request,'personal_info.html')
 
+
 def work_history(request):
-    return render(request,'work_history.html')
+    id = request.user.id
+    if request.method == 'POST':
+        designation = request.POST.get('designation')
+        company_name = request.POST.get('company_name')
+        from_date = request.POST.get('from_date')
+        to_date = request.POST.get('to_date')
+        description = request.POST.get('description')
+        
+        if 'to_present' in request.POST:
+            # If "To Present" checkbox is checked, set to_date to the current date
+            to_date ='Present'  # Format to match your field type
+            
+        data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
+                                         to_date=to_date, description=description, user_id_id=id)
+        if data:
+            return redirect('education')
+    return render(request, 'work_history.html')
 
 def education(request):
+    id = request.user.id
+    if request.method == 'POST':
+        college_name = request.POST.get('college_name')
+        degree = request.POST.get('degree')
+        from_date = request.POST.get('from_date')
+        to_date = request.POST.get('to_date')
+        city = request.POST.get('city')
+        cgpa = request.POST.get('cgpa')
+        data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
+                                      to_date=to_date,city=city,cgpa=cgpa,user_id_id=id)
+        if data:
+            return redirect(' ')
     return render(request,'education.html')
