@@ -88,14 +88,12 @@
 
 /* Sidebar */
 .sidebar {
-    width: 19.5%; /* Adjusts the width of the sidebar as per your preference */
-    height: 100%; /* Makes the sidebar full height of the container */
-    padding: 20px; /* Adds padding to the sidebar */
-    background-color: #222222; /* Sets background color */
-    color: white; /* Sets text color to white */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-    transition: width 0.3s; /* Transition effect when changing width */
+    width: 19.5%; /* Adjusted width for the sidebar */
+    height: 100vh; /* Full height of the container */
+    padding: 20px; /* Padding for the sidebar */
+    background-color: #222222; /* Background color */
+    color: white; /* Text color */
+    overflow-y: auto; /* Allows vertical scrolling if content overflows */
 }
 
 .sidebar.hidden {
@@ -104,24 +102,11 @@
     overflow: hidden;
 }
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-bottom: 10px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
 
 /* Main Content */
 .main-content {
-    flex-grow: 1;
-    padding: 40px;
+    flex-grow: 1; /* Expands the main content to fill remaining space */
+    padding: 40px; /* Padding */
 }
 
 .main-content.full-width {
@@ -234,8 +219,8 @@
 /* Form container styling */
 .form-container {
     padding: 15px;
-    border-radius: 10px;
-  /* Subtle background color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #eff2f1; /* Subtle background color */
     border: 1px solid #ddd; /* Light border */
     margin-bottom: 20px; /* Margin at the bottom */
 }
@@ -248,9 +233,9 @@
 
 /* Form label styling */
 .form-container label {
-    display: block; /* Ensure label is block-level */
-    margin-bottom: 5px; /* Add some spacing below labels */
-    font-weight: bold; /* Make the text bold */
+    display: block; /* Display label as block-level */
+    margin-bottom: 5px; /* Add spacing below labels */
+    font-weight: bold; /* Bold text */
 }
 
 
@@ -287,39 +272,42 @@
 <div class="hero1">
 		<!-- Start Hero Section -->
 		<div class="container1">
-			<!-- Sidebar -->
-			<div class="sidebar" id="sidebar">
-				<div class="tracking-system">
-					<h3>Progress Tracker</h3>
-					<ul class="tracking-steps">
-						<li class="step">
-							<div class="step-number">1</div>
-							Personal
-						</li>
-						<li class="step">
-							<div class="step-number">2</div>
-							Experience
-						</li>
-						<li class="step">
-							<div class="step-number">3</div>
-							Education
-						</li>
-						<li class="step active">
-							<div class="step-number">4</div>
-							Finalize
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="main-content" id="main-content">
-				<div style="margin-top: 70px;">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="tracking-system">
+                    <h3>Progress Tracker</h3>
+                    <ul class="tracking-steps">
+                        <li class="step">
+                            <div class="step-number">1</div>
+                            Personal
+                        </li>
+                        <li class="step">
+                            <div class="step-number">2</div>
+                            Experience
+                        </li>
+                        <li class="step">
+                            <div class="step-number">3</div>
+                            Education
+                        </li>
+                        <li class="step active">
+                            <div class="step-number">4</div>
+                            Finalize
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Main Content -->
+            <div class="main-content" id="main-content">
+                <div style="margin-top: 70px;">
+                    <!-- Card -->
                     <div id="addProjectCard" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
                         <div class="card-body" style="padding-bottom: 7px;">
                             <h6 class="section-title">+ Add Project</h6>
                         </div>
                     </div>
                       <!-- project form -->
-                      <!-- Container for the form -->
+                      <!-- Contaier for the form -->
 <div id="projectFormContainer" class="form-container" style="display: none;">
 
     <!-- Form -->
@@ -358,6 +346,99 @@
                
 			</div>
 		</div>
+                    
+        
+                    <!-- Project form -->
+                    <!-- Container for the form -->
+                    <div id="projectFormContainer" class="form-container" style="display: none;">
+        
+                        <!-- Form -->
+                        <form id="projectForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                            {% csrf_token %}
+                            <div class="row g-6">
+                                <div class="col-lg-4">
+                                    <label style="color: #222222;">JOB TITLE</label>
+                                    <input type="text" name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-4">
+                                    <label style="color: #222222;">COMPANY NAME</label>
+                                    <input type="text" name="company_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+                            <div class="row g-6">
+                                <div class="col-lg-4">
+                                    <label style="color: #222222;">FROM</label>
+                                    <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-4">
+                                    <label style="color: #222222;">TO</label>
+                                    <div class="input-group">
+                                        <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" id="toPresentCheckbox">
+                                            <label for="toPresentCheckbox">To Present</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-6">
+                                <div class="col-lg-8">
+                                    <label style="color: #222222;">DESCRIPTION</label>
+                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- certificate -->
+                    <div id="addcertficates" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
+                        <div class="card-body" style="padding-bottom: 7px;">
+                            <h6 class="section-title">+ Add Certificates</h6>
+                        </div>
+                    </div>
+                    <!-- certificate form -->
+                    <div id="certificatesFormContainer" class="form-container" style="display: none;">
+        
+                        <form id="certificatesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                            {% csrf_token %}
+                            <div class="row g-6">
+                                <div class="col-lg-8">
+                                    <label style="color: #222222;">CERTIFICATE DETAILS</label>
+                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                                </div>
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <!-- End of certificates form -->
+                    <!-- languages known -->
+                    <div id="addlanguages" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
+                        <div class="card-body" style="padding-bottom: 7px;">
+                            <h6 class="section-title">+ Add Languages Known</h6>
+                        </div>
+                    </div>
+                    <!-- certificate form -->
+                    <div id="languagesFormContainer" class="form-container" style="display: none;">
+        
+                        <form id="languagesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                            {% csrf_token %}
+                            <div class="row g-6">
+                                <div class="col-lg-8">
+                                    <label style="color: #222222;">LANGUAGES KNOWN</label>
+                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end of languages known -->
+                </div>
+            </div>
+        </div>
+        
 		  
 		</div>
 		<!-- End Hero Section -->
