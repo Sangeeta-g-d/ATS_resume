@@ -1,9 +1,6 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
-<<<<<<< HEAD
 
-=======
->>>>>>> 222449af1072e80509d61f59cd38426da7f0ea42
 
 
 class CustomAuthenticationBackend(ModelBackend):

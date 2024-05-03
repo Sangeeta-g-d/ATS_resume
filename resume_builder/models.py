@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class NewUser(AbstractUser):
     contact_no = models.CharField(max_length=100, default='9999999999')
 
-class header(models.Model):
+class Header(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=800,default='first name')
     last_name = models.CharField(max_length=800,default='last name')
@@ -15,16 +15,16 @@ class header(models.Model):
     summary = models.CharField(max_length=800,default='profile summary')
 
 
-class education(models.Model):
+class Education(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     college_name = models.CharField(max_length=800,default='college name')
-    education = models.CharField(max_length=800,default='education')
+    degree = models.CharField(max_length=800,default='education')
     from_date = models.CharField(max_length=800,default='from date')
     to_date = models.CharField(max_length=800,default='to date')
     city = models.CharField(max_length=800,default='city')
     cgpa = models.CharField(max_length=800,default='CGPA')
 
-class experience(models.Model):
+class Experience(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     designation = models.CharField(max_length=800,default='designation')
     company_name = models.CharField(max_length=800,default='company name')
@@ -32,25 +32,25 @@ class experience(models.Model):
     to_date = models.CharField(max_length=800,default='to date')
     description = models.CharField(max_length=1000,default='experience description')
 
-class skills(models.Model):
+class User_skills(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     skills = models.CharField(max_length=800,default='skills')
 
-class project(models.Model):
+class Project(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     project_name = models.CharField(max_length=800,default='project_name')
     tools_used = models.CharField(max_length=800,default='company name')
     project_link = models.CharField(max_length=800,default='project link')
     description = models.CharField(max_length=1000,default='project description')
 
-class skills(models.Model):
+class Languages(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     languages_known = models.CharField(max_length=800,default='languages known')
 
-class achievements(models.Model):
+class Achievements(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     acheivements = models.CharField(max_length=800,default='achievements')
 
-class certificates(models.Model):
+class Certificates(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     certificates = models.CharField(max_length=800,default='certificates')
