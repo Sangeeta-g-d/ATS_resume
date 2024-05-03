@@ -80,6 +80,69 @@
     }
 }
 
+
+.container1 {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: darkgray;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    transition: width 0.3s;
+}
+
+.sidebar.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.main-content.full-width {
+    flex-grow: 1;
+    width: 100vw;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        width: 100vw;
+    }
+}
 </style>
 
 
@@ -110,26 +173,74 @@
 		</nav>
 		
 		<!-- End Header/Navigation -->
-
+<div class="hero1">
 		<!-- Start Hero Section -->
-		<div class="hero">
-			
-			<br>
-			<div class="container" style="padding: 0px; margin: 0px;">
-				<div class="row">
-					<div class="col-md-3">
-						<div style="background-color: #222222; height:800px"> hello</div>
-					</div>
-					<div class="col-md-9">
-						<div style="background-color: antiquewhite;"> hii</div>
-					</div>
+		<div class="container1">
+			<!-- Sidebar -->
+			<div class="sidebar" id="sidebar">
+				<ul class="nav-links">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="main-content" id="main-content">
+				<div style="margin-top: 80px;">
+					<h2 class="mb-4 section-title1" style="color: #222222;">Build your professional profile effortlessly.</h2>
+					<p style="font-size: 15px;color: #222222;">Add your contact information & summary
+                    </p>
 				</div>
-				
+                <form action="#" class="row g-6" style="background-color: transparent;">
+                    <div class="row g-6">
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">FIRST NAME</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">LAST NAME</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">EMAIL</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">CONTACT NUMBER</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">LINKEDIN</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        
+                    </div>
+                </form>
+                
 			</div>
 		</div>
-		
+		  
+		</div>
 		<!-- End Hero Section -->
-	
+		
+			<script>
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        // Add event listener for toggling the sidebar
+        document.addEventListener('click', (e) => {
+            // Check if the click event occurred on the sidebar or main content
+            if (e.target.closest('.sidebar') === null && e.target.closest('.main-content') === null) {
+                sidebar.classList.toggle('hidden');
+                mainContent.classList.toggle('full-width');
+            }
+        });
+    </script>
+		
 
 		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
 		<script src="/static/home_assets/js/tiny-slider.js"></script>
