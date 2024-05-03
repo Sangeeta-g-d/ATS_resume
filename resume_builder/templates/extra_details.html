@@ -230,6 +230,28 @@
     left: calc(50% - 6px); /* Center the arrow */
 }
 
+/* form container style */
+/* Form container styling */
+.form-container {
+    padding: 15px;
+    border-radius: 10px;
+  /* Subtle background color */
+    border: 1px solid #ddd; /* Light border */
+    margin-bottom: 20px; /* Margin at the bottom */
+}
+
+/* Form input and textarea styling */
+.form-container .form-control {
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside inputs */
+}
+
+/* Form label styling */
+.form-container label {
+    display: block; /* Ensure label is block-level */
+    margin-bottom: 5px; /* Add some spacing below labels */
+    font-weight: bold; /* Make the text bold */
+}
 
 
 </style>
@@ -274,7 +296,7 @@
 							<div class="step-number">1</div>
 							Personal
 						</li>
-						<li class="step active">
+						<li class="step">
 							<div class="step-number">2</div>
 							Experience
 						</li>
@@ -282,7 +304,7 @@
 							<div class="step-number">3</div>
 							Education
 						</li>
-						<li class="step">
+						<li class="step active">
 							<div class="step-number">4</div>
 							Finalize
 						</li>
@@ -291,18 +313,53 @@
 			</div>
 			<div class="main-content" id="main-content">
 				<div style="margin-top: 70px;">
-                    <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
-                        <div class="card-header">
-                          Experience 1
+                    <div id="addProjectCard" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
+                        <div class="card-body" style="padding-bottom: 7px;">
+                            <h6 class="section-title">+ Add Project</h6>
                         </div>
-                        <div class="card-body" style="background-color: #eff2f1;">
-                          <h5 class="card-title">Job Title</h5>
-                          <p class="card-text">Info technologies pvt ltd</p>
-                         
-                        </div>
-                      </div>
-                      <a href="/work_history" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Experience</a>
-                      <button type="submit" class="btn btn-primary me-2">Save and Next</button>
+                    </div>
+                      <!-- project form -->
+                      <!-- Container for the form -->
+<div id="projectFormContainer" class="form-container" style="display: none;">
+
+    <!-- Form -->
+    <form id="projectForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+        {% csrf_token %}
+        <div class="row g-6">
+            <div class="col-lg-4">
+                <label style="color: #222222;">JOB TITLE</label>
+                <input type="text" name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
+            </div>
+            <div class="col-lg-4">
+                <label style="color: #222222;">COMPANY NAME</label>
+                <input type="text" name="company_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
+            </div>
+        </div>
+        <div class="row g-6">
+            <div class="col-lg-4">
+                <label style="color: #222222;">FROM</label>
+                <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+            </div>
+            <div class="col-lg-4">
+                <label style="color: #222222;">TO</label>
+                <div class="input-group">
+                    <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                    <div class="input-group-text">
+                        <input type="checkbox" id="toPresentCheckbox">
+                        <label for="toPresentCheckbox">To Present</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-6">
+            <div class="col-lg-8">
+                <label style="color: #222222;">DESCRIPTION</label>
+                <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end of project form  also containes custome style-->
                     
 				</div>
 
@@ -350,6 +407,7 @@
 		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
 		<script src="/static/home_assets/js/tiny-slider.js"></script>
 		<script src="/static/home_assets/js/custom.js"></script>
+        <script src="/static/home_assets/js/extra_form.js"></script>
 	</body>
 
 </html>

@@ -60,6 +60,11 @@ def index(request):
 def resumes(request):
     return render(request,'resumes.html')
 
+def add_experience_choice(request):
+    return render(request,'add_experience_choice.html')
+
+def add_education_choice(request):
+    return render(request,'add_education_choice.html')
 
 def resume_options(request):
     return render(request,'resume_options.html')
@@ -73,3 +78,6 @@ def work_history(request):
 
 def education(request):
     return render(request,'education.html')
+
+def extra_details(request):
+    return render(request,'extra_details.html')

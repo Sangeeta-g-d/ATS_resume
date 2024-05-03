@@ -258,7 +258,17 @@ a.more {
   border-radius: 30px;
   color: #ffffff;
   background: #2f2f2f;
-  border-color: #2f2f2f; }
+  border-color: #2f2f2f; 
+}
+.btn1 {
+  font-weight: 400;
+  font-size: 17px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #222222;
+  background:transparent;
+ border: 1px solid #222222;
+}
   .btn:hover {
     color: #ffffff;
     background: #222222;
@@ -286,9 +296,13 @@ a.more {
     border-color: rgba(255, 255, 255, 0.3); }
     .btn.btn-white-outline:hover {
       border-color: white;
-      color: #ffffff; }
+      color: #ffffff; 
   border-color: #2f2f2f;
 }
+.btn1.btn-black-outline {
+  background: transparent;
+  border-width: 2px;
+  border-color: rgba(46, 45, 45, 0.3); }
 .btn.exp-btn{
 border: 0.5px solid white;
 }
