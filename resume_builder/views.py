@@ -67,3 +67,9 @@ def resume_options(request):
 
 def personal_info(request):
     return render(request,'personal_info.html')
+
+def work_history(request):
+    return render(request,'work_history.html')
+
+def education(request):
+    return render(request,'education.html')

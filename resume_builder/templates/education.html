@@ -82,20 +82,18 @@
 
 
 .container1 {
-    display: flex; /* Sets flexbox layout */
-    height: 100vh; /* Sets the height to full viewport height */
+    display: flex;
+    height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 35%; /* Adjusts the width of the sidebar as per your preference */
-    height: 100%; /* Makes the sidebar full height of the container */
-    padding: 20px; /* Adds padding to the sidebar */
-    background-color: #222222; /* Sets background color */
-    color: white; /* Sets text color to white */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-    transition: width 0.3s; /* Transition effect when changing width */
+    background-color: #222222;
+    color: white;
+    width: 390px;
+    padding: 20px;
+
+    transition: width 0.3s;
 }
 
 .sidebar.hidden {
@@ -104,14 +102,24 @@
     overflow: hidden;
 }
 
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
 
 /* Main Content */
 .main-content {
-    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
-    padding: 40px; /* Adds padding to the main content */
-    height: 100%; /* Makes the main content full height of the container */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
+    flex-grow: 1;
+    padding: 40px;
 }
 
 .main-content.full-width {
@@ -281,66 +289,49 @@
 			</div>
 			<div class="main-content" id="main-content">
 				<div style="margin-top: 70px;">
-					<h2 class="mb-4 section-title1" style="color: #222222;">Build your professional profile effortlessly.</h2>
-					<p style="font-size: 15px;color: #222222;">Add your contact information & summary.
+					<h2 class="mb-4 section-title1" style="color: #222222;">Showcase your academic journey </h2>
+					<p style="font-size: 15px;color: #222222;">Explore Your Educational Pathway and Milestones.
                     </p>
-					<span><span style="color: red;">*</span> indicates a required field</span>
 				</div>
 				
-                <form method="post" class="row g-6" style="background-color: transparent;">
-					{% csrf_token %}
+                <form action="#" class="row g-6" style="background-color: transparent;" method="post">
+                    {% csrf_token %}
                     <div class="row g-6">
                         <div class="col-lg-4">
-                            <label style="color: #222222;">FIRST NAME <span style="color: red;">*</span></label>
-                            <input type="text" required name="first_name" class="form-control" placeholder="Eg: Vikas" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">COLLEGE NAME</label>
+                            <input type="text" name="college_name" class="form-control" placeholder="Eg: KLE University" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                         <div class="col-lg-4">
-                            <label style="color: #222222;">LAST NAME <span style="color: red;">*</span></label>
-                            <input type="text" required name="last_name" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">DEGREE</label>
+                            <input type="text" name="degree" class="form-control" placeholder="Eg: Bachelor of Engineering" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                     </div>
                     <div class="row g-6">
                         <div class="col-lg-4">
-                            <label style="color: #222222;">EMAIL <span style="color: red;">*</span></label>
-                            <input type="email" required name="email" class="form-control" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">FROM</label>
+                            <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
                         </div>
                         <div class="col-lg-4">
-                            <label style="color: #222222;">CONTACT NUMBER <span style="color: red;">*</span></label>
-                            <input type="text" name="contact_no" required class="form-control" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">TO</label>
+                            <div class="input-group">
+                                <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                               
+                            </div>
                         </div>
                     </div>
                     <div class="row g-6">
                         <div class="col-lg-4">
-                            <label style="color: #222222;">LINKEDIN</label>
-                            <input type="text" class="form-control" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
+                            <label style="color: #222222;">CITY</label>
+                            <input type="text" name="city" class="form-control" placeholder="Eg: Banglore" style="background-color: transparent; border: 1px solid #666;">
                         </div>
-						
+                        <div class="col-lg-4">
+                            <label style="color: #222222;">CGPA</label>
+                            <input type="text" name="cgpa" class="form-control" placeholder="Eg: 8.9" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
                     </div>
                     
-                    <div class="row g-6">
-                        
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">SUMMARY <span style="color: red;">*</span></label>
-                            <textarea class="form-control" name="summary" required rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                        </div>
-						
-                        <div class="col-lg-4">
-                            <label style="color: #222222;">SKILLS <span style="color: red;">*</span></label>
-                            <textarea class="form-control" name="skills" required rows="3" placeholder="Eg: Python,HTML,CSS" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                        </div>
-
-
-
-
-                        
-						<div class="button-container" style="text-align: right; margin-top: 20px;">
-							<button type="submit" class="btn btn-primary me-2">Save and Next</button>
-						</div>
-						
-						 
-                        
-                    </div>
-					
+                    
+                  
                 </form>
 				
                 
