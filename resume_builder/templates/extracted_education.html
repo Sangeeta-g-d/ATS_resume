@@ -88,14 +88,12 @@
 
 /* Sidebar */
 .sidebar {
-    width: 19.5%; /* Adjusts the width of the sidebar as per your preference */
-    height: 100%; /* Makes the sidebar full height of the container */
-    padding: 20px; /* Adds padding to the sidebar */
-    background-color: #222222; /* Sets background color */
-    color: white; /* Sets text color to white */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-    transition: width 0.3s; /* Transition effect when changing width */
+    background-color: #222222;
+    color: white;
+    width: 390px;
+    padding: 20px;
+
+    transition: width 0.3s;
 }
 
 .sidebar.hidden {
@@ -270,7 +268,7 @@
 				<div class="tracking-system">
 					<h3>Progress Tracker</h3>
 					<ul class="tracking-steps">
-						<li class="step">
+						<li class="step active">
 							<div class="step-number">1</div>
 							Personal
 						</li>
@@ -278,7 +276,7 @@
 							<div class="step-number">2</div>
 							Experience
 						</li>
-						<li class="step active">
+						<li class="step">
 							<div class="step-number">3</div>
 							Education
 						</li>
@@ -291,24 +289,56 @@
 			</div>
 			<div class="main-content" id="main-content">
 				<div style="margin-top: 70px;">
-                    {% for x in details %}
-                    <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
-                        <div class="card-header">
-                          Education 1
-                        </div>
-                        <div class="card-body" style="background-color: #eff2f1;">
-                          <h5 class="card-title">{{x.college_name}}</h5>
-                          <p class="card-text">{{x.degree}}</p>
-                        </div>
-                      </div>
-                      {% endfor %}
-                      <a href="/education" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Education</a>
-                     <a href="/extra_details"> <button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
-                    
+					<h2 class="mb-4 section-title1" style="color: #222222;">Showcase your academic journey </h2>
+					<p style="font-size: 15px;color: #222222;">Explore Your Educational Pathway and Milestones.
+                    </p>
+                    <span><span style="color: red;">*</span> indicates a required field</span>
 				</div>
-
 				
-               
+                <form action="#" class="row g-6" style="background-color: transparent;" method="post">
+                    {% csrf_token %}
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">COLLEGE NAME <span style="color: red;">*</span></label>
+                            <input type="text" value="{{details.university}}" required name="college_name" class="form-control" placeholder="Eg: KLE University" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">DEGREE <span style="color: red;">*</span></label>
+                            <input type="text" value="{{details.degree}}" required name="degree" class="form-control" placeholder="Eg: Bachelor of Engineering" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">FROM <span style="color: red;">*</span></label>
+                            <input type="month" value="{{details.year_of_passing}}" required class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">TO <span style="color: red;">*</span></label>
+                            <div class="input-group">
+                                <input type="month" required class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">CITY</label>
+                            <input type="text"  name="city" class="form-control" placeholder="Eg: Banglore" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">CGPA</label>
+                            <input type="text" name="cgpa"  class="form-control" placeholder="Eg: 8.9" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="button-container" style="text-align: right; margin-top: 20px;">
+							<button type="submit" class="btn btn-primary me-2">Save and Next</button>
+						</div>
+                    </div>
+                    
+                    
+                  
+                </form>
+				
+                
 			</div>
 		</div>
 		  

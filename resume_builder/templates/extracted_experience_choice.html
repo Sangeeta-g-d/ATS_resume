@@ -274,11 +274,11 @@
 							<div class="step-number">1</div>
 							Personal
 						</li>
-						<li class="step">
+						<li class="step active">
 							<div class="step-number">2</div>
 							Experience
 						</li>
-						<li class="step active">
+						<li class="step">
 							<div class="step-number">3</div>
 							Education
 						</li>
@@ -293,17 +293,20 @@
 				<div style="margin-top: 70px;">
                     {% for x in details %}
                     <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
+                     
                         <div class="card-header">
-                          Education 1
+                          Experience 1
                         </div>
                         <div class="card-body" style="background-color: #eff2f1;">
-                          <h5 class="card-title">{{x.college_name}}</h5>
-                          <p class="card-text">{{x.degree}}</p>
+                          <h5 class="card-title">{{x.designation}}</h5>
+                          <p class="card-text">{{x.company_name}}</p>
+                         
                         </div>
+                       
                       </div>
                       {% endfor %}
-                      <a href="/education" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Education</a>
-                     <a href="/extra_details"> <button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
+                      <a href="/extracted_work_history" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Experience</a>
+                   <a href="/extracted_education">   <button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
                     
 				</div>
 

@@ -82,13 +82,13 @@
 
 
 .container1 {
-    display: flex;
-    height: 100vh;
+    display: flex; /* Sets flexbox layout */
+    height: 100vh; /* Sets the height to full viewport height */
 }
 
 /* Sidebar */
 .sidebar {
-    width: 19.5%; /* Adjusts the width of the sidebar as per your preference */
+    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
     height: 100%; /* Makes the sidebar full height of the container */
     padding: 20px; /* Adds padding to the sidebar */
     background-color: #222222; /* Sets background color */
@@ -104,24 +104,14 @@
     overflow: hidden;
 }
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-bottom: 10px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
 
 /* Main Content */
 .main-content {
-    flex-grow: 1;
-    padding: 40px;
+    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
+    padding: 40px; /* Adds padding to the main content */
+    height: 100%; /* Makes the main content full height of the container */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow-y: auto; /* Allows scrolling if content overflows */
 }
 
 .main-content.full-width {
@@ -270,7 +260,7 @@
 				<div class="tracking-system">
 					<h3>Progress Tracker</h3>
 					<ul class="tracking-steps">
-						<li class="step">
+						<li class="step active">
 							<div class="step-number">1</div>
 							Personal
 						</li>
@@ -278,7 +268,7 @@
 							<div class="step-number">2</div>
 							Experience
 						</li>
-						<li class="step active">
+						<li class="step">
 							<div class="step-number">3</div>
 							Education
 						</li>
@@ -289,27 +279,81 @@
 					</ul>
 				</div>
 			</div>
-			<div class="main-content" id="main-content">
-				<div style="margin-top: 70px;">
-                    {% for x in details %}
-                    <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
-                        <div class="card-header">
-                          Education 1
+            <div class="main-content" id="main-content">
+                <div style="margin-top: 70px;">
+                    <h2 class="mb-4 section-title1" style="color: #222222;">Build your professional profile effortlessly.</h2>
+                    <p style="font-size: 15px;color: #222222;">Add your contact information & summary.</p>
+                    <span><span style="color: red;">*</span> indicates a required field</span>
+                </div>
+            
+                <!-- Form container -->
+                <div class="row g-6">
+                    <!-- Form column -->
+                    <div class="col-lg-8">
+                        <form method="post" class="row g-6" style="background-color: transparent;">
+                            {% csrf_token %}
+                            <!-- First row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">FIRST NAME <span style="color: red;">*</span></label>
+                                    <input type="text" required name="first_name" class="form-control" placeholder="Eg: Vikas" value="{{details.username}}" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">LAST NAME <span style="color: red;">*</span></label>
+                                    <input type="text" value="{{details.last_name}}" required name="last_name" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Second row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">EMAIL <span style="color: red;">*</span></label>
+                                    <input type="email" required name="email" value="{{details.email}}" class="form-control" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">CONTACT NUMBER <span style="color: red;">*</span></label>
+                                    <input type="text" value="{{details.contact_no}}" required name="contact_no" class="form-control" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Third row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">LINKEDIN</label>
+                                    <input type="text" class="form-control" name="linkedin" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Fourth row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">SUMMARY <span style="color: red;">*</span></label>
+                                    <textarea class="form-control"  name="summary" required rows="3" style="background-color: transparent; border: 1px solid #666;">{{ex_details.summary}}</textarea>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">SKILLS <span style="color: red;">*</span></label>
+                                    <textarea class="form-control" name="skills" required rows="3" placeholder="Eg: Python, HTML, CSS" style="background-color: transparent; border: 1px solid #666;">{{ex_details.skills}}</textarea>
+                                </div>
+                            </div>
+            
+                            <!-- Submit button -->
+                            <div class="button-container" style="text-align: right; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary me-2">Save and Next</button>
+                            </div>
+                        </form>
+                    </div>
+            
+                    <!-- Image column -->
+                    <div class="col-lg-4">
+                        <div class="image-container" style="text-align: center;">
+                            <img src="/{{t_image}}" alt="Your Image" height="350px" width="270px">
                         </div>
-                        <div class="card-body" style="background-color: #eff2f1;">
-                          <h5 class="card-title">{{x.college_name}}</h5>
-                          <p class="card-text">{{x.degree}}</p>
-                        </div>
-                      </div>
-                      {% endfor %}
-                      <a href="/education" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Education</a>
-                     <a href="/extra_details"> <button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
-                    
-				</div>
-
-				
-               
-			</div>
+                    </div>
+                </div>
+            </div>
+            
+           
+           
 		</div>
 		  
 		</div>

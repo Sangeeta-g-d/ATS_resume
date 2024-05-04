@@ -156,17 +156,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
+						<a href="/personal_info/{{id}}" style="text-decoration: none;">
 						<div class="resume_options text-center mb-4">
 							<img style="width: 62px;height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue2.png" ><br><br>
 							<h4>Create a new resume</h4>
 							<p style="font-size: 20px;">We will help you create a resume <br>step by step</p>
 						</div>
+					</a>
 					</div>
 					<div class="col-md-6">
 						<div class="resume_options text-center mb-4" id="uploadCard">
-							<img style="width: 62px;height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue2.png"><br><br>
-							<h4>Create a new resume</h4>
-							<p style="font-size: 20px;">We will help you create a resume <br>step by step</p>
+							<img style="width: 62px;height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue11.png"><br><br>
+							<h4>I already have a resume</h4>
+							<p style="font-size: 20px;">We'll fill your information so<br> you don'y have to.</p>
 						</div>
 					</div>
 
@@ -175,8 +177,10 @@
 						<div class="modal-content">
 							<span class="close" style="text-align: end;">&times;</span>
 							<h3>Upload Your Resume</h3><br>
-							<input type="file" id="resumeFile" accept=".pdf" ><br>
-							<button class="bb product-title btn btn-primary me-2" id="uploadButton" style="width:35%">Upload</button>
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+							<input type="file" id="resumeFile"  name="resume"><br><br>
+							<button type="submit" class="bb product-title btn btn-primary me-2" id="uploadButton" style="width:35%">Upload</button></form>
 						</div>
 					</div>
 					<script>// Get the modal
