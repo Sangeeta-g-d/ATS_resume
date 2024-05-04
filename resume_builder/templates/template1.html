@@ -264,20 +264,25 @@
             <div id="template1"  style="display: none;" class="content_wrapper template-div">
                 
                 <div id="dynamicContent" >
-                  <div >
+                  <div>
                     <div class="header">
-                      <h3><span id="Display_Fname">Pavan</span>&nbsp;<span id="Display_Lname"> Kulkarni</span></h3>
-                      <p><span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span  id="Display_Email">pavan@gmail.com </span></span> <span >&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">1234752656</span></span>    </p>
-                      <p> <i class="fab fa-linkedin"></i> <span id="Display_lnkedin">https://www.linkedin.com/in/sangeeta-dani-2688b6262/</span></p>
+                        {% if personal_info.first_name and personal_info.last_name %}
+                      <h3><span id="Display_Fname">{{personal_info.first_name}}</span>&nbsp;<span id="Display_Lname"> {{personal_info.last_name}}</span></h3>
+                      {% endif %}
+
+                      <p><span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span  id="Display_Email">{{personal_info.email}} </span></span> <span >&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">{{personal_info.contact_no}}</span></span>    </p>
+                      {% if personal_info.linkedin_url %}
+                      <p> <i class="fab fa-linkedin"></i> <span id="Display_lnkedin">{{personal_info.linkedin_url}}</span></p>
+                      {% endif %}
                   </div>
                   <hr>
                   <div clas="resume_content">
                     <h5>Summary</h5>
-                    <p class="summary" id="Display_Summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam nihil pariatur vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam nihil pariatur.
+                    <p class="summary" id="Display_Summary">{{personal_info.summary}}
                   </p>
-
                   </div>
                   <hr>
+                 
                   <div class="experience">
                     <h5>Experience</h5>
                     <div class="sub_heading1">
@@ -487,7 +492,11 @@
           
         </div>
        
-        <div class="temp-styles">styles</div>
+        <div class="temp-styles">styles
+            {% for x in exp_info %}
+            <div>hello</div>
+            {% endfor %}
+        </div>
     </div>	  
 		</div>
 		<!-- End Hero Section -->

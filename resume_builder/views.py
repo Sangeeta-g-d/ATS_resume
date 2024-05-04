@@ -151,14 +151,25 @@ def extra_details(request):
     return render(request,'extra_details.html')
 
 def template1(request):
+    user_id = request.user.id
+    print("!!!!!!!!!!!!1",user_id)
     template_id = request.session.get('template_id')
     print(template_id)
     data = TemplatesInfo.objects.get(id=template_id)
     template_html_id = data.id_name
     print(template_html_id)
     print(template_id)
+
+    # fetching header section
+    personal_info = Header.objects.get(user_id_id=user_id)
+
+    # fetching exp section
+    exp_info = Experience.objects.filter(user_id_id=user_id)
+    print("exppppppppppppppppp",exp_info)
     context = {
-        'template_html_id':template_html_id
+        'template_html_id':template_html_id,
+        'personal_info':personal_info,
+        'exp_info':'exp_info',
     }
     return render(request,'template1.html',context)
 
