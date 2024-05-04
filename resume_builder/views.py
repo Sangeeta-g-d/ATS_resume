@@ -52,6 +52,7 @@ def registration(request):
         return redirect('login_view')
 
     return render(request, 'registration.html')
+
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -59,13 +60,12 @@ def login_view(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('personal_info')
+            return redirect('/resumes')
         else:
            
             messages.error(request, 'Invalid email or password. Please try again.')
     return render(request, 'login.html')
     
-
 
 def index(request):
     return render(request,'index.html')
@@ -89,6 +89,7 @@ def resume_options(request):
 
 
 def personal_info(request, id):
+    request.session['template_id'] = id
     temp_image = TemplatesInfo.objects.get(id=id)
     print(temp_image.template_image)
     t_image = temp_image.template_image
@@ -148,3 +149,18 @@ def education(request):
 
 def extra_details(request):
     return render(request,'extra_details.html')
+
+def template1(request):
+    template_id = request.session.get('template_id')
+    print(template_id)
+    data = TemplatesInfo.objects.get(id=template_id)
+    template_html_id = data.id_name
+    print(template_html_id)
+    print(template_id)
+    context = {
+        'template_html_id':template_html_id
+    }
+    return render(request,'template1.html',context)
+
+def set(request):
+    return render(request,'set.html')

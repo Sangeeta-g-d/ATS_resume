@@ -58,3 +58,4 @@ class Certificates(models.Model):
 class TemplatesInfo(models.Model):
     template_image = models.ImageField(upload_to='uploaded_images/',default="profile")
     view_name = models.CharField(max_length=300,default='none')
+    id_name = models.CharField(max_length=300,default='none')

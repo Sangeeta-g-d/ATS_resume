@@ -1,0 +1,556 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
+		<link href="/static/home_assets/css/style.css" rel="stylesheet">
+        <link href="/static/home_assets/css/own.css" rel="stylesheet">
+        <link href="/static/home_assets/css/template1.css" rel="stylesheet">
+		<title>Resume Builder</title>
+		<style>
+		/* CSS for the navigation bar */
+		/* CSS for the navigation bar */
+		.custom-navbar {
+    height: 45px; /* Set height to your desired value */
+    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
+    backdrop-filter: blur(15px); /* Adjust the blur effect */
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+/* Adjust navbar links */
+.custom-navbar .navbar-nav .nav-link {
+   /* Set text color as desired */
+    line-height: 50px; /* Align links to the center vertically */
+}
+
+/* Optional: adjust other elements for compatibility with the smaller navbar height */
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-toggler {
+    line-height: 50px; /* Align brand and toggler button */
+}
+
+
+
+
+.resume_options {
+    width: 530px;
+	height:280px;
+   
+    border: 2px solid #222222;
+    border-radius: 25px;
+    transition: border-width 0.3s ease; /* Add transition */
+}
+
+.resume_options:hover {
+	border-color:  #0d6efd;;
+    border-width: 5px; /* Increase border width on hover */
+}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .section-title1 {
+        font-size: 1.5rem; /* Decrease font size for smaller screens */
+    }
+    .resume_options {
+        margin-bottom: 2rem; /* Add some space between options on smaller screens */
+    }
+}
+
+/* Further adjustments for smaller screens if necessary */
+@media (max-width: 576px) {
+    .section-title1 {
+        font-size: 1.2rem; /* Further decrease font size for very small screens */
+    }
+}
+
+
+.container1 {
+    display: flex; /* Sets flexbox layout */
+    height: 100vh; /* Sets the height to full viewport height */
+}
+
+/* Sidebar */
+.sidebar {
+    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
+    height: 100%; /* Makes the sidebar full height of the container */
+    padding: 20px; /* Adds padding to the sidebar */
+    background-color: #222222; /* Sets background color */
+    color: white; /* Sets text color to white */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    transition: width 0.3s; /* Transition effect when changing width */
+}
+
+.sidebar.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
+    padding: 40px; /* Adds padding to the main content */
+    height: 100%; /* Makes the main content full height of the container */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.main-content.full-width {
+    flex-grow: 1;
+    width: 100vw;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container1 {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        width: 100vw;
+    }
+}
+/* Tracking System */
+.tracking-system {
+    margin-top: 90px;
+    padding: 10px;
+    background-color: #4d4d4d;
+    border-radius: 5px;
+}
+
+.tracking-system h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.tracking-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.step {
+    padding: 10px;
+    margin-bottom: 5px;
+    color: #a7a7a7;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.step:hover {
+    background-color: #8b8b8b;
+    color: #fff;
+}
+
+.step.active {
+    background-color: #8b8b8b;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Step numbers */
+.step-number {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Linking lines */
+.tracking-steps .step:not(:last-child)::after {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #555;
+    display: block;
+    position: absolute;
+    top: calc(50% + 15px);
+    left: 15px;
+    z-index: -1;
+}
+
+/* Arrow mark */
+.tracking-steps .step:not(:last-child)::after {
+    content: '▼'; /* Unicode character for a downward arrow */
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 6px); /* Center the arrow */
+}
+
+
+
+</style>
+
+
+		</style>
+	</head>
+
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
+						<li><a class="nav-link" href="about.html">Login</a></li>
+						
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		
+		<!-- End Header/Navigation -->
+<div class="hero">
+    <div class="final-container">
+        <div class="temp">
+            <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
+            <span class="subtag">Review, edit and download.</span>
+            
+            <div id="template1"  style="display: none;" class="content_wrapper template-div">
+                
+                <div id="dynamicContent" >
+                  <div >
+                    <div class="header">
+                      <h3><span id="Display_Fname">Pavan</span>&nbsp;<span id="Display_Lname"> Kulkarni</span></h3>
+                      <p><span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span  id="Display_Email">pavan@gmail.com </span></span> <span >&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">1234752656</span></span>    </p>
+                      <p> <i class="fab fa-linkedin"></i> <span id="Display_lnkedin">https://www.linkedin.com/in/sangeeta-dani-2688b6262/</span></p>
+                  </div>
+                  <hr>
+                  <div clas="resume_content">
+                    <h5>Summary</h5>
+                    <p class="summary" id="Display_Summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam nihil pariatur vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam nihil pariatur.
+                  </p>
+
+                  </div>
+                  <hr>
+                  <div class="experience">
+                    <h5>Experience</h5>
+                    <div class="sub_heading1">
+                      <div>
+                    <p id="Display_Designation">Software Engineer</p></div>
+                    <div>
+                    <p class="date" ><span id="Display_From">june 2023</span> | <span id="Display_To">march 2023</span></p></div>
+                  </div>
+                    <p class="sub_heading2"  id="Display_Cname">Haegl Technologies PVT LTD</p>
+                    
+                    <p class="exp" id="Display_Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam 
+                      autem sed quibusdam necessitatibus    
+                    </p>
+
+                    <div  id="experienceContainer"></div>
+                  </div>
+                  <hr>
+                  <div class="education-side">
+                  <div class="education">
+                    <h5>Education</h5>
+                    <div class="sub_heading1">
+                      <div>
+                    <p id="displayDegree">Master Of Science in Mechanical Engineering</p></div>
+                    <div>
+                    <p class="date" ><span id="displayDegreeFrom">june 2023</span> | <span  id="displayDegreeTo">march 2023</span></p></div>
+                  </div>
+                  <p class="sub_heading2" id="displayCollege">Karnataka University</p>
+                  <p class="sub_heading2" id="displayCity">Dharwad</p>
+                  <div  id="educationContainer"></div>
+                  </div>
+                </div>
+               <hr>
+               <div class="projects">
+                <h5>Projects</h5>
+                    <div class="sub_heading1">
+                      <div>
+                    <p id="displayProjectName">Resume Builder</p></div>
+                   
+                  </div>
+                    <p class="sub_heading2">Tools Used | <span id="displayTools">Python, Django, Html, CSS</span></p>
+                    
+                    <p class="projects" id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam 
+                      autem sed quibusdam necessitatibus    
+                    </p>
+                    <div style="margin-top: 5px;" id="projectsContainer"></div>
+               </div>
+               <hr>
+               <div class="skills">
+                <h5>Skills</h5>
+                <ul id="skillsList">
+                  <li>Python</li>
+                  <li>Django</li>
+                  <li>Power BI</li>
+                  <li>Analatical Skills</li>
+                </ul>
+               </div>
+<hr>
+ 
+             
+             
+                </div>
+              </div>
+              <script>
+                // Check if content exceeds A4 size
+                window.addEventListener('beforeprint', function () {
+                  var contentWrapper = document.querySelector('.content_wrapper');
+                  var wrapperHeight = contentWrapper.scrollHeight;
+                  if (wrapperHeight > 297) { // 297mm is A4 height
+                    alert("The content exceeds the A4 size. Please optimize the content for printing.");
+                  }
+                });
+              </script>
+            </div>
+            <div id="template2" style="display: none;" class="content_wrapper template-div">
+               
+                <div id="dynamicContent">
+                  
+                 
+                  <div  id="temp1" class="temp3">
+                    <div   class="temp3-header" style="display: flex;">
+                    <div class="temp3-header-left">
+                        <h3 class="t3-space"> <span id="Display_Fname">Pavan</span> <span id="Display_Lname">Kulkarni </span></h3>
+                        <p class="content-text" id="Display_lnkedin">https://www.linkedin.com/in/sangeeta-dani-2688b6262/</p>
+                    </div>
+                   
+                </div>
+                
+               <div style="display: flex;">
+                <div class="temp3-left">
+                    <div class="personal-info">
+                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> 9867564534 </span><br>
+                        <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> kushagra34@gmail.com</span><br>
+                       
+                    </p>
+                </div><hr>
+                <div class="t3-skills">
+                    <h4 class="t3-space" style="font-size: 17px;">Skills</h4>
+                    <ul class="t3-ul" id="skillsList">
+                        <li class="t3-content">Python</li>
+                        <li class="t3-content">Good Communication</li>
+                        <li class="t3-content">MS Excel</li>
+                        <li class="t3-content">Django</li>
+                        <li class="t3-content">Time Management</li>
+                    </ul>
+                </div><hr>
+                <div class="t3-edu">
+                    <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Education</h4>
+                    <div class="education-side">
+                      <div class="education1">
+                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">Bachelor of Science</h5>
+                    
+                    
+                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeFrom">2020</span> | <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeTo">2023</span><br>
+                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCollege">Kle College of Science</span> <br>
+                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCity">Hubli</span>
+                    </div>
+                  </div>
+                </div><hr>
+                <div class="lang-section">
+                    <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Languages Known</h4>
+                        <ul class="t3-ul" id="languageList">
+                          <li class="content-text">English</li>
+                          <li class="content-text">Hindi</li>
+                          <li class="content-text">Kannada</li>
+
+                        </ul>
+                      </div>
+                <hr>
+                </div>
+                <div class="temp3-right">
+                    <div class="t3-profile-summary">
+                        <h4 class="t3-space t3-profile">Profile</h4>
+                        <p class="t3-content" id="Display_Summary">Enthusiastic recent graduate with a degree in
+                            Computer Science and a passion for software development.
+                            Proficient in Java and Python, with a strong foundation in algorithm design.  Eager to contribute to a dynamic team.
+                            </p>
+                    </div><hr>
+                    <div class="t3-experience">
+                      <div class="work-exp">
+                      <h4 class="t3-space t3-profile">Experience</h4>
+                      <div class="exp1">
+                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="Display_Designation">Data Analyst</h5>
+                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 12px; margin-top: 0px;">Haegl Technologies Private Limited</span> <br>
+                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_From">2020</span> - <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">2023</span><br>
+                  
+                    <p class="t3-content" id="Display_Description">Prototyped an average of 15 new products in a year, Increased user experience by 20% <br>
+                      Implemented coding best practices that reduced rework by 25% and cost by 12% <br>
+                      Received a website award for Best Navigation and Structure 2019</p>
+                    
+                    </div>
+                    <div class="experience-side" id="experience-side' + experienceCount">
+                      <!-- Placeholder for experience display -->
+                    </div>
+                    </div>
+                    </div><hr>
+                    <div class="t3-project">
+                      <h4 class="t3-space t3-profile">Project</h4>
+                      <div class="pro1">
+                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">Fees Management System</h5>
+                        <span style="font-size: 12px;">Tools used | </span>
+                        <span id="displayTools" class="t3-edu-date" style="font-size: 12px; margin-top: 0px;">Python, django, sql, excel</span> <br>
+                                   
+                    <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing website. User-friendly web-based Fees management System that automated entire fee processing workflow by integrating secure payment gateway. Students can crack their fees and pay accordingly through Razor pay gateway.</p>
+                    
+                    </div>
+                    <div id="projectsContainer"></div>
+                    </div>
+                    <hr>
+                    <div class="acheivemets-section">
+                      <h4 class="t3-space t3-profile">Achievements</h4>
+                      <ul id="achievementList">
+                        <li class="content-text">Improved product sales by 12%, which led to a 20% increase in annual
+                          revenue.</li>
+                      </ul>
+                    </div>
+                    <hr>
+                    </div>
+                </div>
+               </div>
+               </div>
+               <script>
+                document.getElementById("downloadBtn").addEventListener("click", function() {
+                    // Select the element containing the content you want to download
+                    var element = document.getElementById("temp1");
+                
+                    // Options for the PDF generation
+                    var opt = {
+                        margin: 0.5,
+                        filename: 'resume.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { 
+                            unit: 'in', 
+                            format: 'a4', // Set the format to A4 size
+                            orientation: 'portrait' // Set the orientation to portrait
+                        }
+                    };
+                
+                    // Convert HTML to PDF
+                    html2pdf()
+                        .from(element)
+                        .set(opt)
+                        .save();
+                });
+                </script>
+                </div>
+          
+        </div>
+       
+        <div class="temp-styles">styles</div>
+    </div>	  
+		</div>
+		<!-- End Hero Section -->
+		
+			<script>
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        // Add event listener for toggling the sidebar
+        document.addEventListener('click', (e) => {
+            // Check if the click event occurred on the sidebar or main content
+            if (e.target.closest('.sidebar') === null && e.target.closest('.main-content') === null) {
+                sidebar.classList.toggle('hidden');
+                mainContent.classList.toggle('full-width');
+            }
+        });
+    </script>
+	 <!-- JavaScript for tracking steps -->
+	 <script>
+        const trackingSteps = document.querySelectorAll('.tracking-steps .step');
+
+        trackingSteps.forEach((step, index) => {
+            step.addEventListener('click', () => {
+                // Remove the active class from all steps
+                trackingSteps.forEach(s => s.classList.remove('active'));
+
+                // Add the active class to the clicked step
+                step.classList.add('active');
+
+                // Optionally, handle the step change logic here
+                console.log(`Step ${index + 1} clicked`);
+            });
+        });
+    </script>
+	
+    <script>
+        // Function to control which div is displayed based on template_html_id
+        function displayTemplate(templateHtmlId) {
+            // Get all divs with the class 'template-div'
+            const templateDivs = document.querySelectorAll('.template-div');
+    
+            // Hide all divs
+            templateDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+    
+            // Display the div with the corresponding id if it matches the templateHtmlId
+            const templateToDisplay = document.getElementById(templateHtmlId);
+            if (templateToDisplay) {
+                templateToDisplay.style.display = 'block';
+            }
+        }
+    
+        // Get the template_html_id from context
+        const templateHtmlId = "{{ template_html_id }}";
+    
+        // Call the function to display the appropriate div
+        displayTemplate(templateHtmlId);
+    </script>
+
+		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
+		<script src="/static/home_assets/js/tiny-slider.js"></script>
+		<script src="/static/home_assets/js/custom.js"></script>
+	</body>
+
+</html>

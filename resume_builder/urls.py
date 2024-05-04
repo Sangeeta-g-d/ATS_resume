@@ -15,5 +15,7 @@ urlpatterns = [
     path('add_experience_choice',views.add_experience_choice,name="add_experience_choice"),
     path('add_education_choice',views.add_education_choice,name="add_education_choice"),
     path('add_template',views.add_template,name="add_template"),
+    path('template1',views.template1,name="template1"),
+    path('set',views.set,name="set"),
     
 ]
