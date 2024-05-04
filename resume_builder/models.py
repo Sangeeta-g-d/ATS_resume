@@ -54,3 +54,7 @@ class Achievements(models.Model):
 class Certificates(models.Model):
     user_id = models.ForeignKey('NewUser', on_delete=models.CASCADE)
     certificates = models.CharField(max_length=800,default='certificates')
+
+class TemplatesInfo(models.Model):
+    template_image = models.ImageField(upload_to='uploaded_images/',default="profile")
+    view_name = models.CharField(max_length=300,default='none')

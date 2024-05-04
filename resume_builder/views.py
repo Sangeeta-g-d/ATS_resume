@@ -8,11 +8,24 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate,login,logout
 from django.http import JsonResponse
-from .models import  NewUser,Header,User_skills,Experience,Education
+from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo
 from datetime import datetime
 # Create your views here.
 
+def add_template(request):
+    if request.method == 'POST':
+        view_name = request.POST.get('view_name')
+        image = request.FILES.get('image')
 
+        # Create a new MyModel instance and save the form data
+        my_model_instance = TemplatesInfo(view_name=view_name, template_image=image)
+        my_model_instance.save()
+
+        # Redirect to a new URL (change as needed)
+        return redirect('/add_template')
+
+    # Render the form template for GET requests
+    return render(request, 'add_template.html')
 
 
 def registration(request):
@@ -59,7 +72,11 @@ def index(request):
 
 
 def resumes(request):
-    return render(request,'resumes.html')
+    templates = TemplatesInfo.objects.all()
+    context = {
+        'templates':templates
+    }
+    return render(request,'resumes.html', context)
 
 def add_experience_choice(request):
     return render(request,'add_experience_choice.html')
@@ -71,7 +88,10 @@ def resume_options(request):
     return render(request,'resume_options.html')
 
 
-def personal_info(request):
+def personal_info(request, id):
+    temp_image = TemplatesInfo.objects.get(id=id)
+    print(temp_image.template_image)
+    t_image = temp_image.template_image
     id=request.user.id
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -86,7 +106,10 @@ def personal_info(request):
         data=User_skills.objects.create(skills=skills,user_id_id=id)
         if user:
             return redirect('work_history')
-    return render(request,'personal_info.html')
+    context = {
+        't_image':t_image
+    }
+    return render(request,'personal_info.html',context)
 
 
 def work_history(request):
