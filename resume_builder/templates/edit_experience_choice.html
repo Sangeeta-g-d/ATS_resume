@@ -251,10 +251,10 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="/">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
-						<li><a class="nav-link" href="about.html">Login</a></li>
+						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
+						
 						
 					</ul>
 					
@@ -294,17 +294,17 @@
 				<div style="margin-top: 70px;">
                     {% for x in details %}
                     <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
-                        <a href="edit_work_history/{{x.id}}" style="text-decoration: none;">
+
                         <div class="card-header">
                             Experience 1
                             <!-- Edit icon -->
-                            
+                            <a href="/edit_work_history/{{x.id}}" style="text-decoration: none;">     <span style="float: right; font-size: 28px;">&#9998;</span>  </a>
                         </div>
                         <div class="card-body" style="background-color: #eff2f1;">
                             <h5 class="card-title">{{x.designation}}</h5>
                             <p class="card-text">{{x.company_name}}</p>
                         </div>
-                    </a>
+                   
                     </div>
                     
                       {% endfor %}
