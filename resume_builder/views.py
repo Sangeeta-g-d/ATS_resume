@@ -91,11 +91,25 @@ def add_experience_choice(request):
     context={'details':details}
     return render(request,'add_experience_choice.html',context)
 
+
+def add_experience_choice(request):
+    user_id=request.user.id
+    details=Experience.objects.filter(user_id_id=user_id)
+    context={'details':details}
+    return render(request,'edit_experience_choice.html',context)
+
 def add_education_choice(request):
     user_id=request.user.id
     details=Education.objects.filter(user_id_id=user_id)
     context={'details':details}
     return render(request,'add_education_choice.html',context)
+
+
+def edit_education_choice(request):
+    user_id=request.user.id
+    details=Education.objects.filter(user_id_id=user_id)
+    context={'details':details}
+    return render(request,'edit_education_choice.html',context)
 
 
 def personal_info(request, id):
@@ -126,7 +140,7 @@ def personal_info(request, id):
 
 def edit_personal_info(request):
     user_id=request.user.id
-    print(user_id)
+    print
     details=Header.objects.get(user_id_id=user_id)
     skills=User_skills.objects.get(user_id_id=user_id)
     if request.method == 'POST':
@@ -165,6 +179,45 @@ def work_history(request):
             return redirect('add_experience_choice')
     return render(request, 'work_history.html')
 
+
+
+def edit_add_work_history(request):
+    id = request.user.id
+    if request.method == 'POST':
+        designation = request.POST.get('designation')
+        company_name = request.POST.get('company_name')
+        from_date = request.POST.get('from_date')
+        to_date = request.POST.get('to_date')
+        description = request.POST.get('description')
+        
+        if 'to_present' in request.POST:
+            # If "To Present" checkbox is checked, set to_date to the current date
+            to_date ='Present'  # Format to match your field type
+            
+        data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
+                                         to_date=to_date, description=description, user_id_id=id)
+        if data:
+            return redirect('edit_experience_choice')
+    return render(request, 'edit_add_work_history.html')
+
+def edit_work_history(request,id):
+    user_id = request.user.id
+    details=Experience.objects.get(id=id)
+    if request.method == 'POST':
+        details.designation = request.POST.get('designation')
+        details.company_name = request.POST.get('company_name')
+        details.from_date = request.POST.get('from_date')
+        details.to_date = request.POST.get('to_date')
+        details.description = request.POST.get('description')
+        
+        if 'to_present' in request.POST:
+            # If "To Present" checkbox is checked, set to_date to the current date
+            details.to_date ='Present'  # Format to match your field type
+        details.save()
+        return redirect('template1')
+    context={'details':details}
+    return render(request, 'edit_work_history.html',context)
+
 def education(request):
     user_id = request.user.id
     if request.method == 'POST':
@@ -179,6 +232,39 @@ def education(request):
         if data:
             return redirect('add_education_choice')
     return render(request,'education.html')
+
+
+def edit_education(request):
+    user_id = request.user.id
+    if request.method == 'POST':
+        college_name = request.POST.get('college_name')
+        degree = request.POST.get('degree')
+        from_date = request.POST.get('from_date')
+        to_date = request.POST.get('to_date')
+        city = request.POST.get('city')
+        cgpa = request.POST.get('cgpa')
+        data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
+                                      to_date=to_date,city=city,cgpa=cgpa,user_id_id=user_id)
+        if data:
+            return redirect('template1')
+    return render(request,'edit_education.html')
+
+
+def edit_education_form(request,id):
+    user_id = request.user.id
+    details=Education.objects.get(id=id)
+    if request.method == 'POST':
+        details.college_name = request.POST.get('college_name')
+        details.degree = request.POST.get('degree')
+        details.from_date = request.POST.get('from_date')
+        details.to_date = request.POST.get('to_date')
+        details.city = request.POST.get('city')
+        details.cgpa = request.POST.get('cgpa')
+        details.save()
+        return redirect('edit_education_choice')
+    context={'details':details}
+    return render(request,'edit_education_form.html',context)
+
 
 def extra_details(request):
     return render(request,'extra_details.html')
@@ -211,6 +297,37 @@ def languages(request):
         data = Languages.objects.create(languages_known=languages_known,user_id_id=id)
         return redirect('extra_details')
 
+
+def edit_project(request):
+    user_id=request.user.id
+    details=Project.objects.filter(user_id_id=user_id)
+    context={'details':details}
+    return render(request,'edit_project.html',context)
+
+
+def edit_project_form(request,id):
+    user_id = request.user.id
+    details=Project.objects.get(id=id)
+    if request.method == 'POST':
+        details.project_name = request.POST.get('project_name')
+        details.tools = request.POST.get('tools')
+        details.link = request.POST.get('link')
+        details.description = request.POST.get('description')
+        details.save()
+        return redirect('edit_project')
+    context={'details':details}
+    return render(request,'edit_project_form.html',context)
+
+def edit_project_details(request):
+    id = request.user.id
+    if request.method == 'POST':
+        project_name = request.POST.get('project_name')
+        tools = request.POST.get('tools')
+        link = request.POST.get('link')
+        description = request.POST.get('description')
+        data = Project.objects.create(project_name=project_name, project_link=link, tools_used=tools,
+                                      description=description, user_id_id=id)
+        return redirect('edit_project')
 
 
 def extracted_personal_info(request, id):
@@ -289,7 +406,6 @@ def extracted_education_choice(request):
     details=Education.objects.filter(user_id_id=user_id)
     context={'id':id,'details':details}
     return render(request,'extracted_education_choice.html',context)
-
 
 
 def extracted_extra_details(request):
@@ -465,14 +581,21 @@ def extract_experience_details(experience_lines):
     return designation, company_name, start_date, end_date
 
 def template1(request):
-    user_id=request.user.id
-    print(user_id)
+    user_id = request.user.id
     template_id = request.session.get('template_id')
     data = TemplatesInfo.objects.get(id=template_id)
     template_html_id = data.id_name
-    exp=Experience.objects.filter(user_id_id=user_id)
+    personal_info = Header.objects.get(user_id_id=user_id)
+
+    # fetching exp section
+    exp_info = Experience.objects.filter(user_id_id=user_id)
+    # education section
+    edu_info = Education.objects.filter(user_id_id=user_id)
     context = {
-        'template_html_id':template_html_id,'exp':exp
+        'template_html_id':template_html_id,
+        'personal_info':personal_info,
+        'exp_info':exp_info,
+        'edu_info':edu_info,
     }
     return render(request,'template1.html',context)
 

@@ -1,0 +1,385 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
+		<link href="/static/home_assets/css/style.css" rel="stylesheet">
+		<title>Resume Builder</title>
+		<style>
+		/* CSS for the navigation bar */
+		/* CSS for the navigation bar */
+		.custom-navbar {
+    height: 45px; /* Set height to your desired value */
+    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
+    backdrop-filter: blur(15px); /* Adjust the blur effect */
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+/* Adjust navbar links */
+.custom-navbar .navbar-nav .nav-link {
+   /* Set text color as desired */
+    line-height: 50px; /* Align links to the center vertically */
+}
+
+/* Optional: adjust other elements for compatibility with the smaller navbar height */
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-toggler {
+    line-height: 50px; /* Align brand and toggler button */
+}
+
+
+
+
+.resume_options {
+    width: 530px;
+	height:280px;
+   
+    border: 2px solid #222222;
+    border-radius: 25px;
+    transition: border-width 0.3s ease; /* Add transition */
+}
+
+.resume_options:hover {
+	border-color:  #0d6efd;;
+    border-width: 5px; /* Increase border width on hover */
+}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .section-title1 {
+        font-size: 1.5rem; /* Decrease font size for smaller screens */
+    }
+    .resume_options {
+        margin-bottom: 2rem; /* Add some space between options on smaller screens */
+    }
+}
+
+/* Further adjustments for smaller screens if necessary */
+@media (max-width: 576px) {
+    .section-title1 {
+        font-size: 1.2rem; /* Further decrease font size for very small screens */
+    }
+}
+
+
+.container1 {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #222222;
+    color: white;
+    width: 390px;
+    padding: 20px;
+
+    transition: width 0.3s;
+}
+
+.sidebar.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.main-content.full-width {
+    flex-grow: 1;
+    width: 100vw;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container1 {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        width: 100vw;
+    }
+}
+/* Tracking System */
+.tracking-system {
+    margin-top: 90px;
+    padding: 10px;
+    background-color: #4d4d4d;
+    border-radius: 5px;
+}
+
+.tracking-system h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.tracking-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.step {
+    padding: 10px;
+    margin-bottom: 5px;
+    color: #a7a7a7;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.step:hover {
+    background-color: #8b8b8b;
+    color: #fff;
+}
+
+.step.active {
+    background-color: #8b8b8b;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Step numbers */
+.step-number {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Linking lines */
+.tracking-steps .step:not(:last-child)::after {
+    content: '';
+    height: 40px;
+    border-left: 2px solid #555;
+    display: block;
+    position: absolute;
+    top: calc(50% + 15px);
+    left: 15px;
+    z-index: -1;
+}
+
+/* Arrow mark */
+.tracking-steps .step:not(:last-child)::after {
+    content: '▼'; /* Unicode character for a downward arrow */
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 6px); /* Center the arrow */
+}
+
+
+
+</style>
+
+
+		</style>
+	</head>
+
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
+						<li><a class="nav-link" href="about.html">Login</a></li>
+						
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		
+		<!-- End Header/Navigation -->
+<div class="hero1">
+		<!-- Start Hero Section -->
+		<div class="container1">
+			<!-- Sidebar -->
+			<div class="sidebar" id="sidebar">
+				<div class="tracking-system">
+					<h3>Progress Tracker</h3>
+					<ul class="tracking-steps">
+						<li class="step active">
+							<div class="step-number">1</div>
+							Personal
+						</li>
+						<li class="step">
+							<div class="step-number">2</div>
+							Experience
+						</li>
+						<li class="step">
+							<div class="step-number">3</div>
+							Education
+						</li>
+						<li class="step">
+							<div class="step-number">4</div>
+							Finalize
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main-content" id="main-content">
+				<div style="margin-top: 70px;">
+					<h2 class="mb-4 section-title1" style="color: #222222;">Showcase your academic journey </h2>
+					<p style="font-size: 15px;color: #222222;">Explore Your Educational Pathway and Milestones.
+                    </p>
+                    <span><span style="color: red;">*</span> indicates a required field</span>
+				</div>
+				
+                <form action="#" class="row g-6" style="background-color: transparent;" method="post">
+                    {% csrf_token %}
+                   
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">COLLEGE NAME <span style="color: red;">*</span></label>
+                            <input type="text" value="{{details.college_name}}" required name="college_name" class="form-control" placeholder="Eg: KLE University" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">DEGREE <span style="color: red;">*</span></label>
+                            <input type="text" value="{{details.degree}}" required name="degree" class="form-control" placeholder="Eg: Bachelor of Engineering" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">FROM <span style="color: red;">*</span></label>
+                            <input type="month" value="{{details.from_date}}" required class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">TO <span style="color: red;">*</span></label>
+                            <div class="input-group">
+                                <input type="month" value="{{details.to_date}}" required class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-6">
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">CITY</label>
+                            <input type="text" value="{{details.city}}" name="city" class="form-control" placeholder="Eg: Banglore" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="color: #222222;">CGPA</label>
+                            <input type="text" value="{{details.cgpa}}" name="cgpa"  class="form-control" placeholder="Eg: 8.9" style="background-color: transparent; border: 1px solid #666;">
+                        </div>
+                        <div class="button-container" style="text-align: right; margin-top: 20px;">
+							<button type="submit" class="btn btn-primary me-2">Save and Next</button>
+						</div>
+                    </div>
+            
+                </form>
+				
+                
+			</div>
+		</div>
+		  
+		</div>
+		<!-- End Hero Section -->
+		
+			<script>
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        // Add event listener for toggling the sidebar
+        document.addEventListener('click', (e) => {
+            // Check if the click event occurred on the sidebar or main content
+            if (e.target.closest('.sidebar') === null && e.target.closest('.main-content') === null) {
+                sidebar.classList.toggle('hidden');
+                mainContent.classList.toggle('full-width');
+            }
+        });
+    </script>
+	 <!-- JavaScript for tracking steps -->
+	 <script>
+        const trackingSteps = document.querySelectorAll('.tracking-steps .step');
+
+        trackingSteps.forEach((step, index) => {
+            step.addEventListener('click', () => {
+                // Remove the active class from all steps
+                trackingSteps.forEach(s => s.classList.remove('active'));
+
+                // Add the active class to the clicked step
+                step.classList.add('active');
+
+                // Optionally, handle the step change logic here
+                console.log(`Step ${index + 1} clicked`);
+            });
+        });
+    </script>
+	
+		
+
+		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
+		<script src="/static/home_assets/js/tiny-slider.js"></script>
+		<script src="/static/home_assets/js/custom.js"></script>
+	</body>
+
+</html>
