@@ -1,0 +1,27 @@
+
+* {
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  }
+.final-container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.temp{
+   
+    flex: 2;
+    margin-right: 70px;
+    padding-left: 30px ;
+    padding-right: 30px ;
+    padding-bottom: 100px;
+}
+.temp-styles{
+    border: 1px solid rgb(35, 154, 77);
+    flex: 1;
+}
+.subtag{
+    font-size: 20px;
+  
+}

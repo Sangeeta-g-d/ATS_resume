@@ -13,7 +13,7 @@ import pytesseract
 from PIL import Image
 import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer  # Add this import
-from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Resume,Extracted_ResumeDetails,Extracted_ExperienceDetails,Extracted_EducationDetails,Project
+from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Resume,Extracted_ResumeDetails,Extracted_ExperienceDetails,Extracted_EducationDetails,Project,Certificates,Languages
 from datetime import datetime
 # Create your views here.
 
@@ -65,12 +65,12 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return redirect('resumes')
+            return redirect('/resumes')
         else:
            
             messages.error(request, 'Invalid email or password. Please try again.')
     return render(request, 'login.html')
     
-
 
 def index(request):
     return render(request,'index.html')
@@ -99,6 +99,7 @@ def add_education_choice(request):
 
 
 def personal_info(request, id):
+    request.session['template_id'] = id
     temp_image = TemplatesInfo.objects.get(id=id)
     print(temp_image.template_image)
     t_image = temp_image.template_image
@@ -120,6 +121,29 @@ def personal_info(request, id):
         't_image':t_image
     }
     return render(request,'personal_info.html',context)
+
+
+
+def edit_personal_info(request):
+    user_id=request.user.id
+    print(user_id)
+    details=Header.objects.get(user_id_id=user_id)
+    skills=User_skills.objects.get(user_id_id=user_id)
+    if request.method == 'POST':
+        details.first_name = request.POST.get('first_name')
+        details.last_name = request.POST.get('last_name')
+        details.email = request.POST.get('email')
+        details.contact_no = request.POST.get('contact_no')
+        details.linkedin = request.POST.get('linkedin')
+        details.summary = request.POST.get('summary')
+        skills.skills=request.POST.get('skills')
+        details.save()
+        skills.save()
+        return redirect('template1')
+    context = {
+        'details':details,'skills':skills
+    }
+    return render(request,'edit_personal_info.html',context)
 
 
 def work_history(request):
@@ -160,7 +184,6 @@ def extra_details(request):
     return render(request,'extra_details.html')
 
 
-
 def project_details(request):
     id = request.user.id
     if request.method == 'POST':
@@ -170,6 +193,22 @@ def project_details(request):
         description = request.POST.get('description')
         data = Project.objects.create(project_name=project_name, project_link=link, tools_used=tools,
                                       description=description, user_id_id=id)
+        return redirect('extra_details')
+
+
+def certificates(request):
+    id = request.user.id
+    if request.method == 'POST':
+        certificates = request.POST.get('certificates')
+        data = Certificates.objects.create(certificates=certificates,user_id_id=id)
+        return redirect('extra_details')
+
+
+def languages(request):
+    id = request.user.id
+    if request.method == 'POST':
+        languages_known = request.POST.get('languages_known')
+        data = Languages.objects.create(languages_known=languages_known,user_id_id=id)
         return redirect('extra_details')
 
 
@@ -424,3 +463,18 @@ def extract_experience_details(experience_lines):
             else:
                 end_date = match.group()
     return designation, company_name, start_date, end_date
+
+def template1(request):
+    user_id=request.user.id
+    print(user_id)
+    template_id = request.session.get('template_id')
+    data = TemplatesInfo.objects.get(id=template_id)
+    template_html_id = data.id_name
+    exp=Experience.objects.filter(user_id_id=user_id)
+    context = {
+        'template_html_id':template_html_id,'exp':exp
+    }
+    return render(request,'template1.html',context)
+
+def set(request):
+    return render(request,'set.html')

@@ -1,4 +1,3 @@
-
 <!-- /*
 * Bootstrap 5
 * Template Name: Furni
@@ -83,18 +82,20 @@
 
 
 .container1 {
-    display: flex;
-    height: 100vh;
+    display: flex; /* Sets flexbox layout */
+    height: 100vh; /* Sets the height to full viewport height */
 }
 
 /* Sidebar */
 .sidebar {
-    min-width: 253px; /* Adjusted width for the sidebar */
-    height: 100vh; /* Full height of the container */
-    padding: 20px; /* Padding for the sidebar */
-    background-color: #222222; /* Background color */
-    color: white; /* Text color */
-    overflow-y: auto; /* Allows vertical scrolling if content overflows */
+    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
+    height: 100%; /* Makes the sidebar full height of the container */
+    padding: 20px; /* Adds padding to the sidebar */
+    background-color: #222222; /* Sets background color */
+    color: white; /* Sets text color to white */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    transition: width 0.3s; /* Transition effect when changing width */
 }
 
 .sidebar.hidden {
@@ -106,8 +107,11 @@
 
 /* Main Content */
 .main-content {
-    flex-grow: 1; /* Expands the main content to fill remaining space */
-    padding: 40px; /* Padding */
+    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
+    padding: 40px; /* Adds padding to the main content */
+    height: 100%; /* Makes the main content full height of the container */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    overflow-y: auto; /* Allows scrolling if content overflows */
 }
 
 .main-content.full-width {
@@ -216,28 +220,6 @@
     left: calc(50% - 6px); /* Center the arrow */
 }
 
-/* form container style */
-/* Form container styling */
-.form-container {
-    padding: 15px;
-    border-radius: 10px; /* Rounded corners */
-    background-color: #eff2f1; /* Subtle background color */
-    border: 1px solid #ddd; /* Light border */
-    margin-bottom: 20px; /* Margin at the bottom */
-}
-
-/* Form input and textarea styling */
-.form-container .form-control {
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px; /* Padding inside inputs */
-}
-
-/* Form label styling */
-.form-container label {
-    display: block; /* Display label as block-level */
-    margin-bottom: 5px; /* Add spacing below labels */
-    font-weight: bold; /* Bold text */
-}
 
 
 </style>
@@ -273,131 +255,106 @@
 <div class="hero1">
 		<!-- Start Hero Section -->
 		<div class="container1">
-            <!-- Sidebar -->
-            <div class="sidebar" id="sidebar">
-                <div class="tracking-system">
-                    <h3>Progress Tracker</h3>
-                    <ul class="tracking-steps">
-                        <li class="step">
-                            <div class="step-number">1</div>
-                            Personal
-                        </li>
-                        <li class="step">
-                            <div class="step-number">2</div>
-                            Experience
-                        </li>
-                        <li class="step">
-                            <div class="step-number">3</div>
-                            Education
-                        </li>
-                        <li class="step active">
-                            <div class="step-number">4</div>
-                            Finalize
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        
-            <!-- Main Content -->
+			<!-- Sidebar -->
+			<div class="sidebar" id="sidebar">
+				<div class="tracking-system">
+					<h3>Progress Tracker</h3>
+					<ul class="tracking-steps">
+						<li class="step active">
+							<div class="step-number">1</div>
+							Personal
+						</li>
+						<li class="step">
+							<div class="step-number">2</div>
+							Experience
+						</li>
+						<li class="step">
+							<div class="step-number">3</div>
+							Education
+						</li>
+						<li class="step">
+							<div class="step-number">4</div>
+							Finalize
+						</li>
+					</ul>
+				</div>
+			</div>
             <div class="main-content" id="main-content">
                 <div style="margin-top: 70px;">
-                    <!-- Card -->
-                    <div id="addProjectCard" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
-                        <div class="card-body" style="padding-bottom: 7px;">
-                            <h6 class="section-title">+ Add Project</h6>
-                        </div>
-                    </div>
-                    
-        
-                    <!-- Project form -->
-                    <!-- Container for the form -->
-                    <div id="projectFormContainer" class="form-container" style="display: none;">
-        
-                        <!-- Form -->
-                        <form id="projectForm" action="project_details" class="row g-6" style="background-color: transparent;" method="post">
-                            {% csrf_token %}
-                            <div class="row g-6">
-                                <div class="col-lg-6">
-                                    <label style="color: #222222;">PROJECT NAME <span style="color: red;">*</span></label>
-                                    <input type="text" name="project_name" required class="form-control" placeholder="Eg: Fees Management" style="background-color: transparent; border: 1px solid #666;">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label style="color: #222222;">TOOLS USED <span style="color: red;">*</span></label>
-                                    <input type="text" name="tools" required class="form-control" placeholder="Eg: python,js,Django,html" style="background-color: transparent; border: 1px solid #666;">
-                                </div>
-                            </div>
-                            <div class="row g-6">
-                                <div class="col-lg-6">
-                                    <label style="color: #222222;">PROJECT LINK </span></label>
-                                    <input type="text" name="link"  class="form-control" placeholder="Your project link" style="background-color: transparent; border: 1px solid #666;">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label style="color: #222222;">DESCRIPTION <span style="color: red;">*</span></label>
-                                    <textarea class="form-control" required name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                                </div>
-                            </div>
-                            <div class="button-container" style="text-align: right; margin-top: 20px;">
-                                <button type="submit" class="btn btn-primary me-2">Save</button>
-                            </div>
-                        </form>
-                        
-                        
-                        
-                    </div>
-                    <!-- certificate -->
-                    <div id="addcertficates" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
-                        <div class="card-body" style="padding-bottom: 7px;">
-                            <h6 class="section-title">+ Add Certificates</h6>
-                        </div>
-                    </div>
-                    <!-- certificate form -->
-                    <div id="certificatesFormContainer" class="form-container" style="display: none;">
-        
-                        <form id="certificatesForm" action="certificates"  class="row g-6" style="background-color: transparent;" method="post">
-                            {% csrf_token %}
-                            <div class="row g-6">
-                                <div class="col-lg-8">
-                                    <label style="color: #222222;">CERTIFICATE DETAILS</label>
-                                    <textarea class="form-control" name="certificates" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                                    <br>
-                                    <button type="submit" class="btn btn-primary me-2">Save</button>
-                                </div>
-                                
-                            </div>
-                            
-                        </form>
-                    </div>
-                    <!-- End of certificates form -->
-                    <!-- languages known -->
-                    <div id="addlanguages" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
-                        <div class="card-body" style="padding-bottom: 7px;">
-                            <h6 class="section-title">+ Add Languages Known</h6>
-                        </div>
-                    </div>
-                    <!-- certificate form -->
-                    <div id="languagesFormContainer" class="form-container" style="display: none;">
-        
-                        <form id="languagesForm" action="languages" class="row g-6" style="background-color: transparent;" method="post">
-                            {% csrf_token %}
-                            <div class="row g-6">
-                                <div class="col-lg-8">
-                                    <label style="color: #222222;">LANGUAGES KNOWN</label>
-                                    <textarea class="form-control" name="languages_known" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
-                                    <br>
-                                    <button type="submit" class="btn btn-primary me-2">Save</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- end of languages known -->
+                    <h2 class="mb-4 section-title1" style="color: #222222;">Build your professional profile effortlessly.</h2>
+                    <p style="font-size: 15px;color: #222222;">Add your contact information & summary.</p>
+                    <span><span style="color: red;">*</span> indicates a required field</span>
                 </div>
-                <div class="button-container" style="text-align: right; margin-top: 20px;">
-                  <a href="/template1"> <button  class="btn btn-primary me-2">Save and Next</button></a> 
+            
+                <!-- Form container -->
+                <div class="row g-6">
+                    <!-- Form column -->
+                    <div class="col-lg-8">
+                        <form method="post" class="row g-6" style="background-color: transparent;">
+                            {% csrf_token %}
+                            <!-- First row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">FIRST NAME <span style="color: red;">*</span></label>
+                                    <input type="text" value="{{details.first_name}}" required name="first_name" class="form-control" placeholder="Eg: Vikas" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">LAST NAME <span style="color: red;">*</span></label>
+                                    <input type="text" value="{{details.last_name}}" required name="last_name" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Second row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">EMAIL <span style="color: red;">*</span></label>
+                                    <input type="email" value="{{details.email}}" required name="email" class="form-control" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">CONTACT NUMBER <span style="color: red;">*</span></label>
+                                    <input type="text" value="{{details.contact_no}}" required name="contact_no" class="form-control" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Third row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">LINKEDIN</label>
+                                    <input type="text" value="{{details.linkedin_url}}" class="form-control" name="linkedin" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
+                                </div>
+                            </div>
+            
+                            <!-- Fourth row of form inputs -->
+                            <div class="row g-6">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;"> SUMMARY <span style="color: red;">*</span></label>
+                                    <textarea class="form-control" name="summary" required rows="3" style="background-color: transparent; border: 1px solid #666;">{{details.summary}}</textarea>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">SKILLS <span style="color: red;">*</span></label>
+                                    <textarea class="form-control" name="skills" required rows="3" placeholder="Eg: Python, HTML, CSS" style="background-color: transparent; border: 1px solid #666;">{{skills.skills}}</textarea>
+                                </div>
+                            </div>
+            
+                            <!-- Submit button -->
+                            <div class="button-container" style="text-align: right; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary me-2">Save and Next</button>
+                            </div>
+                        </form>
+                    </div>
+            
+                    <!-- Image column -->
+                    <div class="col-lg-4">
+                        <div class="image-container" style="text-align: center;">
+                            <img src="/{{t_image}}" alt="Your Image" height="350px" width="270px">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
+            
+           
+           
+		</div>
 		  
 		</div>
 		<!-- End Hero Section -->
@@ -428,7 +385,7 @@
                 step.classList.add('active');
 
                 // Optionally, handle the step change logic here
-                console.log(Step ${index + 1} clicked);
+                console.log(`Step ${index + 1} clicked`);
             });
         });
     </script>
@@ -438,7 +395,6 @@
 		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
 		<script src="/static/home_assets/js/tiny-slider.js"></script>
 		<script src="/static/home_assets/js/custom.js"></script>
-        <script src="/static/home_assets/js/extra_form.js"></script>
 	</body>
 
 </html>

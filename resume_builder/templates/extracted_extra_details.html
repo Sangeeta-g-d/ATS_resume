@@ -1,3 +1,4 @@
+
 <!-- /*
 * Bootstrap 5
 * Template Name: Furni
@@ -306,46 +307,6 @@
                             <h6 class="section-title">+ Add Project</h6>
                         </div>
                     </div>
-                      <!-- project form -->
-                      <!-- Contaier for the form -->
-<div id="projectFormContainer" class="form-container" style="display: none;">
-
-    <!-- Form -->
-    <form id="projectForm" action="project_details" class="row g-6" style="background-color: transparent;" method="post">
-        {% csrf_token %}
-        <div class="row g-6">
-            <div class="col-lg-6">
-                <label style="color: #222222;">PROJECT NAME <span style="color: red;">*</span></label>
-                <input type="text" name="project_name" required class="form-control" placeholder="Eg: Fees Management" style="background-color: transparent; border: 1px solid #666;">
-            </div>
-            <div class="col-lg-6">
-                <label style="color: #222222;">TOOLS USED <span style="color: red;">*</span></label>
-                <input type="text" name="tools" required class="form-control" placeholder="Eg: python,js,Django,html" style="background-color: transparent; border: 1px solid #666;">
-            </div>
-        </div>
-        <div class="row g-6">
-            <div class="col-lg-6">
-                <label style="color: #222222;">PROJECT LINK </span></label>
-                <input type="text" name="link"  class="form-control" placeholder="Your project link" style="background-color: transparent; border: 1px solid #666;">
-            </div>
-            <div class="col-lg-6">
-                <label style="color: #222222;">DESCRIPTION <span style="color: red;">*</span></label>
-                <textarea class="form-control" required name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
-            </div>
-        </div>
-        <div class="button-container" style="text-align: right; margin-top: 20px;">
-            <button type="submit" class="btn btn-primary me-2">Submit</button>
-        </div>
-    </form>
-</div>
-<!-- end of project form  also containes custome style-->
-                    
-				</div>
-
-				
-               
-			</div>
-		</div>
                     
         
                     <!-- Project form -->
@@ -353,41 +314,35 @@
                     <div id="projectFormContainer" class="form-container" style="display: none;">
         
                         <!-- Form -->
-                        <form id="projectForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                        <form id="projectForm" action="project_details" class="row g-6" style="background-color: transparent;" method="post">
                             {% csrf_token %}
                             <div class="row g-6">
-                                <div class="col-lg-4">
-                                    <label style="color: #222222;">JOB TITLE</label>
-                                    <input type="text" name="designation" class="form-control" placeholder="Eg: Software Engineer" style="background-color: transparent; border: 1px solid #666;">
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">PROJECT NAME <span style="color: red;">*</span></label>
+                                    <input type="text" name="project_name" required class="form-control" placeholder="Eg: Fees Management" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
-                                <div class="col-lg-4">
-                                    <label style="color: #222222;">COMPANY NAME</label>
-                                    <input type="text" name="company_name" class="form-control" placeholder="Eg: Info-teck solutions" style="background-color: transparent; border: 1px solid #666;">
-                                </div>
-                            </div>
-                            <div class="row g-6">
-                                <div class="col-lg-4">
-                                    <label style="color: #222222;">FROM</label>
-                                    <input type="month" class="form-control" name="from_date" style="background-color: transparent; border: 1px solid #666;">
-                                </div>
-                                <div class="col-lg-4">
-                                    <label style="color: #222222;">TO</label>
-                                    <div class="input-group">
-                                        <input type="month" class="form-control" name="to_date" style="background-color: transparent; border: 1px solid #666;">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" id="toPresentCheckbox">
-                                            <label for="toPresentCheckbox">To Present</label>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">TOOLS USED <span style="color: red;">*</span></label>
+                                    <input type="text" name="tools" required class="form-control" placeholder="Eg: python,js,Django,html" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                             </div>
                             <div class="row g-6">
-                                <div class="col-lg-8">
-                                    <label style="color: #222222;">DESCRIPTION</label>
-                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">PROJECT LINK </span></label>
+                                    <input type="text" name="link"  class="form-control" placeholder="Your project link" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
+                                <div class="col-lg-6">
+                                    <label style="color: #222222;">DESCRIPTION <span style="color: red;">*</span></label>
+                                    <textarea class="form-control" required name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                </div>
+                            </div>
+                            <div class="button-container" style="text-align: right; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary me-2">Save</button>
                             </div>
                         </form>
+                        
+                        
+                        
                     </div>
                     <!-- certificate -->
                     <div id="addcertficates" class="card" style="border-radius: 10px; margin-bottom: 30px; background-color: #eff2f1; cursor: pointer;">
@@ -398,12 +353,12 @@
                     <!-- certificate form -->
                     <div id="certificatesFormContainer" class="form-container" style="display: none;">
         
-                        <form id="certificatesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                        <form id="certificatesForm" action="certificates"  class="row g-6" style="background-color: transparent;" method="post">
                             {% csrf_token %}
                             <div class="row g-6">
                                 <div class="col-lg-8">
                                     <label style="color: #222222;">CERTIFICATE DETAILS</label>
-                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <textarea class="form-control" name="certificates" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
                                     <br>
                                     <button type="submit" class="btn btn-primary me-2">Save</button>
                                 </div>
@@ -422,12 +377,12 @@
                     <!-- certificate form -->
                     <div id="languagesFormContainer" class="form-container" style="display: none;">
         
-                        <form id="languagesForm" action="#" class="row g-6" style="background-color: transparent;" method="post">
+                        <form id="languagesForm" action="languages" class="row g-6" style="background-color: transparent;" method="post">
                             {% csrf_token %}
                             <div class="row g-6">
                                 <div class="col-lg-8">
                                     <label style="color: #222222;">LANGUAGES KNOWN</label>
-                                    <textarea class="form-control" name="description" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <textarea class="form-control" name="languages_known" rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
                                     <br>
                                     <button type="submit" class="btn btn-primary me-2">Save</button>
                                 </div>
@@ -436,6 +391,9 @@
                     </div>
                     <!-- end of languages known -->
                 </div>
+                <div class="button-container" style="text-align: right; margin-top: 20px;">
+                    <a href="/template1"> <button  class="btn btn-primary me-2">Save and Next</button></a> 
+                  </div>
             </div>
         </div>
         
@@ -469,7 +427,7 @@
                 step.classList.add('active');
 
                 // Optionally, handle the step change logic here
-                console.log(`Step ${index + 1} clicked`);
+                console.log(Step ${index + 1} clicked);
             });
         });
     </script>

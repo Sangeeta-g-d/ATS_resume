@@ -21,6 +21,11 @@ path('extracted_education_choice',views.extracted_education_choice,name="extract
     path('extracted_extra_details',views.extracted_extra_details,name="extracted_extra_details"),
     path('add_education_choice',views.add_education_choice,name="add_education_choice"),
     path('project_details',views.project_details,name="project_details"),
+    path('certificates',views.certificates,name="certificates"),
+    path('languages',views.languages,name="languages"),
     path('add_template',views.add_template,name="add_template"),
+    path('template1',views.template1,name="template1"),
+    path('set',views.set,name="set"),
+    path('edit_personal_info',views.edit_personal_info,name="edit_personal_info"),
     
 ]
