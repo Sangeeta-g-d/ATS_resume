@@ -93,11 +93,12 @@ def add_experience_choice(request):
     return render(request,'add_experience_choice.html',context)
 
 
-def add_experience_choice(request):
+def edit_experience_choice(request):
     user_id=request.user.id
     details=Experience.objects.filter(user_id_id=user_id)
     context={'details':details}
     return render(request,'edit_experience_choice.html',context)
+
 
 def add_education_choice(request):
     user_id=request.user.id
@@ -128,7 +129,7 @@ def personal_info(request, id):
         summary = request.POST.get('summary')
         skills=request.POST.get('skills')
         user=Header.objects.create(first_name=first_name,last_name=last_name,email=email,
-                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=id)
+                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
         data=User_skills.objects.create(skills=skills,user_id_id=user_id)
         if user:
             return redirect('work_history')
@@ -163,6 +164,7 @@ def edit_personal_info(request):
 
 def work_history(request):
     id = request.user.id
+    print("hhhhhhhhhhhhhhhhhhhh")
     if request.method == 'POST':
         designation = request.POST.get('designation')
         company_name = request.POST.get('company_name')
@@ -177,6 +179,7 @@ def work_history(request):
         data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
                                          to_date=to_date, description=description, user_id_id=id)
         if data:
+            print("jjjjjjjjjjjjjj")
             return redirect('add_experience_choice')
     return render(request, 'work_history.html')
 
@@ -215,7 +218,7 @@ def edit_work_history(request,id):
             # If "To Present" checkbox is checked, set to_date to the current date
             details.to_date ='Present'  # Format to match your field type
         details.save()
-        return redirect('template1')
+        return redirect('edit_experience_choice')
     context={'details':details}
     return render(request, 'edit_work_history.html',context)
 
@@ -606,7 +609,7 @@ def template1(request):
 
     # certificates section
     certificates_info = Certificates.objects.filter(user_id_id=user_id).first()
-
+    print(certificates_info)
     # Langages known
     lang_list = []
     lang_info = Languages.objects.filter(user_id_id=user_id).first()
