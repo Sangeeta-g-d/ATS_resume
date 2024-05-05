@@ -165,11 +165,16 @@ def template1(request):
 
     # fetching exp section
     exp_info = Experience.objects.filter(user_id_id=user_id)
-    print("exppppppppppppppppp",exp_info)
+    print("exppppppppppppppppp", exp_info)
+
+    # education section
+    edu_info = Education.objects.filter(user_id_id=user_id)
+    print("rrrrrrrrrrrrrrrrrrrr",edu_info)
     context = {
         'template_html_id':template_html_id,
         'personal_info':personal_info,
         'exp_info':'exp_info',
+        'edu_info':'edu_info',
     }
     return render(request,'template1.html',context)
 
