@@ -293,14 +293,15 @@
                         <form method="post" class="row g-6" style="background-color: transparent;">
                             {% csrf_token %}
                             <!-- First row of form inputs -->
+                           
                             <div class="row g-6">
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">FIRST NAME <span style="color: red;">*</span></label>
-                                    <input type="text" required name="first_name" class="form-control" placeholder="Eg: Vikas" style="background-color: transparent; border: 1px solid #666;">
+                                    <input type="text" required name="first_name" class="form-control" value="{{user_obj.first_name}}" placeholder="Eg: Vikas" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">LAST NAME <span style="color: red;">*</span></label>
-                                    <input type="text" required name="last_name" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
+                                    <input type="text" value="{{user_obj.last_name}}" required name="last_name" class="form-control" placeholder="Eg: Kulkarni" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                             </div>
             
@@ -308,11 +309,11 @@
                             <div class="row g-6">
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">EMAIL <span style="color: red;">*</span></label>
-                                    <input type="email" required name="email" class="form-control" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
+                                    <input type="email" required name="email" class="form-control" value="{{user_obj.email}}" placeholder="Eg: xyz@gmail.com" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">CONTACT NUMBER <span style="color: red;">*</span></label>
-                                    <input type="text" required name="contact_no" class="form-control" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
+                                    <input type="text" required name="contact_no" class="form-control" value="{{user_obj.contact_no}}" placeholder="Eg: 1234567898" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                             </div>
             
@@ -320,7 +321,7 @@
                             <div class="row g-6">
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">LINKEDIN</label>
-                                    <input type="text" class="form-control" name="linkedin" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
+                                    <input type="text" value="{{user_obj.linkedin_url}}" class="form-control" name="linkedin" placeholder="Eg: https://www.linkedin.com/in/xyz-4a78b6465" style="background-color: transparent; border: 1px solid #666;">
                                 </div>
                             </div>
             
@@ -328,11 +329,11 @@
                             <div class="row g-6">
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">SUMMARY <span style="color: red;">*</span></label>
-                                    <textarea class="form-control" name="summary" required rows="3" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <textarea class="form-control" name="summary" required rows="3" style="background-color: transparent; border: 1px solid #666;">{{user_obj.summary}}</textarea>
                                 </div>
                                 <div class="col-lg-6">
                                     <label style="color: #222222;">SKILLS <span style="color: red;">*</span></label>
-                                    <textarea class="form-control" name="skills" required rows="3" placeholder="Eg: Python, HTML, CSS" style="background-color: transparent; border: 1px solid #666;"></textarea>
+                                    <textarea class="form-control" name="skills" required rows="3" placeholder="Eg: Python, HTML, CSS" style="background-color: transparent; border: 1px solid #666;">{{user_skills.skills}}</textarea>
                                 </div>
                             </div>
             

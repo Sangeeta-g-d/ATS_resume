@@ -120,6 +120,10 @@ def personal_info(request, id):
     print(temp_image.template_image)
     t_image = temp_image.template_image
     user_id=request.user.id
+    # check user existance 
+    user_obj = Header.objects.filter(user_id_id=user_id).first()
+    user_skills = User_skills.objects.filter(user_id_id=user_id).first()
+
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
@@ -128,13 +132,30 @@ def personal_info(request, id):
         linkedin = request.POST.get('linkedin')
         summary = request.POST.get('summary')
         skills=request.POST.get('skills')
-        user=Header.objects.create(first_name=first_name,last_name=last_name,email=email,
+        if user_obj:
+            user_obj.first_name = first_name
+            user_obj.last_name = last_name
+            user_obj.email = email
+            user_obj.contact_no = contact_no
+            user_obj.linkedin_url = linkedin
+            user_obj.summary = summary
+            user_obj.save()
+            if user_skills:
+                user_skills.skills = skills
+                user_skills.save()
+                return redirect('work_history')
+        else:
+            user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
-        data=User_skills.objects.create(skills=skills,user_id_id=user_id)
-        if user:
-            return redirect('work_history')
+            if user:
+                return redirect('work_history')
+        if not user_skills:
+            data=User_skills.objects.create(skills=skills,user_id_id=user_id)
+        
     context = {
-        't_image':t_image
+        't_image':t_image,
+        'user_obj':user_obj,
+        'user_skills':user_skills
     }
     return render(request,'personal_info.html',context)
 
