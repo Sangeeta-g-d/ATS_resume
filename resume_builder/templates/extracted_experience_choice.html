@@ -21,6 +21,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 		<title>Resume Builder</title>
 		<style>
 		/* CSS for the navigation bar */
@@ -250,10 +251,10 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="/">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
-						<li><a class="nav-link" href="about.html">Login</a></li>
+						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
+						
 						
 					</ul>
 					
@@ -296,7 +297,7 @@
                      
                         <div class="card-header">
                           Experience 1
-                        </div>
+                        
                         <div class="card-body" style="background-color: #eff2f1;">
                           <h5 class="card-title">{{x.designation}}</h5>
                           <p class="card-text">{{x.company_name}}</p>
@@ -304,11 +305,12 @@
                         </div>
                        
                       </div>
+                    </div>
                       {% endfor %}
                       <a href="/extracted_work_history" style="text-decoration: none;" class="btn1 btn-black-outline">+ Add Experience</a>
                    <a href="/extracted_education">   <button type="submit" class="btn btn-primary me-2">Save and Next</button></a>
                     
-				</div>
+				
 
 				
                

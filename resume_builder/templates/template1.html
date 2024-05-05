@@ -26,6 +26,10 @@
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
         <link href="/static/home_assets/css/own.css" rel="stylesheet">
         <link href="/static/home_assets/css/template1.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
 		<title>Resume Builder</title>
 		<style>
 		/* CSS for the navigation bar */
@@ -224,9 +228,6 @@
     bottom: -10px;
     left: calc(50% - 6px); /* Center the arrow */
 }
-
-
-
 </style>
 
 
@@ -245,10 +246,10 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="/">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
-						<li><a class="nav-link" href="about.html">Login</a></li>
+						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
+						
 						
 					</ul>
 					
@@ -262,7 +263,10 @@
         <div class="temp">
             <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
             <span class="subtag">Review, edit and download.</span>
-            
+            <div id="downloadBtn" class="download" style="border: 1px solid #222222; text-align: center;height: 5%;margin-left: 75%;border-radius: 10px;">
+                <img style="width: 32px; height: 30px; margin-top: 9%;" src="/static/home_assets/images/download.png">
+                <p style="color: #222222; margin: 0;">Download</p>
+            </div>
             <div id="template1"  style="display: none;" class="content_wrapper template-div">
                 
                 <div id="dynamicContent" >
@@ -487,8 +491,12 @@
                   <div  id="temp1" class="temp3">
                     <div   class="temp3-header" style="display: flex;">
                     <div class="temp3-header-left">
-                        <h3 class="t3-space"> <span id="Display_Fname">Pavan</span> <span id="Display_Lname">Kulkarni </span></h3>
-                        <p class="content-text" id="Display_lnkedin">https://www.linkedin.com/in/sangeeta-dani-2688b6262/</p>
+                        {% if personal_info.first_name and personal_info.last_name %}
+                        <h3 class="t3-space"> <span id="Display_Fname">{{personal_info.first_name}}</span> <span id="Display_Lname">{{personal_info.last_name}} </span></h3>
+                        {% endif %}
+                        {% if personal_info.linkedin_url %}
+                        <p class="content-text" id="Display_lnkedin">{{personal_info.linkedin_url}}</p>
+                        {% endif %}
                     </div>
                    
                 </div>
@@ -496,8 +504,8 @@
                <div style="display: flex;">
                 <div class="temp3-left">
                     <div class="personal-info">
-                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> 9867564534 </span><br>
-                        <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> kushagra34@gmail.com</span><br>
+                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> {{personal_info.contact_no}} </span><br>
+                        <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> {{personal_info.email}}</span><br>
                        
                     </p>
                 </div><hr>
@@ -538,11 +546,10 @@
                 <div class="temp3-right">
                     <div class="t3-profile-summary">
                         <h4 class="t3-space t3-profile">Profile</h4>
-                        <p class="t3-content" id="Display_Summary">Enthusiastic recent graduate with a degree in
-                            Computer Science and a passion for software development.
-                            Proficient in Java and Python, with a strong foundation in algorithm design.  Eager to contribute to a dynamic team.
+                        <p class="t3-content" id="Display_Summary">{{personal_info.summary}}
                             </p>
                     </div><hr>
+                    
                     <div class="t3-experience">
                       <div class="work-exp">
                       <h4 class="t3-space t3-profile">Experience</h4>
@@ -620,19 +627,7 @@
 		</div>
 		<!-- End Hero Section -->
 		
-			<script>
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('main-content');
-
-        // Add event listener for toggling the sidebar
-        document.addEventListener('click', (e) => {
-            // Check if the click event occurred on the sidebar or main content
-            if (e.target.closest('.sidebar') === null && e.target.closest('.main-content') === null) {
-                sidebar.classList.toggle('hidden');
-                mainContent.classList.toggle('full-width');
-            }
-        });
-    </script>
+			
 	 <!-- JavaScript for tracking steps -->
 	 <script>
         const trackingSteps = document.querySelectorAll('.tracking-steps .step');
@@ -652,29 +647,61 @@
     </script>
 	
     <script>
-        // Function to control which div is displayed based on template_html_id
-        function displayTemplate(templateHtmlId) {
-            // Get all divs with the class 'template-div'
-            const templateDivs = document.querySelectorAll('.template-div');
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle the download button click event
+            document.getElementById("downloadBtn").addEventListener("click", function() {
+                // Select the visible template
+                var visibleTemplate = document.querySelector('.content_wrapper.template-div[style="display: block;"]');
     
-            // Hide all divs
-            templateDivs.forEach(div => {
-                div.style.display = 'none';
+                // Options for the PDF generation
+                var opt = {
+                    margin: 0.5,
+                    filename: 'resume.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { 
+                        unit: 'in', 
+                        format: 'a4', // Set the format to A4 size
+                        orientation: 'portrait' // Set the orientation to portrait
+                    }
+                };
+    
+                // Convert HTML to PDF
+                html2pdf()
+                    .from(visibleTemplate)
+                    .set(opt)
+                    .save();
             });
     
-            // Display the div with the corresponding id if it matches the templateHtmlId
-            const templateToDisplay = document.getElementById(templateHtmlId);
-            if (templateToDisplay) {
-                templateToDisplay.style.display = 'block';
+            // Function to control which div is displayed based on template_html_id
+            function displayTemplate(templateHtmlId) {
+                // Get all divs with the class 'template-div'
+                const templateDivs = document.querySelectorAll('.template-div');
+    
+                // Hide all divs
+                templateDivs.forEach(div => {
+                    div.style.display = 'none';
+                });
+    
+                // Display the div with the corresponding id if it matches the templateHtmlId
+                const templateToDisplay = document.getElementById(templateHtmlId);
+                if (templateToDisplay) {
+                    templateToDisplay.style.display = 'block';
+                }
             }
-        }
     
-        // Get the template_html_id from context
-        const templateHtmlId = "{{ template_html_id }}";
+            // Get the template_html_id from context
+            const templateHtmlId = "{{ template_html_id }}";
     
-        // Call the function to display the appropriate div
-        displayTemplate(templateHtmlId);
+            // Call the function to display the appropriate div
+            displayTemplate(templateHtmlId);
+        });
     </script>
+    
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
 		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
 		<script src="/static/home_assets/js/tiny-slider.js"></script>

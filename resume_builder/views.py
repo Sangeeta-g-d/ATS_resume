@@ -371,7 +371,7 @@ def extracted_personal_info(request, id):
         summary = request.POST.get('summary')
         skills=request.POST.get('skills')
         user=Header.objects.create(first_name=first_name,last_name=last_name,email=email,
-                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=id)
+                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
         data=User_skills.objects.create(skills=skills,user_id_id=user_id)
         if user:
             return redirect('extracted_work_history')
@@ -606,28 +606,21 @@ def extract_experience_details(experience_lines):
     return designation, company_name, start_date, end_date
 
 def template1(request):
-    
     user_id = request.user.id
     template_id = request.session.get('template_id')
     data = TemplatesInfo.objects.get(id=template_id)
     template_html_id = data.id_name
     personal_info = Header.objects.get(user_id_id=user_id)
-
     # fetching exp section
     exp_info = Experience.objects.filter(user_id_id=user_id)
-
     # education section
     edu_info = Education.objects.filter(user_id_id=user_id)
-
-    # projects section
     pro_info = Project.objects.filter(user_id_id=user_id)
-
     # skills section
     skills_info = User_skills.objects.filter(user_id_id=user_id).first()
     s = skills_info.skills
     skills_list = [skill.strip() for skill in s.split(',')]
     print(skills_list)
-
     # certificates section
     certificates_info = Certificates.objects.filter(user_id_id=user_id).first()
     print(certificates_info)
