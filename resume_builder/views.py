@@ -181,7 +181,7 @@ def template1(request):
 
     # certificates section
     certificates_info = Certificates.objects.filter(user_id_id=user_id).first()
-
+    print(certificates_info)
     # Langages known
     lang_list = []
     lang_info = Languages.objects.filter(user_id_id=user_id).first()
