@@ -25,3 +25,103 @@
     font-size: 20px;
   
 }
+/* Styling for the header */
+.header {
+    position: relative;
+    /* Add other styling as needed */
+}
+
+/* Border to the left side when hovered */
+.header:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px; /* Adjust border style and color as needed */
+    
+}
+
+.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container {
+    display: flex; /* Use flexbox to align elements in a row */
+    justify-content: space-between; /* Space out the heading and edit icon */
+    align-items: center; /* Vertically center the items */
+}
+
+.edit-icon {
+    display: none; /* Initially hide the icon */
+    position: absolute; /* Position it absolutely */
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    font-size: 1.2em; /* Adjust the font size as needed */
+    color: #0d6efd; /* Adjust the color as needed */
+    cursor: pointer; /* Set the cursor to a pointer */
+}
+
+.header:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px; /* Adjust border style and color as needed */
+}
+
+/* Show the edit icon when the header is hovered */
+.header:hover .edit-icon {
+    display: block; /* Show the icon */
+}
+.edit-icon-container {
+    display: none;
+    /* You can adjust the size, color, and other styles here */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+.experience:hover .edit-icon-container {
+    display: block; /* Show the icon */
+}
+/* Experience hover effect */
+.experience:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.education-side:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.education-side:hover .edit-icon-container{
+    display: block;
+}
+.project-sec:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.project-sec:hover .edit-icon-container{
+    display: block;
+}
+.skills:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.skills:hover .edit-icon-container{
+    display: block;
+}
+
+#three_col_list {
+    column-count: 3;  /* Display the list in three columns */
+    column-gap: 20px; /* Adjust the gap between columns as needed */
+    list-style: none; /* Optional: Remove default list bullet points */
+    padding: 0;       /* Optional: Remove padding */
+    margin: 0;        /* Optional: Remove margin */
+}
+.certificate_sec:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.certificate_sec:hover .edit-icon-container{
+    display: block;
+}
+.languages_sec:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.languages_sec:hover .edit-icon-container{
+    display: block;
+}

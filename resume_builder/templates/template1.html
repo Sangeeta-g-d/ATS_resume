@@ -19,6 +19,8 @@
 		<!-- Bootstrap CSS -->
 		<link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
@@ -266,83 +268,188 @@
                 <div id="dynamicContent" >
                   <div>
                     <div class="header">
-                        {% if personal_info.first_name and personal_info.last_name %}
-                      <h3><span id="Display_Fname">{{personal_info.first_name}}</span>&nbsp;<span id="Display_Lname"> {{personal_info.last_name}}</span></h3>
+                      {% if personal_info.first_name and personal_info.last_name %}
+                      <h3>
+                          <span id="Display_Fname">{{personal_info.first_name}}</span>&nbsp;
+                          <span id="Display_Lname">{{personal_info.last_name}}</span>
+                      </h3>
                       {% endif %}
-
-                      <p><span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span  id="Display_Email">{{personal_info.email}} </span></span> <span >&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">{{personal_info.contact_no}}</span></span>    </p>
+              
+                      <p>
+                          <span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span id="Display_Email">{{personal_info.email}}</span></span>
+                          <span>&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">{{personal_info.contact_no}}</span></span>
+                      </p>
+              
                       {% if personal_info.linkedin_url %}
-                      <p> <i class="fab fa-linkedin"></i> <span id="Display_lnkedin">{{personal_info.linkedin_url}}</span></p>
+                      <p><i class="fab fa-linkedin"></i> <span id="Display_lnkedin">{{personal_info.linkedin_url}}</span></p>
                       {% endif %}
+              
+                      <hr>
+              
+                      <div class="resume_content">
+                          <h5>Summary</h5>
+                          <p class="summary" id="Display_Summary">{{personal_info.summary}}</p>
+                      </div>
+              
+                      <!-- Add edit icon element -->
+                      <div class="edit-icon" title="Edit">
+                          <a href="#">
+                              <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                          </a>
+                      </div>
                   </div>
+              
                   <hr>
-                  <div clas="resume_content">
-                    <h5>Summary</h5>
-                    <p class="summary" id="Display_Summary">{{personal_info.summary}}
-                  </p>
-                  </div>
-                  <hr>
-                 {% for x in edu_info %}
-                 <div>hello</div>
-                 {% endfor %}
+              
+                  {% if exp_info %}
                   <div class="experience">
-                    <h5>Experience</h5>
-                    <div class="sub_heading1">
-                      <div>
-                    <p id="Display_Designation">Software Engineer</p></div>
-                    <div>
-                    <p class="date" ><span id="Display_From">june 2023</span> | <span id="Display_To">march 2023</span></p></div>
+                    <div class="experience-header-container">
+                      <h5>Experience</h5>
+                      <div title="Edit" class="edit-icon-container">
+                          <a href="#">
+                              <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                          </a>
+                      </div>
                   </div>
-                    <p class="sub_heading2"  id="Display_Cname">Haegl Technologies PVT LTD</p>
-                    
-                    <p class="exp" id="Display_Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam 
-                      autem sed quibusdam necessitatibus    
-                    </p>
-
-                    <div  id="experienceContainer"></div>
+                      {% for x in exp_info %}
+                      <div class="exp-container">
+                          <div class="sub_heading1">
+                              <div>
+                                  <p id="Display_Designation">{{x.designation}}</p>
+                              </div>
+                              
+                              <div>
+                                  <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span id="Display_To">{{x.to_date}}</span></p>
+                              </div>
+                          </div>
+                          <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
+                          <p class="exp" id="Display_Description">
+                              {{x.description}}
+                          </p>
+              
+                          <!-- Add edit icon element -->
+                       
+                      </div>
+                      {% endfor %}
+                     
                   </div>
                   <hr>
+                  {% endif %}
+              
+                  {% if edu_info %}
                   <div class="education-side">
-                  <div class="education">
-                    <h5>Education</h5>
-                    <div class="sub_heading1">
-                      <div>
-                    <p id="displayDegree">Master Of Science in Mechanical Engineering</p></div>
-                    <div>
-                    <p class="date" ><span id="displayDegreeFrom">june 2023</span> | <span  id="displayDegreeTo">march 2023</span></p></div>
+                      <div class="education">
+                        <div class="education-header-container">
+                          <h5>Education</h5>
+                          <div title="Edit" class="edit-icon-container">
+                            <a href="#">
+                                <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                            </a>
+                        </div>
+                        </div>
+                          {% for x in edu_info %}
+                          <div class="education-container">
+                              <div class="sub_heading1">
+                                  <div>
+                                      <p id="displayDegree">{{x.degree}}</p>
+                                  </div>
+                                  <div>
+                                      <p class="date"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span id="displayDegreeTo">{{x.to_date}}</span></p>
+                                  </div>
+                              </div>
+                              <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
+                              {% if x.cgpa %}
+                              <p class="sub_heading3" id="displayCity">CGPA - {{x.cgpa}}</p>
+                              {% endif %}
+                              {% if x.city %}
+                              <p class="sub_heading3" id="displayCity">{{x.city}}</p>
+                              {% endif %}
+                          </div>
+              
+                          <!-- Add edit icon element -->
+                          <div class="edit-icon" title="Edit">
+                              <a href="#">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                              </a>
+                          </div>
+                          {% endfor %}
+                      </div>
                   </div>
-                  <p class="sub_heading2" id="displayCollege">Karnataka University</p>
-                  <p class="sub_heading2" id="displayCity">Dharwad</p>
-                  <div  id="educationContainer"></div>
-                  </div>
+                  <hr>
+                  {% endif %}
+                  
+               <div class="projects project-sec">
+                <div class="project-header-container">
+                  <h5>Projects</h5>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
                 </div>
-               <hr>
-               <div class="projects">
-                <h5>Projects</h5>
+                </div>
                     <div class="sub_heading1">
                       <div>
                     <p id="displayProjectName">Resume Builder</p></div>
                    
                   </div>
                     <p class="sub_heading2">Tools Used | <span id="displayTools">Python, Django, Html, CSS</span></p>
-                    
+                    <a href="https://haegl.in/" style="text-decoration: none;"><p class="sub_heading2"><span id="displayTools">https://haegl.in/</span></p></a>
                     <p class="projects" id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam 
                       autem sed quibusdam necessitatibus    
                     </p>
                     <div style="margin-top: 5px;" id="projectsContainer"></div>
                </div>
+              
                <hr>
+               {% if skills_list %}
                <div class="skills">
-                <h5>Skills</h5>
-                <ul id="skillsList">
-                  <li>Python</li>
-                  <li>Django</li>
-                  <li>Power BI</li>
-                  <li>Analatical Skills</li>
-                </ul>
+                <div class="skills-header-container">
+                  <h5>Skills</h5>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                </div>
+                </div>
+                <ul id="three_col_list">
+                  {% for x in skills_list %}
+                  <li>{{ x }}</li>
+                  {% endfor %}
+              </ul>
                </div>
-<hr>
- 
+               <hr>
+               {% endif %}
+               {% if certificates_info %}
+               <div class="certificate_sec">
+                <div class="certificates-header-container">
+                  <h5>Certificates</h5>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                </div>
+                </div>
+                <p class="summary" id="Display_Summary">{{certificates_info.certificates}}</p>
+            </div>
+            {% endif %}
+            {% if lang_list %}
+            <div class="languages_sec">
+             <div class="languages-header-container">
+               <h5>Languages Known</h5>
+               <div title="Edit" class="edit-icon-container">
+                 <a href="#">
+                     <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                 </a>
+             </div>
+             </div>
+             <ul class="three_col_list">
+               {% for x in lang_list %}
+               <li>{{ x }}</li>
+               {% endfor %}
+           </ul>
+            </div>
+            <hr>
+            {% endif %}
              
              
                 </div>
@@ -377,6 +484,7 @@
                     <div class="personal-info">
                     <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> 9867564534 </span><br>
                         <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> kushagra34@gmail.com</span><br>
+                       
                     </p>
                 </div><hr>
                 <div class="t3-skills">
@@ -449,7 +557,7 @@
                     <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing website. User-friendly web-based Fees management System that automated entire fee processing workflow by integrating secure payment gateway. Students can crack their fees and pay accordingly through Razor pay gateway.</p>
                     
                     </div>
-                    <div id="projectsContainer"></div>
+                    
                     </div>
                     <hr>
                     <div class="acheivemets-section">
