@@ -14,6 +14,7 @@ from PIL import Image
 import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer  # Add this import
 from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Resume,Extracted_ResumeDetails,Extracted_ExperienceDetails,Extracted_EducationDetails,Project,Certificates,Languages
+from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Project,Certificates,Languages
 from datetime import datetime
 # Create your views here.
 
@@ -581,6 +582,7 @@ def extract_experience_details(experience_lines):
     return designation, company_name, start_date, end_date
 
 def template1(request):
+    
     user_id = request.user.id
     template_id = request.session.get('template_id')
     data = TemplatesInfo.objects.get(id=template_id)
@@ -589,13 +591,38 @@ def template1(request):
 
     # fetching exp section
     exp_info = Experience.objects.filter(user_id_id=user_id)
+
     # education section
     edu_info = Education.objects.filter(user_id_id=user_id)
+
+    # projects section
+    pro_info = Project.objects.filter(user_id_id=user_id)
+
+    # skills section
+    skills_info = User_skills.objects.filter(user_id_id=user_id).first()
+    s = skills_info.skills
+    skills_list = [skill.strip() for skill in s.split(',')]
+    print(skills_list)
+
+    # certificates section
+    certificates_info = Certificates.objects.filter(user_id_id=user_id).first()
+
+    # Langages known
+    lang_list = []
+    lang_info = Languages.objects.filter(user_id_id=user_id).first()
+    if lang_info:
+        languages_known = lang_info.languages_known
+        lang_list = [x.strip() for x in languages_known.split(',')]
     context = {
         'template_html_id':template_html_id,
         'personal_info':personal_info,
         'exp_info':exp_info,
         'edu_info':edu_info,
+        'pro_info':pro_info,
+        'skills_list':skills_list,
+        'certificates_info':certificates_info,
+        'lang_list':lang_list
+        
     }
     return render(request,'template1.html',context)
 

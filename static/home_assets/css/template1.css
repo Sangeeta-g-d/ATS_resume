@@ -74,6 +74,13 @@ h6{
     line-height: 8px;
     font-family: Times New Roman;
 }
+.sub_heading3{
+  font-size: 14px ;
+  text-align: start;
+
+  line-height: 8px;
+  font-family: Times New Roman;
+}
 .date{
     font-size: 14px ;
     text-align: start;
