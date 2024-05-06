@@ -51,7 +51,7 @@ h5{
     color:rgb(119, 61, 113);
     text-align: start;
     font-family: Times New Roman;
-    line-height: 40px;
+    line-height: 22px;
 }
 h6{
     text-align: start;
@@ -151,6 +151,7 @@ ul{
   line-height: 28px;
 }
 .t3-subheading{
-  font-size: 12px;
+  font-size: 14px;
+  color: #6a6a6a;
   letter-spacing: 1px;
 }

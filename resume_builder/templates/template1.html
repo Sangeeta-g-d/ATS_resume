@@ -346,8 +346,6 @@
               {% if exp_info %}
               <div class="experience">
                 
-                
-                <div id="experienceContainer"></div>
                 <div class="experience-header-container">
                   <h5>Experience</h5>
                   <div title="Edit" class="edit-icon-container">
@@ -424,7 +422,7 @@
               </div>
               <hr>
               {% endif %}
-
+              {% if pro_info %}
               <div class="projects project-sec">
                 <div class="project-header-container">
                   <h5>Projects</h5>
@@ -434,24 +432,26 @@
                     </a>
                   </div>
                 </div>
+                {% for x in pro_info %}
+                <div>
                 <div class="sub_heading1">
                   <div>
-                    <p id="displayProjectName">Resume Builder</p>
+                    <p id="displayProjectName">{{x.project_name}}</p>
                   </div>
 
                 </div>
-                <p class="sub_heading2">Tools Used | <span id="displayTools">Python, Django, Html, CSS</span></p>
-                <a href="https://haegl.in/" style="text-decoration: none;">
-                  <p class="sub_heading2"><span id="displayTools">https://haegl.in/</span></p>
+                <p class="sub_heading2">Tools Used | <span id="displayTools">{{x.tools_used}}</span></p>
+                {% if x.project_link %}
+                <a href="{{x.project_link}}" style="text-decoration: none;">
+                  <p class="sub_heading2"><span id="displayTools">{{x.project_link}}</span></p>
                 </a>
-                <p class="projects" id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur
-                  impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed
-                  quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam
-                  autem sed quibusdam necessitatibus
+                {% endif %}
+                <p class="projects" id="displayProjectDes">{{x.description}}
                 </p>
-                <div style="margin-top: 5px;" id="projectsContainer"></div>
+               </div>
+               {% endfor %}
               </div>
+              {% endif %}
 
               <hr>
               {% if skills_list %}
@@ -542,112 +542,173 @@
               <div style="display: flex;">
                 <div class="temp3-left">
                   <div class="personal-info">
-                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno">
+                    <div class="experience-header-container">
+                      <h4 class="t3-space" style="font-size: 17px;">Contact</h4>
+                      <div title="Edit" class="edit-icon-container">
+                        <a href="/edit_experience_choice">
+                          <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                        </a>
+                      </div>
+                    </div>
+                    <p class="t3-profile-info"> <span id="Display_Phoneno">
                         {{personal_info.contact_no}} </span><br>
-                      <i class="far fa-envelope"></i> &nbsp;&nbsp; <span id="Display_Email">
+                      <span id="Display_Email">
                         {{personal_info.email}}</span><br>
-
                     </p>
                   </div>
                   <hr>
-                  <div class="t3-skills">
+                  {% if skills_list %}
+                  <div class="t3-skills skills">
+                    <div class="skills-header-container">
                     <h4 class="t3-space" style="font-size: 17px;">Skills</h4>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
                     <ul class="t3-ul" id="skillsList">
-                      <li class="t3-content">Python</li>
-                      <li class="t3-content">Good Communication</li>
-                      <li class="t3-content">MS Excel</li>
-                      <li class="t3-content">Django</li>
-                      <li class="t3-content">Time Management</li>
+                      {% for x in skills_list %}
+                      <li>{{ x }}</li>
+                      {% endfor %}
+                    
                     </ul>
                   </div>
+                  {% endif %}
                   <hr>
-                  <div class="t3-edu">
+                  <div class="t3-edu education-side"><div class="education-header-container">
                     <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Education</h4>
-                    <div class="education-side">
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_education_choice">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                    <div>
+                      {% for x in edu_info %}
                       <div class="education1">
-                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">Bachelor of Science
+                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">{{x.degree}}
                         </h5>
-
-
-                        <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;"
-                          id="displayDegreeFrom">2020</span> | <span class="t3-edu-date"
-                          style="font-size: 10px; margin-top: 0px;" id="displayDegreeTo">2023</span><br>
-                        <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCollege">Kle
-                          College of Science</span> <br>
-                        <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;"
-                          id="displayCity">Hubli</span>
+                        {% if x.cgpa %}
+                        <span class="t3-edu-date" style="font-size: 13px; margin-top: 0px;"
+                          id="displayDegreeFrom">CGPA</span> - <span class="t3-edu-date"
+                          style="font-size: 13px; margin-top: 0px;" id="displayDegreeTo">{{x.cgpa}}</span><br>{% endif %}
+                        <span class="t3-edu-date" style="font-size: 13px; margin-top: 0px;"
+                          id="displayDegreeFrom">{{x.from_date}}</span> | <span class="t3-edu-date"
+                          style="font-size: 13px; margin-top: 0px;" id="displayDegreeTo">{{x.to_date}}</span><br>
+                        <span class="t3-edu-date" style="font-size: 13px; margin-top: 0px;" id="displayCollege">{{x.college_name}}</span> <br>
+                        {% if x.city %}
+                        <span class="t3-edu-date" style="font-size: 13px; margin-top: 0px;"
+                          id="displayCity">{{x.city}}</span>
+                          {% endif %}
                       </div>
+                      {% endfor %}
                     </div>
                   </div>
                   <hr>
-                  <div class="lang-section">
+                  {% if certificates_info %}
+                  <div class="certificate_sec">
+                    <div class="languages-header-container">
+                    <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Certificates</h4>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                    </div>
+                   <p>{{certificate_info}}</p>
+                  </div>
+                  {% endif %}
+                  <hr>
+                  {% if lang_list %}
+                  <div class="languages_sec">
+                    <div class="languages-header-container">
                     <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Languages Known</h4>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                    </div>
                     <ul class="t3-ul" id="languageList">
-                      <li class="content-text">English</li>
-                      <li class="content-text">Hindi</li>
-                      <li class="content-text">Kannada</li>
-
+                      {% for x in lang_list %}
+                      <li class="content-text">{{x}}</li>
+                     {% endfor %}
                     </ul>
                   </div>
+                  {% endif %}
                   <hr>
                 </div>
                 <div class="temp3-right">
                   <div class="t3-profile-summary">
+                    <div class="skills-header-container">
                     <h4 class="t3-space t3-profile">Profile</h4>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                    </div>
                     <p class="t3-content" id="Display_Summary">{{personal_info.summary}}
                     </p>
                   </div>
                   <hr>
-
+                  {% if exp_info %}
                   <div class="t3-experience">
                     <div class="work-exp">
+                      <div class="experience-header-container">
                       <h4 class="t3-space t3-profile">Experience</h4>
+                      <div title="Edit" class="edit-icon-container">
+                        <a href="/edit_experience_choice">
+                          <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                        </a>
+                      </div>
+                    </div>
+                    {% for x in exp_info %}
                       <div class="exp1">
-                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="Display_Designation">Data Analyst</h5>
-                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 12px; margin-top: 0px;">Haegl
-                          Technologies Private Limited</span> <br>
-                        <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;"
-                          id="Display_From">2020</span> - <span class="t3-edu-date"
-                          style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">2023</span><br>
+                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="Display_Designation">{{x.designation}}</h5>
+                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 13px; margin-top: 0px;"><strong>{{x.company_name}}</strong></span> <br>
+                        <span class="t3-edu-date" style="font-size: 13px; margin-top: 0px; margin-bottom: 0px;"
+                          id="Display_From">{{x.from_date}}</span> - <span class="t3-edu-date"
+                          style="font-size: 13px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">{{x.to_date}}</span><br>
 
-                        <p class="t3-content" id="Display_Description">Prototyped an average of 15 new products in a
-                          year, Increased user experience by 20% <br>
-                          Implemented coding best practices that reduced rework by 25% and cost by 12% <br>
-                          Received a website award for Best Navigation and Structure 2019</p>
+                        <p class="t3-content" id="Display_Description">{{x.description}}</p>
 
                       </div>
+                      {% endfor %}
                       <div class="experience-side" id="experience-side' + experienceCount">
                         <!-- Placeholder for experience display -->
                       </div>
                     </div>
                   </div>
+                  {% endif %}
                   <hr>
-                  <div class="t3-project">
-                    <h4 class="t3-space t3-profile">Project</h4>
-                    <div class="pro1">
-                      <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">Fees Management
-                        System</h5>
-                      <span style="font-size: 12px;">Tools used | </span>
-                      <span id="displayTools" class="t3-edu-date" style="font-size: 12px; margin-top: 0px;">Python,
-                        django, sql, excel</span> <br>
 
-                      <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing
-                        website. User-friendly web-based Fees management System that automated entire fee processing
-                        workflow by integrating secure payment gateway. Students can crack their fees and pay
-                        accordingly through Razor pay gateway.</p>
+                  <div class="t3-project projects project-sec">
+                    <div class="project-header-container">
+                    <h4 class="t3-space t3-profile">Project</h4>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_project">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  {% for x in pro_info %}
+                    <div class="pro1">
+                      <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">{{x.project_name}}</h5>
+                      <span style="font-size: 12px;">Tools used : </span>
+                      <span id="displayTools" class="t3-edu-date" style="font-size: 13px; margin-top: 0px;">{{x.tools_used}}</span> <br>
+                      <a href="{{x.project_link}}" style="text-decoration: none; ">{{x.project_link}}
+                        
+                      </a>
+                      <p class="t3-content" id="displayProjectDes">{{x.description}}</p>
 
                     </div>
+                    {% endfor %}
 
                   </div>
                   <hr>
-                  <div class="acheivemets-section">
-                    <h4 class="t3-space t3-profile">Achievements</h4>
-                    <ul id="achievementList">
-                      <li class="content-text">Improved product sales by 12%, which led to a 20% increase in annual
-                        revenue.</li>
-                    </ul>
-                  </div>
-                  <hr>
+              
                 </div>
               </div>
             </div>
