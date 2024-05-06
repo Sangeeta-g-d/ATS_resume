@@ -292,7 +292,11 @@ def edit_education_form(request,id):
 
 
 def extra_details(request):
-    return render(request,'extra_details.html')
+    template_id = request.session.get('template_id')
+    context = {
+        'template_id':template_id
+    }
+    return render(request,'extra_details.html',context)
 
 
 def project_details(request):
@@ -605,9 +609,9 @@ def extract_experience_details(experience_lines):
                 end_date = match.group()
     return designation, company_name, start_date, end_date
 
-def template1(request):
+def template1(request,id):
     user_id = request.user.id
-    template_id = request.session.get('template_id')
+    template_id = id
     data = TemplatesInfo.objects.get(id=template_id)
     template_html_id = data.id_name
     personal_info = Header.objects.get(user_id_id=user_id)

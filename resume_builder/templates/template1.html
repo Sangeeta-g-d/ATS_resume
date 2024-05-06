@@ -345,22 +345,8 @@
 
               {% if exp_info %}
               <div class="experience">
-                <h5>Experience</h5>
-                {% for x in exp %}
-                <div class="sub_heading1">
-                  <div>
-                    <p id="Display_Designation">{{x.designation}}</p>
-                  </div>
-                  <div>
-                    <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span
-                        id="Display_To">{{x.to_date}}</span></p>
-                  </div>
-                </div>
-                <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
-
-                <p class="exp" id="Display_Description">{{x.description}}
-                </p>
-                {% endfor %}
+                
+                
                 <div id="experienceContainer"></div>
                 <div class="experience-header-container">
                   <h5>Experience</h5>
@@ -533,24 +519,26 @@
           </script>
         </div>
         <div id="template2" style="display: none;" class="content_wrapper template-div">
-
           <div id="dynamicContent">
-
-
             <div id="temp1" class="temp3">
-              <div class="temp3-header" >
+              <div class="temp3-header">
                 <div class="temp3-header-left">
-                  {% if personal_info.first_name and personal_info.last_name %}
-                  <h3 class="t3-space"> <span id="Display_Fname">{{personal_info.first_name}}</span> <span
-                      id="Display_Lname">{{personal_info.last_name}} </span></h3>
-                  {% endif %}
-                  {% if personal_info.linkedin_url %}
-                  <p class="content-text" id="Display_lnkedin">{{personal_info.linkedin_url}}</p>
-                  {% endif %}
+                    <div class="fname">
+                        {% if personal_info.first_name and personal_info.last_name %}
+                            <h3 class="t3-space"> <span id="Display_Fname">{{personal_info.first_name}}</span> <span id="Display_Lname">{{personal_info.last_name}} </span></h3>
+                        {% endif %}
+                        {% if personal_info.linkedin_url %}
+                            <p class="content-text" id="Display_lnkedin">{{personal_info.linkedin_url}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="edit-icon2" style="display: none;" title="Edit">
+                        <a href="/edit_personal_info">
+                            <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                        </a>
+                    </div>
                 </div>
-
-              </div>
-
+            </div>
+            
               <div style="display: flex;">
                 <div class="temp3-left">
                   <div class="personal-info">
@@ -1115,8 +1103,9 @@
         <!-- Container for image rows -->
         <div class="image-grid">
           {% for image_url in temp_data %}
+
               <div class="image-item">
-                  <img src="/{{ image_url.template_image }}" alt="Image">
+                 <a href="/template1/{{image_url.id}}"><img src="/{{ image_url.template_image }}" alt="Image"></a> 
               </div>
           {% endfor %}
       </div>
@@ -1207,6 +1196,7 @@
   <script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
   <script src="/static/home_assets/js/tiny-slider.js"></script>
   <script src="/static/home_assets/js/custom.js"></script>
+  
 </body>
 
 </html>

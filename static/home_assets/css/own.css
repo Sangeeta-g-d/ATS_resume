@@ -63,8 +63,14 @@
 .image-item img {
     width: 100%; /* Images take up full width of their container */
     height: 230px; /* Maintain aspect ratio */
-    border: 2px solid #222222; /* Optional border for images */
+    border: 2px solid #222222;
+    transition: transform 0.3s, box-shadow 0.3s; /* Optional border for images */
     /* Optional rounded corners */
+}
+.image-item img:hover {
+    transform: scale(1.05); /* Slightly increase the size of the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+    border-color: #0055aa; /* Change the border color (optional) */
 }
 
 .subtag{
@@ -83,7 +89,7 @@
     border-radius: 10px; /* Adjust border style and color as needed */   
 }
 
-.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container{
+.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container, .temp3-header-left{
     display: flex; /* Use flexbox to align elements in a row */
     justify-content: space-between; /* Space out the heading and edit icon */
     align-items: center; /* Vertically center the items */
@@ -290,4 +296,15 @@
 }
 .projects_sec:hover .edit-icon-container{
     display: block;
+}
+
+
+/* template2 */
+.temp3-header-left:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.temp3-header-left:hover .edit-icon2 {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
 }
