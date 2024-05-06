@@ -306,9 +306,43 @@
     <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
      
             <div class="card-header">
-                Project 1
-                <!-- Edit Icon -->
-               
+                Project
+
+                <img src="/static/home_assets/images/trash.png" onclick="deleteProject('{{ x.id }}')" alt="Delete" width="23" height="23px" style="margin-left: 85%" >
+
+                <script>
+                    function deleteProject(projectId) {
+                        if (confirm('Are you sure you want to delete this project?')) {
+                            // Send an AJAX request to delete the project
+                            fetch('/delete_project/' + projectId + '/', {
+                                method: 'DELETE',
+                                headers: {
+                                    'X-CSRFToken': '{{ csrf_token }}'
+                                }
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    // Project deleted successfully, remove it from the UI immediately
+                                    const projectCard = document.querySelector(`[data-id="${projectId}"]`);
+                                    if (projectCard) {
+                                        projectCard.remove();
+                                    }
+                                } else {
+                                    // Handle errors
+                                    console.error('Failed to delete project');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                        }
+                    }
+                </script>
+                
+                <a href="/edit_project_form/{{x.id}}/{{template_id}}" >
+                    <img src="/static/home_assets/images/edit_icon.png" width="23px" height="23px"  alt="Edit icon">
+                  </a>
+
             </div>
             <div class="card-body" style="background-color: #eff2f1;">
                 <h5 class="card-title">{{x.project_name}}</h5>
@@ -332,7 +366,7 @@
                     <div id="projectFormContainer" class="form-container" style="display: none;">
         
                         <!-- Form -->
-                        <form id="projectForm" action="edit_project_details" class="row g-6" style="background-color: transparent;" method="post">
+                        <form id="projectForm" action="/edit_project_details/{{template_id}}" class="row g-6" style="background-color: transparent;" method="post">
                             {% csrf_token %}
                             <div class="row g-6">
                                 <div class="col-lg-6">
@@ -366,7 +400,7 @@
                    
                 </div>
                 <div class="button-container" style="text-align: right; margin-top: 20px;">
-                  <a href="/template1"> <button  class="btn btn-primary me-2">Save and Next</button></a> 
+                  <a href="/template1/{{template_id}}"> <button  class="btn btn-primary me-2">Save and Next</button></a> 
                 </div>
             </div>
         </div>

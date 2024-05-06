@@ -335,7 +335,7 @@
 
                 <!-- Add edit icon element -->
                 <div class="edit-icon" title="Edit">
-                  <a href="/edit_personal_info">
+                  <a href="/edit_personal_info/{{template_id}}">
                     <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                   </a>
                 </div>
@@ -349,7 +349,7 @@
                 <div class="experience-header-container">
                   <h5>Experience</h5>
                   <div title="Edit" class="edit-icon-container">
-                    <a href="/edit_experience_choice">
+                    <a href="/edit_experience_choice/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -386,7 +386,7 @@
                   <div class="education-header-container">
                     <h5>Education</h5>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_education_choice">
+                      <a href="/edit_education_choice/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -412,11 +412,7 @@
                   </div>
 
                   <!-- Add edit icon element -->
-                  <div class="edit-icon" title="Edit">
-                    <a href="#">
-                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                    </a>
-                  </div>
+                 
                   {% endfor %}
                 </div>
               </div>
@@ -427,7 +423,7 @@
                 <div class="project-header-container">
                   <h5>Projects</h5>
                   <div title="Edit" class="edit-icon-container">
-                    <a href="/edit_project">
+                    <a href="/edit_project/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -459,7 +455,7 @@
                 <div class="skills-header-container">
                   <h5>Skills</h5>
                   <div title="Edit" class="edit-icon-container">
-                    <a href="#">
+                    <a href="/edit_personal_info/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -532,7 +528,7 @@
                         {% endif %}
                     </div>
                     <div class="edit-icon2" style="display: none;" title="Edit">
-                        <a href="/edit_personal_info">
+                        <a href="/edit_personal_info/{{template_id}}">
                             <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                         </a>
                     </div>
@@ -545,7 +541,7 @@
                     <div class="experience-header-container">
                       <h4 class="t3-space" style="font-size: 17px;">Contact</h4>
                       <div title="Edit" class="edit-icon-container">
-                        <a href="/edit_experience_choice">
+                        <a href="/edit_personal_info/{{template_id}}">
                           <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                         </a>
                       </div>
@@ -562,7 +558,7 @@
                     <div class="skills-header-container">
                     <h4 class="t3-space" style="font-size: 17px;">Skills</h4>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="#">
+                      <a href="/edit_personal_info/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -579,7 +575,7 @@
                   <div class="t3-edu education-side"><div class="education-header-container">
                     <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Education</h4>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_education_choice">
+                      <a href="/edit_education_choice/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -644,7 +640,7 @@
                     <div class="skills-header-container">
                     <h4 class="t3-space t3-profile">Profile</h4>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="#">
+                      <a href="/edit_personal_info/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -659,7 +655,7 @@
                       <div class="experience-header-container">
                       <h4 class="t3-space t3-profile">Experience</h4>
                       <div title="Edit" class="edit-icon-container">
-                        <a href="/edit_experience_choice">
+                        <a href="/edit_experience_choice/{{template_id}}">
                           <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                         </a>
                       </div>
@@ -688,7 +684,7 @@
                     <div class="project-header-container">
                     <h4 class="t3-space t3-profile">Project</h4>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_project">
+                      <a href="/edit_project/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -768,7 +764,7 @@
 
                 <!-- Add edit icon element -->
                 <div class="edit-icon3" title="Edit">
-                  <a href="/edit_personal_info">
+                  <a href="/edit_personal_info/{{template_id}}">
                     <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                   </a>
                 </div>
@@ -780,7 +776,7 @@
                 <div class="experience-header-container">
                   <h5 class="nt3-heading">Work Experience</h5>
                   <div title="Edit" class="edit-icon3">
-                    <a href="/edit_experience_choice">
+                    <a href="/edit_experience_choice/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -800,7 +796,7 @@
                 <div class="project-header-container">
                   <h5 class="nt3-heading">Projects</h5>
                   <div title="Edit" class="edit-icon3">
-                    <a href="/edit_experience_choice">
+                    <a href="/edit_project/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -823,7 +819,7 @@
                 <div class="education-header-container">
                   <h5 class="nt3-heading">Education</h5>
                   <div title="Edit" class="edit-icon3">
-                    <a href="/edit_experience_choice">
+                    <a href="/edit_education_choice/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>
@@ -849,7 +845,7 @@
                   <div class="skills-header-container">
                     <h5 class="nt3-heading">Skills</h5>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="#">
+                      <a href="/edit_personal_info/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -927,7 +923,7 @@
                           </h3>
                           <!-- Add the edit icon container here -->
                           <div class="edit-icon4" title="Edit">
-                              <a href="/edit_personal_info">
+                              <a href="/edit_personal_info/{{template_id}}">
                                   <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                               </a>
                           </div>
@@ -959,7 +955,7 @@
                       
                   </div>
                   <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_experience_choice">
+                      <a href="/edit_experience_choice/{{template_id}}">
                           <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                   </div>
@@ -1000,7 +996,7 @@
                       
                   </div>
                   <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_experience_choice">
+                      <a href="/edit_project/{{template_id}}">
                           <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                   </div>
@@ -1042,7 +1038,7 @@
                   <div class="education-header-container">
                     <h3 style="font-size: 18px;">Education</h3>
                     <div title="Edit" class="edit-icon-container">
-                      <a href="/edit_education_choice">
+                      <a href="/edit_education_choice/{{template_id}}">
                         <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                       </a>
                     </div>
@@ -1074,9 +1070,7 @@
 
                   <!-- Add edit icon element -->
                   <div class="edit-icon" title="Edit">
-                    <a href="#">
-                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                    </a>
+                    
                   </div>
                   {% endfor %}
                 </div>
@@ -1089,7 +1083,7 @@
                 <div class="skills-header-container">
                   <h3 style="font-size: 18px;">Skills</h3>
                   <div title="Edit" class="edit-icon-container">
-                    <a href="#">
+                    <a href="/edit_personal_info/{{template_id}}">
                       <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
                   </div>

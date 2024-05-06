@@ -291,10 +291,47 @@
 			</div>
 			<div class="main-content" id="main-content">
 				<div style="margin-top: 70px;">
+                    <h2 class="mb-4 section-title1" style="color: #222222;">Elevate Your Academic Achievements</h2>
+<p style="font-size: 15px; color: #222222;">Your educational background illuminates the foundation of your expertise, showcasing your dedication, skills acquired, and academic accolades.</p>
+
                     {% for x in details %}
                     <div class="card" style="border-radius: 10px; margin-bottom: 30px;">
                         <div class="card-header">
-                          Education 1
+                          Education &nbsp;
+                          
+                            <!-- Add delete icon here -->      
+        <img src="/static/home_assets/images/trash.png" onclick="deleteEducation('{{ x.id }}')" alt="Delete" width="25" height="25" style="margin-left: 85%;">
+                           
+                            
+                            
+        <script>
+            function deleteEducation(educationId) {
+                if (confirm('Are you sure you want to delete this education entry?')) {
+                    // Send an AJAX request to delete the education entry
+                    fetch('/delete_education/' + educationId + '/', {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Education entry deleted successfully, remove it from the UI
+                            const educationCard = document.querySelector(`[data-id="${educationId}"]`);
+                            if (educationCard) {
+                                educationCard.remove();
+                            }
+                        } else {
+                            // Handle errors
+                            console.error('Failed to delete education entry');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            }
+            </script>
                         </div>
                         <div class="card-body" style="background-color: #eff2f1;">
                           <h5 class="card-title">{{x.college_name}}</h5>
