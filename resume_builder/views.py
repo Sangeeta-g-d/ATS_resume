@@ -49,12 +49,7 @@ def registration(request):
 
         passw = make_password(password)
         user = NewUser.objects.create(username=first_name, last_name=last_name, password=passw, email=email, contact_no=contact_no)
-
-        # Display a success message
-        return render(request, 'registration.html', {'success_message': 'Registration successful!'})
-        user = NewUser.objects.create(first_name=first_name,last_name=last_name,password=passw,email=email,phone_no=contact_no,)
-        success_message = f"Registered successfully!"
-        return redirect('login_view')
+        return redirect('/login')
     return render(request, 'registration.html')
 
 
@@ -65,8 +60,8 @@ def login_view(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('resumes')
             return redirect('/resumes')
+           
         else:
            
             messages.error(request, 'Invalid email or password. Please try again.')
@@ -109,7 +104,7 @@ def delete_experience(request, experience_id):
         pass  # Handle error gracefully
 
     # Redirect to a suitable page after deletion
-    return redirect('add_experience_choice')
+    return redirect('/add_experience_choice')
 
 
 
@@ -190,14 +185,14 @@ def personal_info(request, id):
             if user_skills:
                 user_skills.skills = skills
                 user_skills.save()
-                return redirect('add_experience_choice')
+                return redirect('/add_experience_choice')
         else:
             user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
             if not user_skills:
                 data=User_skills.objects.create(skills=skills,user_id_id=user_id)
             if user:
-                return redirect('add_experience_choice')
+                return redirect('/add_experience_choice')
     context = {
         't_image':t_image,
         'user_obj':user_obj,
@@ -235,14 +230,14 @@ def extracted_personal_info(request, id):
             if user_skills:
                 user_skills.skills = skills
                 user_skills.save()
-                return redirect('extracted_experience_choice')
+                return redirect('/extracted_experience_choice')
         else:
             user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
             if not user_skills:
                 data=User_skills.objects.create(skills=skills,user_id_id=user_id)
             if user:
-                return redirect('extracted_experience_choice')
+                return redirect('/extracted_experience_choice')
     
     context = {
         't_image':t_image,'details':details,'ex_details':ex_details
@@ -251,7 +246,6 @@ def extracted_personal_info(request, id):
 
 def edit_personal_info(request,id):
     user_id=request.user.id
-    print
     details=Header.objects.get(user_id_id=user_id)
     skills=User_skills.objects.get(user_id_id=user_id)
     if request.method == 'POST':
@@ -264,7 +258,7 @@ def edit_personal_info(request,id):
         skills.skills=request.POST.get('skills')
         details.save()
         skills.save()
-        return redirect('template1',id)
+        return redirect('/template1/{}'.format(id))
     context = {
         'details':details,'skills':skills
     }
@@ -289,7 +283,7 @@ def work_history(request):
                                          to_date=to_date, description=description, user_id_id=id)
         if data:
             print("jjjjjjjjjjjjjj")
-            return redirect('add_experience_choice')
+            return redirect('/add_experience_choice')
     return render(request, 'work_history.html')
 
 
@@ -310,10 +304,11 @@ def edit_add_work_history(request,id):
         data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
                                          to_date=to_date, description=description, user_id_id=user_id)
         if data:
-            return redirect('edit_experience_choice',id)
+            return redirect('/edit_experience_choice/{}'.format(id))
     return render(request, 'edit_add_work_history.html')
 
 def edit_work_history(request,id,template_id):
+    print("hhhhhhhhhhhhhh",template_id)
     user_id = request.user.id
     details=Experience.objects.get(id=id)
     if request.method == 'POST':
@@ -327,7 +322,7 @@ def edit_work_history(request,id,template_id):
             # If "To Present" checkbox is checked, set to_date to the current date
             details.to_date ='Present'  # Format to match your field type
         details.save()
-        return redirect('edit_experience_choice',template_id)
+        return redirect('/edit_experience_choice/{}'.format(template_id))
     context={'details':details}
     return render(request, 'edit_work_history.html',context)
 
@@ -343,7 +338,7 @@ def education(request):
         data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
                                       to_date=to_date,city=city,cgpa=cgpa,user_id_id=user_id)
         if data:
-            return redirect('add_education_choice')
+            return redirect('/add_education_choice')
     return render(request,'education.html')
 
 
@@ -359,7 +354,7 @@ def edit_education(request,id):
         data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
                                       to_date=to_date,city=city,cgpa=cgpa,user_id_id=user_id)
         if data:
-            return redirect('edit_education_choice',id)
+            return redirect('/edit_education_choice/{}'.format(id))
     return render(request,'edit_education.html')
 
 
@@ -374,7 +369,7 @@ def edit_education_form(request,id,template_id):
         details.city = request.POST.get('city')
         details.cgpa = request.POST.get('cgpa')
         details.save()
-        return redirect('edit_education_choice',template_id)
+        return redirect('/edit_education_choice/{}'.format(template_id))
     context={'details':details}
     return render(request,'edit_education_form.html',context)
 
@@ -396,7 +391,7 @@ def project_details(request):
         description = request.POST.get('description')
         data = Project.objects.create(project_name=project_name, project_link=link, tools_used=tools,
                                       description=description, user_id_id=id)
-        return redirect('extra_details')
+        return redirect('/extra_details')
 
 
 def certificates(request):
@@ -404,7 +399,7 @@ def certificates(request):
     if request.method == 'POST':
         certificates = request.POST.get('certificates')
         data = Certificates.objects.create(certificates=certificates,user_id_id=id)
-        return redirect('extra_details')
+        return redirect('/extra_details')
 
 
 def languages(request):
@@ -412,7 +407,7 @@ def languages(request):
     if request.method == 'POST':
         languages_known = request.POST.get('languages_known')
         data = Languages.objects.create(languages_known=languages_known,user_id_id=id)
-        return redirect('extra_details')
+        return redirect('/extra_details')
 
 
 def edit_project(request,id):
@@ -431,7 +426,7 @@ def edit_project_form(request,id,template_id):
         details.link = request.POST.get('link')
         details.description = request.POST.get('description')
         details.save()
-        return redirect('edit_project',template_id)
+        return redirect('/edit_project/{}'.format(template_id))
     context={'details':details}
     return render(request,'edit_project_form.html',context)
 
@@ -444,7 +439,7 @@ def edit_project_details(request,id):
         description = request.POST.get('description')
         data = Project.objects.create(project_name=project_name, project_link=link, tools_used=tools,
                                       description=description, user_id_id=user_id)
-        return redirect('edit_project',id)
+        return redirect('/edit_project/{}'.format(id))
 
 
 
@@ -463,7 +458,7 @@ def extracted_work_history(request):
         data = Experience.objects.create(designation=designation, company_name=company_name, from_date=from_date,
                                          to_date=to_date, description=description, user_id_id=user_id)
         if data:
-            return redirect('extracted_experience_choice')
+            return redirect('/extracted_experience_choice')
     context={'details':details}
     return render(request, 'extracted_work_history.html',context)
 
@@ -488,7 +483,7 @@ def extracted_education(request):
         data=Education.objects.create(college_name=college_name,degree=degree,from_date=from_date,
                                       to_date=to_date,city=city,cgpa=cgpa,user_id_id=user_id)
         if data:
-            return redirect('extracted_education_choice')
+            return redirect('/extracted_education_choice')
     context={'id':id,'details':details}
     return render(request,'extracted_education.html',context)
 
@@ -501,8 +496,10 @@ def extracted_education_choice(request):
 
 
 def extracted_extra_details(request):
-    context={'id':id}
-    return render(request,'extracted_extra_details.html')
+    template_id = request.session.get('template_id')
+    print("iiiiiiii",template_id)
+    context={'template_id':template_id}
+    return render(request,'extracted_extra_details.html',context)
 
 
 
@@ -515,7 +512,7 @@ def resume_options(request, id):
         resume_path = Resume.objects.last().resume_file.path
         resume_details = extract_and_store_resume_data(resume_path, id, request.user.id)
         # Assuming 'personal_info' is the URL name for the next page
-        return redirect('extracted_personal_info', id=id)
+        return redirect('/extracted_personal_info/{}'.format(id))
     return render(request, 'resume_options.html', {'id': id})
 
 def extract_and_store_resume_data(resume_path,id, user_id):
