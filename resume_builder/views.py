@@ -194,11 +194,10 @@ def personal_info(request, id):
         else:
             user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
+            if not user_skills:
+                data=User_skills.objects.create(skills=skills,user_id_id=user_id)
             if user:
                 return redirect('add_experience_choice')
-        if not user_skills:
-            data=User_skills.objects.create(skills=skills,user_id_id=user_id)
-        
     context = {
         't_image':t_image,
         'user_obj':user_obj,
@@ -207,6 +206,48 @@ def personal_info(request, id):
     return render(request,'personal_info.html',context)
 
 
+
+def extracted_personal_info(request, id):
+    temp_image = TemplatesInfo.objects.get(id=id)
+    print(temp_image.template_image)
+    t_image = temp_image.template_image
+    user_id=request.user.id
+    details=NewUser.objects.filter(id=user_id).first()
+    ex_details=Extracted_ResumeDetails.objects.filter(user_id_id=user_id).order_by('-id').first()
+    user_obj = Header.objects.filter(user_id_id=user_id).first()
+    user_skills = User_skills.objects.filter(user_id_id=user_id).first()
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        contact_no = request.POST.get('contact_no')
+        linkedin = request.POST.get('linkedin')
+        summary = request.POST.get('summary')
+        skills=request.POST.get('skills')
+        if user_obj:
+            user_obj.first_name = first_name
+            user_obj.last_name = last_name
+            user_obj.email = email
+            user_obj.contact_no = contact_no
+            user_obj.linkedin_url = linkedin
+            user_obj.summary = summary
+            user_obj.save()
+            if user_skills:
+                user_skills.skills = skills
+                user_skills.save()
+                return redirect('extracted_experience_choice')
+        else:
+            user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
+                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
+            if not user_skills:
+                data=User_skills.objects.create(skills=skills,user_id_id=user_id)
+            if user:
+                return redirect('extracted_experience_choice')
+    
+    context = {
+        't_image':t_image,'details':details,'ex_details':ex_details
+    }
+    return render(request,'extracted_personal_info.html',context)
 
 def edit_personal_info(request,id):
     user_id=request.user.id
@@ -405,31 +446,6 @@ def edit_project_details(request,id):
                                       description=description, user_id_id=user_id)
         return redirect('edit_project',id)
 
-
-def extracted_personal_info(request, id):
-    temp_image = TemplatesInfo.objects.get(id=id)
-    print(temp_image.template_image)
-    t_image = temp_image.template_image
-    user_id=request.user.id
-    details=NewUser.objects.filter(id=user_id).first()
-    ex_details=Extracted_ResumeDetails.objects.filter(user_id_id=user_id).order_by('-id').first()
-    if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        email = request.POST.get('email')
-        contact_no = request.POST.get('contact_no')
-        linkedin = request.POST.get('linkedin')
-        summary = request.POST.get('summary')
-        skills=request.POST.get('skills')
-        user=Header.objects.create(first_name=first_name,last_name=last_name,email=email,
-                              contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
-        data=User_skills.objects.create(skills=skills,user_id_id=user_id)
-        if user:
-            return redirect('extracted_experience_choice')
-    context = {
-        't_image':t_image,'details':details,'ex_details':ex_details
-    }
-    return render(request,'extracted_personal_info.html',context)
 
 
 def extracted_work_history(request):

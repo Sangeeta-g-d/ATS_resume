@@ -308,3 +308,27 @@
 .temp3-header-left:hover .edit-icon2 {
     display: block !important; /* Display the edit icon when hovering over temp3-header-left */
 }
+.personal-info:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.personal-info:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
+.t3-profile-summary:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.t3-profile-summary:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
+.work-exp:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.work-exp:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
