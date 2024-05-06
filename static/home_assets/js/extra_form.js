@@ -32,3 +32,4 @@ addlanguages.addEventListener('click',() => {
         languagesFormContainer.style.display = 'none'
     }
 });
+
