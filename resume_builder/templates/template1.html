@@ -7,6 +7,7 @@
 */ -->
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,696 +17,1196 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-		<!-- Bootstrap CSS -->
-		<link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
-		<link href="/static/home_assets/css/style.css" rel="stylesheet">
-        <link href="/static/home_assets/css/own.css" rel="stylesheet">
-        <link href="/static/home_assets/css/template1.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
+  <link href="/static/home_assets/css/style.css" rel="stylesheet">
+  <link href="/static/home_assets/css/own.css" rel="stylesheet">
+  <link href="/static/home_assets/css/template1.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
-		<title>Resume Builder</title>
-		<style>
-		/* CSS for the navigation bar */
-		/* CSS for the navigation bar */
-		.custom-navbar {
-    height: 45px; /* Set height to your desired value */
-    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
-    backdrop-filter: blur(15px); /* Adjust the blur effect */
-    position: fixed; /* Keep the navbar fixed at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-}
-
-/* Adjust navbar links */
-.custom-navbar .navbar-nav .nav-link {
-   /* Set text color as desired */
-    line-height: 50px; /* Align links to the center vertically */
-}
-
-/* Optional: adjust other elements for compatibility with the smaller navbar height */
-.custom-navbar .navbar-brand,
-.custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
-}
-
-
-
-
-.resume_options {
-    width: 530px;
-	height:280px;
-   
-    border: 2px solid #222222;
-    border-radius: 25px;
-    transition: border-width 0.3s ease; /* Add transition */
-}
-
-.resume_options:hover {
-	border-color:  #0d6efd;;
-    border-width: 5px; /* Increase border width on hover */
-}
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .section-title1 {
-        font-size: 1.5rem; /* Decrease font size for smaller screens */
+  <title>Resume Builder</title>
+  <style>
+    /* CSS for the navigation bar */
+    /* CSS for the navigation bar */
+    .custom-navbar {
+      height: 45px;
+      /* Set height to your desired value */
+      background-color: rgba(255, 255, 255, 0.779) !important;
+      /* Semi-transparent white background */
+      backdrop-filter: blur(15px);
+      /* Adjust the blur effect */
+      position: fixed;
+      /* Keep the navbar fixed at the top */
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      /* Ensure it stays on top of other content */
     }
+
+    /* Adjust navbar links */
+    .custom-navbar .navbar-nav .nav-link {
+      /* Set text color as desired */
+      line-height: 50px;
+      /* Align links to the center vertically */
+    }
+
+    /* Optional: adjust other elements for compatibility with the smaller navbar height */
+    .custom-navbar .navbar-brand,
+    .custom-navbar .navbar-toggler {
+      line-height: 50px;
+      /* Align brand and toggler button */
+    }
+
+
+
+
     .resume_options {
-        margin-bottom: 2rem; /* Add some space between options on smaller screens */
+      width: 530px;
+      height: 280px;
+
+      border: 2px solid #222222;
+      border-radius: 25px;
+      transition: border-width 0.3s ease;
+      /* Add transition */
     }
-}
 
-/* Further adjustments for smaller screens if necessary */
-@media (max-width: 576px) {
-    .section-title1 {
-        font-size: 1.2rem; /* Further decrease font size for very small screens */
+    .resume_options:hover {
+      border-color: #0d6efd;
+      ;
+      border-width: 5px;
+      /* Increase border width on hover */
     }
-}
+
+    /* Adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .section-title1 {
+        font-size: 1.5rem;
+        /* Decrease font size for smaller screens */
+      }
+
+      .resume_options {
+        margin-bottom: 2rem;
+        /* Add some space between options on smaller screens */
+      }
+    }
+
+    /* Further adjustments for smaller screens if necessary */
+    @media (max-width: 576px) {
+      .section-title1 {
+        font-size: 1.2rem;
+        /* Further decrease font size for very small screens */
+      }
+    }
 
 
-.container1 {
-    display: flex; /* Sets flexbox layout */
-    height: 100vh; /* Sets the height to full viewport height */
-}
-
-/* Sidebar */
-.sidebar {
-    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
-    height: 100%; /* Makes the sidebar full height of the container */
-    padding: 20px; /* Adds padding to the sidebar */
-    background-color: #222222; /* Sets background color */
-    color: white; /* Sets text color to white */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-    transition: width 0.3s; /* Transition effect when changing width */
-}
-
-.sidebar.hidden {
-    width: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-
-/* Main Content */
-.main-content {
-    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
-    padding: 40px; /* Adds padding to the main content */
-    height: 100%; /* Makes the main content full height of the container */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-}
-
-.main-content.full-width {
-    flex-grow: 1;
-    width: 100vw;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
     .container1 {
-        flex-direction: column;
+      display: flex;
+      /* Sets flexbox layout */
+      height: 100vh;
+      /* Sets the height to full viewport height */
     }
 
+    /* Sidebar */
     .sidebar {
+      min-width: 253px;
+      /* Adjusts the width of the sidebar as per your preference */
+      height: 100%;
+      /* Makes the sidebar full height of the container */
+      padding: 20px;
+      /* Adds padding to the sidebar */
+      background-color: #222222;
+      /* Sets background color */
+      color: white;
+      /* Sets text color to white */
+      box-sizing: border-box;
+      /* Ensures padding is included in width */
+      overflow-y: auto;
+      /* Allows scrolling if content overflows */
+      transition: width 0.3s;
+      /* Transition effect when changing width */
+    }
+
+    .sidebar.hidden {
+      width: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+
+    /* Main Content */
+    .main-content {
+      flex-grow: 1;
+      /* Allows main content to grow and take up the remaining space */
+      padding: 40px;
+      /* Adds padding to the main content */
+      height: 100%;
+      /* Makes the main content full height of the container */
+      box-sizing: border-box;
+      /* Ensures padding is included in width */
+      overflow-y: auto;
+      /* Allows scrolling if content overflows */
+    }
+
+    .main-content.full-width {
+      flex-grow: 1;
+      width: 100vw;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container1 {
+        flex-direction: column;
+      }
+
+      .sidebar {
         width: 0;
         padding: 0;
         overflow: hidden;
-    }
+      }
 
-    .main-content {
+      .main-content {
         flex-grow: 1;
         width: 100vw;
+      }
     }
-}
-/* Tracking System */
-.tracking-system {
-    margin-top: 90px;
-    padding: 10px;
-    background-color: #4d4d4d;
-    border-radius: 5px;
-}
 
-.tracking-system h3 {
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
+    /* Tracking System */
+    .tracking-system {
+      margin-top: 90px;
+      padding: 10px;
+      background-color: #4d4d4d;
+      border-radius: 5px;
+    }
 
-.tracking-steps {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
+    .tracking-system h3 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
 
-.step {
-    padding: 10px;
-    margin-bottom: 5px;
-    color: #a7a7a7;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+    .tracking-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
 
-.step:hover {
-    background-color: #8b8b8b;
-    color: #fff;
-}
+    .step {
+      padding: 10px;
+      margin-bottom: 5px;
+      color: #a7a7a7;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
 
-.step.active {
-    background-color: #8b8b8b;
-    color: #fff;
-    font-weight: bold;
-}
+    .step:hover {
+      background-color: #8b8b8b;
+      color: #fff;
+    }
 
-/* Step numbers */
-.step-number {
-    background-color: #0d6efd;
-    color: #fff;
-    border-radius: 50%;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 14px;
-}
+    .step.active {
+      background-color: #8b8b8b;
+      color: #fff;
+      font-weight: bold;
+    }
 
-/* Linking lines */
-.tracking-steps .step:not(:last-child)::after {
-    content: '';
-    height: 40px;
-    border-left: 2px solid #555;
-    display: block;
-    position: absolute;
-    top: calc(50% + 15px);
-    left: 15px;
-    z-index: -1;
-}
+    /* Step numbers */
+    .step-number {
+      background-color: #0d6efd;
+      color: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-/* Arrow mark */
-.tracking-steps .step:not(:last-child)::after {
-    content: '▼'; /* Unicode character for a downward arrow */
-    font-size: 12px;
-    color: #fff;
-    display: block;
-    position: absolute;
-    bottom: -10px;
-    left: calc(50% - 6px); /* Center the arrow */
-}
-</style>
+    /* Linking lines */
+    .tracking-steps .step:not(:last-child)::after {
+      content: '';
+      height: 40px;
+      border-left: 2px solid #555;
+      display: block;
+      position: absolute;
+      top: calc(50% + 15px);
+      left: 15px;
+      z-index: -1;
+    }
+
+    /* Arrow mark */
+    .tracking-steps .step:not(:last-child)::after {
+      content: '▼';
+      /* Unicode character for a downward arrow */
+      font-size: 12px;
+      color: #fff;
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: calc(50% - 6px);
+      /* Center the arrow */
+    }
+  </style>
 
 
-		</style>
-	</head>
+  </style>
+</head>
 
-	<body>
+<body>
 
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
-						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
-						
-						
-					</ul>
-					
-				</div>
-			</div>
-		</nav>
-		
-		<!-- End Header/Navigation -->
-<div class="hero">
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+        aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li><a class="nav-link" href="/resumes">Choose Templates</a></li>
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- End Header/Navigation -->
+  <div class="hero">
     <div class="final-container">
-        <div class="temp">
-            <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
-            <span class="subtag">Review, edit and download.</span>
-            <div id="downloadBtn" class="download" style="border: 1px solid #222222; text-align: center;height: 5%;margin-left: 75%;border-radius: 10px;">
-                <img style="width: 32px; height: 30px; margin-top: 9%;" src="/static/home_assets/images/download.png">
-                <p style="color: #222222; margin: 0;">Download</p>
-            </div>
-            <div id="template1"  style="display: none;" class="content_wrapper template-div">
-                
-                <div id="dynamicContent" >
+      <div class="temp">
+        <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
+        <span class="subtag">Review, edit and download.</span>
+       
+        <div id="template1" style="display: none;" class="content_wrapper template-div">
+
+          <div id="dynamicContent">
+            <div>
+              <div class="header">
+                {% if personal_info.first_name and personal_info.last_name %}
+                <h3>
+                  <span id="Display_Fname">{{personal_info.first_name}}</span>&nbsp;
+                  <span id="Display_Lname">{{personal_info.last_name}}</span>
+                </h3>
+                {% endif %}
+
+                <p>
+                  <span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span
+                      id="Display_Email">{{personal_info.email}}</span></span>
+                  <span>&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span
+                      id="Display_Phoneno">{{personal_info.contact_no}}</span></span>
+                </p>
+
+                {% if personal_info.linkedin_url %}
+                <p><i class="fab fa-linkedin"></i> <span id="Display_lnkedin">{{personal_info.linkedin_url}}</span></p>
+                {% endif %}
+
+                <hr>
+
+                <div class="resume_content">
+                  <h5>Summary</h5>
+                  <p class="summary" id="Display_Summary">{{personal_info.summary}}</p>
+                </div>
+
+                <!-- Add edit icon element -->
+                <div class="edit-icon" title="Edit">
+                  <a href="/edit_personal_info">
+                    <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                  </a>
+                </div>
+              </div>
+
+              <hr>
+
+              {% if exp_info %}
+              <div class="experience">
+                <h5>Experience</h5>
+                {% for x in exp %}
+                <div class="sub_heading1">
                   <div>
-                    <div class="header">
-                      {% if personal_info.first_name and personal_info.last_name %}
-                      <h3>
-                          <span id="Display_Fname">{{personal_info.first_name}}</span>&nbsp;
-                          <span id="Display_Lname">{{personal_info.last_name}}</span>
-                      </h3>
-                      {% endif %}
-              
-                      <p>
-                          <span><i class="far fa-envelope"></i>&nbsp;&nbsp;<span id="Display_Email">{{personal_info.email}}</span></span>
-                          <span>&nbsp;&nbsp;<i class="fas fa-phone">&nbsp;&nbsp;</i><span id="Display_Phoneno">{{personal_info.contact_no}}</span></span>
-                      </p>
-              
-                      {% if personal_info.linkedin_url %}
-                      <p><i class="fab fa-linkedin"></i> <span id="Display_lnkedin">{{personal_info.linkedin_url}}</span></p>
-                      {% endif %}
-              
-                      <hr>
-              
-                      <div class="resume_content">
-                          <h5>Summary</h5>
-                          <p class="summary" id="Display_Summary">{{personal_info.summary}}</p>
-                      </div>
-              
-                      <!-- Add edit icon element -->
-                      <div class="edit-icon" title="Edit">
-                          <a href="/edit_personal_info">
-                              <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                          </a>
-                      </div>
+                    <p id="Display_Designation">{{x.designation}}</p>
                   </div>
-              
-                  <hr>
-              
-                  {% if exp_info %}
-                  <div class="experience">
-                    <h5>Experience</h5>
-                    {% for x in exp %}
+                  <div>
+                    <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span
+                        id="Display_To">{{x.to_date}}</span></p>
+                  </div>
+                </div>
+                <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
+
+                <p class="exp" id="Display_Description">{{x.description}}
+                </p>
+                {% endfor %}
+                <div id="experienceContainer"></div>
+                <div class="experience-header-container">
+                  <h5>Experience</h5>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="/edit_experience_choice">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                {% for x in exp_info %}
+                <div class="exp-container">
+                  <div class="sub_heading1">
+                    <div>
+                      <p id="Display_Designation">{{x.designation}}</p>
+                    </div>
+
+                    <div>
+                      <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span
+                          id="Display_To">{{x.to_date}}</span></p>
+                    </div>
+                  </div>
+                  <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
+                  <p class="exp" id="Display_Description">
+                    {{x.description}}
+                  </p>
+
+                  <!-- Add edit icon element -->
+
+                </div>
+                {% endfor %}
+
+              </div>
+              <hr>
+              {% endif %}
+
+              {% if edu_info %}
+              <div class="education-side">
+                <div class="education">
+                  <div class="education-header-container">
+                    <h5>Education</h5>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_education_choice">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  {% for x in edu_info %}
+                  <div class="education-container">
                     <div class="sub_heading1">
                       <div>
-                    <p id="Display_Designation">{{x.designation}}</p></div>
-                    <div>
-                    <p class="date" ><span id="Display_From">{{x.from_date}}</span> | <span id="Display_To">{{x.to_date}}</span></p></div>
-                  </div>
-                    <p class="sub_heading2"  id="Display_Cname">{{x.company_name}}</p>
-                    
-                    <p class="exp" id="Display_Description">{{x.description}}
-                    </p>
-                    {% endfor %}
-                    <div  id="experienceContainer"></div>
-                    <div class="experience-header-container">
-                      <h5>Experience</h5>
-                      <div title="Edit" class="edit-icon-container">
-                          <a href="/edit_experience_choice">
-                              <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                          </a>
+                        <p id="displayDegree">{{x.degree}}</p>
                       </div>
-                  </div>
-                      {% for x in exp_info %}
-                      <div class="exp-container">
-                          <div class="sub_heading1">
-                              <div>
-                                  <p id="Display_Designation">{{x.designation}}</p>
-                              </div>
-                              
-                              <div>
-                                  <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span id="Display_To">{{x.to_date}}</span></p>
-                              </div>
-                          </div>
-                          <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
-                          <p class="exp" id="Display_Description">
-                              {{x.description}}
-                          </p>
-              
-                          <!-- Add edit icon element -->
-                       
+                      <div>
+                        <p class="date"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span
+                            id="displayDegreeTo">{{x.to_date}}</span></p>
                       </div>
-                      {% endfor %}
-                     
+                    </div>
+                    <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
+                    {% if x.cgpa %}
+                    <p class="sub_heading3" id="displayCity">CGPA - {{x.cgpa}}</p>
+                    {% endif %}
+                    {% if x.city %}
+                    <p class="sub_heading3" id="displayCity">{{x.city}}</p>
+                    {% endif %}
                   </div>
-                  <hr>
-                  {% endif %}
-              
-                  {% if edu_info %}
-                  <div class="education-side">
-                      <div class="education">
-                        <div class="education-header-container">
-                          <h5>Education</h5>
-                          <div title="Edit" class="edit-icon-container">
-                            <a href="/edit_education_choice">
-                                <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                            </a>
-                        </div>
-                        </div>
-                          {% for x in edu_info %}
-                          <div class="education-container">
-                              <div class="sub_heading1">
-                                  <div>
-                                      <p id="displayDegree">{{x.degree}}</p>
-                                  </div>
-                                  <div>
-                                      <p class="date"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span id="displayDegreeTo">{{x.to_date}}</span></p>
-                                  </div>
-                              </div>
-                              <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
-                              {% if x.cgpa %}
-                              <p class="sub_heading3" id="displayCity">CGPA - {{x.cgpa}}</p>
-                              {% endif %}
-                              {% if x.city %}
-                              <p class="sub_heading3" id="displayCity">{{x.city}}</p>
-                              {% endif %}
-                          </div>
-              
-                          <!-- Add edit icon element -->
-                          <div class="edit-icon" title="Edit">
-                              <a href="#">
-                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                              </a>
-                          </div>
-                          {% endfor %}
-                      </div>
+
+                  <!-- Add edit icon element -->
+                  <div class="edit-icon" title="Edit">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
                   </div>
-                  <hr>
-                  {% endif %}
-                  
-               <div class="projects project-sec">
+                  {% endfor %}
+                </div>
+              </div>
+              <hr>
+              {% endif %}
+
+              <div class="projects project-sec">
                 <div class="project-header-container">
                   <h5>Projects</h5>
                   <div title="Edit" class="edit-icon-container">
                     <a href="/edit_project">
-                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
-                </div>
-                </div>
-                    <div class="sub_heading1">
-                      <div>
-                    <p id="displayProjectName">Resume Builder</p></div>
-                   
                   </div>
-                    <p class="sub_heading2">Tools Used | <span id="displayTools">Python, Django, Html, CSS</span></p>
-                    <a href="https://haegl.in/" style="text-decoration: none;"><p class="sub_heading2"><span id="displayTools">https://haegl.in/</span></p></a>
-                    <p class="projects" id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam 
-                      autem sed quibusdam necessitatibus    
-                    </p>
-                    <div style="margin-top: 5px;" id="projectsContainer"></div>
-               </div>
-              
-               <hr>
-               {% if skills_list %}
-               <div class="skills">
+                </div>
+                <div class="sub_heading1">
+                  <div>
+                    <p id="displayProjectName">Resume Builder</p>
+                  </div>
+
+                </div>
+                <p class="sub_heading2">Tools Used | <span id="displayTools">Python, Django, Html, CSS</span></p>
+                <a href="https://haegl.in/" style="text-decoration: none;">
+                  <p class="sub_heading2"><span id="displayTools">https://haegl.in/</span></p>
+                </a>
+                <p class="projects" id="displayProjectDes">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Illum repellendus, perspiciatis accusamus dolorem debitis doloremque ut vel error neque, consequatur
+                  impedit dolore aspernatur voluptatum necessitatibus autem sed quibusdam necessitatibus autem sed
+                  quibusdam .autem sed quibusdam necessitatibus autem sed quibusdam
+                  autem sed quibusdam necessitatibus
+                </p>
+                <div style="margin-top: 5px;" id="projectsContainer"></div>
+              </div>
+
+              <hr>
+              {% if skills_list %}
+              <div class="skills">
                 <div class="skills-header-container">
                   <h5>Skills</h5>
                   <div title="Edit" class="edit-icon-container">
                     <a href="#">
-                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
-                </div>
+                  </div>
                 </div>
                 <ul id="three_col_list">
                   {% for x in skills_list %}
                   <li>{{ x }}</li>
                   {% endfor %}
-              </ul>
-               </div>
-               <hr>
-               {% endif %}
-               {% if certificates_info %}
-               <div class="certificate_sec">
+                </ul>
+              </div>
+              <hr>
+              {% endif %}
+              {% if certificates_info %}
+              <div class="certificate_sec">
                 <div class="certificates-header-container">
                   <h5>Certificates</h5>
                   <div title="Edit" class="edit-icon-container">
                     <a href="#">
-                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                     </a>
-                </div>
+                  </div>
                 </div>
                 <p class="summary" id="Display_Summary">{{certificates_info.certificates}}</p>
-            </div>
-            {% endif %}
-            {% if lang_list %}
-            <div class="languages_sec">
-             <div class="languages-header-container">
-               <h5>Languages Known</h5>
-               <div title="Edit" class="edit-icon-container">
-                 <a href="#">
-                     <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
-                 </a>
-             </div>
-             </div>
-             <ul class="three_col_list">
-               {% for x in lang_list %}
-               <li>{{ x }}</li>
-               {% endfor %}
-           </ul>
-            </div>
-            <hr>
-            {% endif %}
-             
-             
-                </div>
               </div>
-              <script>
-                // Check if content exceeds A4 size
-                window.addEventListener('beforeprint', function () {
-                  var contentWrapper = document.querySelector('.content_wrapper');
-                  var wrapperHeight = contentWrapper.scrollHeight;
-                  if (wrapperHeight > 297) { // 297mm is A4 height
-                    alert("The content exceeds the A4 size. Please optimize the content for printing.");
-                  }
-                });
-              </script>
-            </div>
-            <div id="template2" style="display: none;" class="content_wrapper template-div">
-               
-                <div id="dynamicContent">
-                  
-                 
-                  <div  id="temp1" class="temp3">
-                    <div   class="temp3-header" style="display: flex;">
-                    <div class="temp3-header-left">
-                        {% if personal_info.first_name and personal_info.last_name %}
-                        <h3 class="t3-space"> <span id="Display_Fname">{{personal_info.first_name}}</span> <span id="Display_Lname">{{personal_info.last_name}} </span></h3>
-                        {% endif %}
-                        {% if personal_info.linkedin_url %}
-                        <p class="content-text" id="Display_lnkedin">{{personal_info.linkedin_url}}</p>
-                        {% endif %}
-                    </div>
-                   
+              {% endif %}
+              {% if lang_list %}
+              <div class="languages_sec">
+                <div class="languages-header-container">
+                  <h5>Languages Known</h5>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
                 </div>
-                
-               <div style="display: flex;">
+                <ul class="three_col_list">
+                  {% for x in lang_list %}
+                  <li>{{ x }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <hr>
+              {% endif %}
+
+
+            </div>
+          </div>
+          <script>
+            // Check if content exceeds A4 size
+            window.addEventListener('beforeprint', function () {
+              var contentWrapper = document.querySelector('.content_wrapper');
+              var wrapperHeight = contentWrapper.scrollHeight;
+              if (wrapperHeight > 297) { // 297mm is A4 height
+                alert("The content exceeds the A4 size. Please optimize the content for printing.");
+              }
+            });
+          </script>
+        </div>
+        <div id="template2" style="display: none;" class="content_wrapper template-div">
+
+          <div id="dynamicContent">
+
+
+            <div id="temp1" class="temp3">
+              <div class="temp3-header" >
+                <div class="temp3-header-left">
+                  {% if personal_info.first_name and personal_info.last_name %}
+                  <h3 class="t3-space"> <span id="Display_Fname">{{personal_info.first_name}}</span> <span
+                      id="Display_Lname">{{personal_info.last_name}} </span></h3>
+                  {% endif %}
+                  {% if personal_info.linkedin_url %}
+                  <p class="content-text" id="Display_lnkedin">{{personal_info.linkedin_url}}</p>
+                  {% endif %}
+                </div>
+
+              </div>
+
+              <div style="display: flex;">
                 <div class="temp3-left">
-                    <div class="personal-info">
-                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> {{personal_info.contact_no}} </span><br>
-                        <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> {{personal_info.email}}</span><br>
-                       
+                  <div class="personal-info">
+                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno">
+                        {{personal_info.contact_no}} </span><br>
+                      <i class="far fa-envelope"></i> &nbsp;&nbsp; <span id="Display_Email">
+                        {{personal_info.email}}</span><br>
+
                     </p>
-                </div><hr>
-                <div class="t3-skills">
+                  </div>
+                  <hr>
+                  <div class="t3-skills">
                     <h4 class="t3-space" style="font-size: 17px;">Skills</h4>
                     <ul class="t3-ul" id="skillsList">
-                        <li class="t3-content">Python</li>
-                        <li class="t3-content">Good Communication</li>
-                        <li class="t3-content">MS Excel</li>
-                        <li class="t3-content">Django</li>
-                        <li class="t3-content">Time Management</li>
+                      <li class="t3-content">Python</li>
+                      <li class="t3-content">Good Communication</li>
+                      <li class="t3-content">MS Excel</li>
+                      <li class="t3-content">Django</li>
+                      <li class="t3-content">Time Management</li>
                     </ul>
-                </div><hr>
-                <div class="t3-edu">
+                  </div>
+                  <hr>
+                  <div class="t3-edu">
                     <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Education</h4>
                     <div class="education-side">
                       <div class="education1">
-                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">Bachelor of Science</h5>
-                    
-                    
-                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeFrom">2020</span> | <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeTo">2023</span><br>
-                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCollege">Kle College of Science</span> <br>
-                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCity">Hubli</span>
+                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">Bachelor of Science
+                        </h5>
+
+
+                        <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;"
+                          id="displayDegreeFrom">2020</span> | <span class="t3-edu-date"
+                          style="font-size: 10px; margin-top: 0px;" id="displayDegreeTo">2023</span><br>
+                        <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCollege">Kle
+                          College of Science</span> <br>
+                        <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;"
+                          id="displayCity">Hubli</span>
+                      </div>
                     </div>
                   </div>
-                </div><hr>
-                <div class="lang-section">
+                  <hr>
+                  <div class="lang-section">
                     <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Languages Known</h4>
-                        <ul class="t3-ul" id="languageList">
-                          <li class="content-text">English</li>
-                          <li class="content-text">Hindi</li>
-                          <li class="content-text">Kannada</li>
+                    <ul class="t3-ul" id="languageList">
+                      <li class="content-text">English</li>
+                      <li class="content-text">Hindi</li>
+                      <li class="content-text">Kannada</li>
 
-                        </ul>
-                      </div>
-                <hr>
+                    </ul>
+                  </div>
+                  <hr>
                 </div>
                 <div class="temp3-right">
-                    <div class="t3-profile-summary">
-                        <h4 class="t3-space t3-profile">Profile</h4>
-                        <p class="t3-content" id="Display_Summary">{{personal_info.summary}}
-                            </p>
-                    </div><hr>
-                    
-                    <div class="t3-experience">
-                      <div class="work-exp">
+                  <div class="t3-profile-summary">
+                    <h4 class="t3-space t3-profile">Profile</h4>
+                    <p class="t3-content" id="Display_Summary">{{personal_info.summary}}
+                    </p>
+                  </div>
+                  <hr>
+
+                  <div class="t3-experience">
+                    <div class="work-exp">
                       <h4 class="t3-space t3-profile">Experience</h4>
                       <div class="exp1">
                         <h5 class="t3-subheading" style="margin-bottom: 0px;" id="Display_Designation">Data Analyst</h5>
-                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 12px; margin-top: 0px;">Haegl Technologies Private Limited</span> <br>
-                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_From">2020</span> - <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">2023</span><br>
-                  
-                    <p class="t3-content" id="Display_Description">Prototyped an average of 15 new products in a year, Increased user experience by 20% <br>
-                      Implemented coding best practices that reduced rework by 25% and cost by 12% <br>
-                      Received a website award for Best Navigation and Structure 2019</p>
-                    
+                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 12px; margin-top: 0px;">Haegl
+                          Technologies Private Limited</span> <br>
+                        <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;"
+                          id="Display_From">2020</span> - <span class="t3-edu-date"
+                          style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">2023</span><br>
+
+                        <p class="t3-content" id="Display_Description">Prototyped an average of 15 new products in a
+                          year, Increased user experience by 20% <br>
+                          Implemented coding best practices that reduced rework by 25% and cost by 12% <br>
+                          Received a website award for Best Navigation and Structure 2019</p>
+
+                      </div>
+                      <div class="experience-side" id="experience-side' + experienceCount">
+                        <!-- Placeholder for experience display -->
+                      </div>
                     </div>
-                    <div class="experience-side" id="experience-side' + experienceCount">
-                      <!-- Placeholder for experience display -->
+                  </div>
+                  <hr>
+                  <div class="t3-project">
+                    <h4 class="t3-space t3-profile">Project</h4>
+                    <div class="pro1">
+                      <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">Fees Management
+                        System</h5>
+                      <span style="font-size: 12px;">Tools used | </span>
+                      <span id="displayTools" class="t3-edu-date" style="font-size: 12px; margin-top: 0px;">Python,
+                        django, sql, excel</span> <br>
+
+                      <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing
+                        website. User-friendly web-based Fees management System that automated entire fee processing
+                        workflow by integrating secure payment gateway. Students can crack their fees and pay
+                        accordingly through Razor pay gateway.</p>
+
                     </div>
-                    </div>
-                    </div><hr>
-                    <div class="t3-project">
-                      <h4 class="t3-space t3-profile">Project</h4>
-                      <div class="pro1">
-                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">Fees Management System</h5>
-                        <span style="font-size: 12px;">Tools used | </span>
-                        <span id="displayTools" class="t3-edu-date" style="font-size: 12px; margin-top: 0px;">Python, django, sql, excel</span> <br>
-                                   
-                    <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing website. User-friendly web-based Fees management System that automated entire fee processing workflow by integrating secure payment gateway. Students can crack their fees and pay accordingly through Razor pay gateway.</p>
-                    
-                    </div>
-                    
-                    </div>
-                    <hr>
-                    <div class="acheivemets-section">
-                      <h4 class="t3-space t3-profile">Achievements</h4>
-                      <ul id="achievementList">
-                        <li class="content-text">Improved product sales by 12%, which led to a 20% increase in annual
-                          revenue.</li>
-                      </ul>
-                    </div>
-                    <hr>
-                    </div>
+
+                  </div>
+                  <hr>
+                  <div class="acheivemets-section">
+                    <h4 class="t3-space t3-profile">Achievements</h4>
+                    <ul id="achievementList">
+                      <li class="content-text">Improved product sales by 12%, which led to a 20% increase in annual
+                        revenue.</li>
+                    </ul>
+                  </div>
+                  <hr>
                 </div>
-               </div>
-               </div>
-               <script>
-                document.getElementById("downloadBtn").addEventListener("click", function() {
-                    // Select the element containing the content you want to download
-                    var element = document.getElementById("temp1");
-                
-                    // Options for the PDF generation
-                    var opt = {
-                        margin: 0.5,
-                        filename: 'resume.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2 },
-                        jsPDF: { 
-                            unit: 'in', 
-                            format: 'a4', // Set the format to A4 size
-                            orientation: 'portrait' // Set the orientation to portrait
-                        }
-                    };
-                
-                    // Convert HTML to PDF
-                    html2pdf()
-                        .from(element)
-                        .set(opt)
-                        .save();
-                });
-                </script>
-                </div>
-          
-        </div>
-       
-        <div class="temp-styles">styles</div>
-    </div>	  
-		</div>
-		<!-- End Hero Section -->
-		
-			
-	 <!-- JavaScript for tracking steps -->
-	 <script>
-        const trackingSteps = document.querySelectorAll('.tracking-steps .step');
+              </div>
+            </div>
+          </div>
+          <script>
+            document.getElementById("downloadBtn").addEventListener("click", function () {
+              // Select the element containing the content you want to download
+              var element = document.getElementById("temp1");
 
-        trackingSteps.forEach((step, index) => {
-            step.addEventListener('click', () => {
-                // Remove the active class from all steps
-                trackingSteps.forEach(s => s.classList.remove('active'));
-
-                // Add the active class to the clicked step
-                step.classList.add('active');
-
-                // Optionally, handle the step change logic here
-                console.log(`Step ${index + 1} clicked`);
-            });
-        });
-    </script>
-	
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to handle the download button click event
-            document.getElementById("downloadBtn").addEventListener("click", function() {
-                // Select the visible template
-                var visibleTemplate = document.querySelector('.content_wrapper.template-div[style="display: block;"]');
-    
-                // Options for the PDF generation
-                var opt = {
-                    margin: 0.5,
-                    filename: 'resume.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { 
-                        unit: 'in', 
-                        format: 'a4', // Set the format to A4 size
-                        orientation: 'portrait' // Set the orientation to portrait
-                    }
-                };
-    
-                // Convert HTML to PDF
-                html2pdf()
-                    .from(visibleTemplate)
-                    .set(opt)
-                    .save();
-            });
-    
-            // Function to control which div is displayed based on template_html_id
-            function displayTemplate(templateHtmlId) {
-                // Get all divs with the class 'template-div'
-                const templateDivs = document.querySelectorAll('.template-div');
-    
-                // Hide all divs
-                templateDivs.forEach(div => {
-                    div.style.display = 'none';
-                });
-    
-                // Display the div with the corresponding id if it matches the templateHtmlId
-                const templateToDisplay = document.getElementById(templateHtmlId);
-                if (templateToDisplay) {
-                    templateToDisplay.style.display = 'block';
+              // Options for the PDF generation
+              var opt = {
+                margin: 0.5,
+                filename: 'resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: {
+                  unit: 'in',
+                  format: 'a4', // Set the format to A4 size
+                  orientation: 'portrait' // Set the orientation to portrait
                 }
-            }
-    
-            // Get the template_html_id from context
-            const templateHtmlId = "{{ template_html_id }}";
-    
-            // Call the function to display the appropriate div
-            displayTemplate(templateHtmlId);
-        });
-    </script>
-    
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+              };
 
-		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
-		<script src="/static/home_assets/js/tiny-slider.js"></script>
-		<script src="/static/home_assets/js/custom.js"></script>
-	</body>
+              // Convert HTML to PDF
+              html2pdf()
+                .from(element)
+                .set(opt)
+                .save();
+            });
+          </script>
+        </div>
+        <div id="template3" style="display: none;" class="content_wrapper template-div">
+          <div id="dynamicContent">
+            <div>
+              <div class="nt3-header">
+                <div class="nt3-summary">
+                  {% if personal_info.first_name and personal_info.last_name %}
+                  <h3 class="nt3-name">
+                    <span>{{personal_info.first_name}}</span>&nbsp;
+                    <span id="Display_Lname">{{personal_info.last_name}}</span>
+                  </h3>
+                  {% endif %}
+                  <p class="summary" id="Display_Summary">{{personal_info.summary}}</p>
+
+                </div>
+
+                <div class="nt3-contact">
+                  <h5 class="nt3-heading">contact</h5>
+                  <p>
+                    <span>{{personal_info.email}}</span><br>
+                    <span>{{personal_info.contact_no}}</span>
+                    {% if personal_info.linkedin_url %}
+                    <span>{{personal_info.linkedin_url}}</span>
+                    {% endif %}
+                  </p>
+
+                </div>
+
+                <!-- Add edit icon element -->
+                <div class="edit-icon3" title="Edit">
+                  <a href="/edit_personal_info">
+                    <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                  </a>
+                </div>
+              </div>
+
+
+              {% if exp_info %}
+              <div class="nt3-work-exp">
+                <div class="experience-header-container">
+                  <h5 class="nt3-heading">Work Experience</h5>
+                  <div title="Edit" class="edit-icon3">
+                    <a href="/edit_experience_choice">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                {% for x in exp_info %}
+                <div>
+                  <h6 class="nt3-sub-heading"> <span>{{x.designation}}</span> | <span>{{x.company_name}}</span></h6>
+                  <p style="margin-bottom: 0px;"> <span>{{x.from_date}}</span> - <span>{{x.to_date}}</span></p>
+                  <p style="margin-top: 0px;">{{x.description}}</p>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              {% if pro_info %}
+              <div class="nt3-project">
+                <div class="project-header-container">
+                  <h5 class="nt3-heading">Projects</h5>
+                  <div title="Edit" class="edit-icon3">
+                    <a href="/edit_experience_choice">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                {% for x in pro_info %}
+                <div>
+                  <h6 class="nt3-sub-heading"> <span>{{x.project_name}}</span></h6>
+                  <p style="margin-bottom: 0px;"> <span>Tools Used</span> - <span>{{x.tools_used}}</span></p>
+                  <p style="margin-top: 0px; margin-bottom: 0px;">{{x.description}}</p>
+                  {% if x.project_link %}
+                  <p style="margin-top: 0px;">{{x.project_link}}</p>
+                  {% endif %}
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              {% if exp_info %}
+              <div class="nt3-edu">
+                <div class="education-header-container">
+                  <h5 class="nt3-heading">Education</h5>
+                  <div title="Edit" class="edit-icon3">
+                    <a href="/edit_experience_choice">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                {% for x in edu_info %}
+                <div>
+                  <h6 class="nt3-sub-heading"> <span>{{x.degree}}</span> {% if x.cgpa %}
+                    <span> | CGPA - {{x.cgpa}}</span>
+                    {% endif %}
+                  </h6>
+                  <p style="margin-bottom: 0px;"> <span>{{x.college_name}}</span>
+                    {% if x.city %}- <span>{{x.city}}</span>{% endif %}</p>
+
+                  <p style="margin-bottom: 0px;"> <span>{{x.from_date}}</span> | <span>{{x.to_date}}</span></p>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+
+              <div class="nt3-last">
+                <div class="skills">
+                  <div class="skills-header-container">
+                    <h5 class="nt3-heading">Skills</h5>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  <ul id="three_col_list">
+                    {% for x in skills_list %}
+                    <li>{{ x }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% if lang_list %}
+                <div class="nt3-languages">
+                  <!-- Move the heading and edit icon outside of the skills-header-container div -->
+                  <div class="languages-header-container">
+                    <h5 class="nt3-heading">Languages</h5>
+                    <div title="Edit" class="edit-icon3">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Unordered list of languages -->
+                  <ul>
+                    {% for x in lang_list %}
+                    <li>{{ x }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+                {% endif %}
+                {% if certificates_info %}
+                <div class="nt3-certificates">
+                  <div class="certificates-header-container">
+                    <h5 class="nt3-heading">Certificates</h5>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="#">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  <p>{{certificates_info.}}</p>
+                </div>
+                {% endif %}
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+          <script>
+            // Check if content exceeds A4 size
+            window.addEventListener('beforeprint', function () {
+              var contentWrapper = document.querySelector('.content_wrapper');
+              var wrapperHeight = contentWrapper.scrollHeight;
+              if (wrapperHeight > 297) { // 297mm is A4 height
+                alert("The content exceeds the A4 size. Please optimize the content for printing.");
+              }
+            });
+          </script>
+        </div>
+
+        <div id="template4" class="content_wrapper template-div">
+          <div id="dynamicContent">
+            <div id="temp1">
+              <div class="resume-wrapper id=extra">
+                <div class="t4-resume-header">
+                  <div class="t4-header">
+                      <div class="header-container">
+                          {% if personal_info.first_name and personal_info.last_name %}
+                          <h3 class="name-heading">
+                              <b><span>{{ personal_info.first_name }}</span> &nbsp;<span id="Display_Lname">{{ personal_info.last_name }}</span></b>
+                          </h3>
+                          <!-- Add the edit icon container here -->
+                          <div class="edit-icon4" title="Edit">
+                              <a href="/edit_personal_info">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                              </a>
+                          </div>
+                          {% endif %}
+                      </div>
+              
+                      <div class="contact-info">
+                          <p><b>Email :</b> <span id="Display_Email">{{ personal_info.email }}</span> </p>
+                          <p><b>Phone :</b> <span id="Display_Phoneno"> {{ personal_info.contact_no }}</span></p>
+                      </div>
+                      
+                      {% if personal_info.linkedin_url %}
+                      <p><b>LinkedIn :</b> <a href="{{ personal_info.linkedin_url }}"><span>{{ personal_info.linkedin_url }}</span></a></p>
+                      {% endif %}
+                  </div>
+              
+                  <div class="summary">
+                      <h3 style="font-size: 18px;">Profile Summary</h3>
+                      <p style="font-size: 12px;">{{ personal_info.summary }}</p>
+                  </div>
+              </div>
+              
+              
+              {% if exp_info %}
+              <div class="experience">         
+                <div class="experience-header-container">
+                  <div class="experience-heading-container">
+                      <h3 style="font-size: 18px;">Experience</h3>
+                      
+                  </div>
+                  <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_experience_choice">
+                          <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                  </div>
+                  
+              </div>
+              <hr class="experience-divider">
+                {% for x in exp_info %}
+                <div class="exp-container">
+                  <div>
+                    <div>
+                      <p style="font-size: 18px;">
+                        <strong>{{x.designation}}</strong></p>
+                    </div>
+                    <p class="sub_heading2" id="Display_Cname"><strong> {{x.company_name}}</strong></p>
+                    <div>
+                      <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span
+                          id="Display_To">{{x.to_date}}</span></p>
+                    </div>
+                  </div>
+                 
+                  <p class="exp" id="Display_Description">
+                    {{x.description}}
+                  </p>
+
+                  <!-- Add edit icon element -->
+
+                </div>
+                {% endfor %}
+
+              </div>
+              
+              {% endif %}
+              {% if pro_info %}
+              <div class="projects_sec">         
+                <div class="project-header-container">
+                  <div class="project-heading-container">
+                      <h3 style="font-size: 18px;">Projects</h3>
+                      
+                  </div>
+                  <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_experience_choice">
+                          <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                  </div>
+                  
+              </div>
+              <hr class="experience-divider">
+                {% for x in pro_info %}
+                <div class="pro-container">
+                  <div>
+                    <div>
+                      <p style="font-size: 18px; margin-bottom:0px;">
+                        <strong>{{x.project_name}}</strong></p>
+                    </div>
+                   
+                    <div>
+                      <p style="font-size: 14px; margin-top: 0px; margin-bottom: 0px;"><strong><span id="displayProjectTools"> Tools used :
+                      </span></strong><span id="displayTools">{{x.tools_used}} </span></p>
+                    </div>
+                  </div>
+                 
+                  <p style="margin-bottom: 0px;" id="Display_Description">
+                    {{x.description}}
+                  </p>
+                  {% if x.project_link %}
+                  <p style="margin-top: 0px;">{{x.project_link}}</p>
+                  {% endif %}
+
+                  <!-- Add edit icon element -->
+
+                </div>
+                {% endfor %}
+
+              </div>
+              
+              {% endif %}
+              {% if edu_info %}
+              <div class="education-side">
+                <div class="education">
+                  <div class="education-header-container">
+                    <h3 style="font-size: 18px;">Education</h3>
+                    <div title="Edit" class="edit-icon-container">
+                      <a href="/edit_education_choice">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                      </a>
+                    </div>
+                  </div>
+                  <hr class="experience-divider">
+                  {% for x in edu_info %}
+                  <div class="education-container">
+                    <div class="sub_heading1">
+                      <div>
+                        <p ><strong>{{x.degree}}</strong></p>
+                      </div>
+                      <div>
+                        {% if x.cgpa %}
+                        <p class="date"><span id="displayDegreeFrom">CGPA</span> | <span
+                            id="displayDegreeTo">{{x.cgpa}}</span></p>
+                            {% endif %}
+                      </div>
+                    </div>
+                    
+                    <p class="date"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span
+                        id="displayDegreeTo">{{x.to_date}}</span></p>
+                       
+                    <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
+                    
+                    {% if x.city %}
+                    <p class="sub_heading3" id="displayCity">{{x.city}}</p>
+                    {% endif %}
+                  </div>
+
+                  <!-- Add edit icon element -->
+                  <div class="edit-icon" title="Edit">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+             
+              {% endif %}
+              
+              {% if skills_list %}
+              <div class="skills">
+                <div class="skills-header-container">
+                  <h3 style="font-size: 18px;">Skills</h3>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                <hr class="experience-divider">
+                <ul id="three_col_list">
+                  {% for x in skills_list %}
+                  <li>{{ x }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              {% if certificates_info %}
+              <div class="certificate_sec">
+                <div class="certificates-header-container">
+                  <h3 style="font-size: 18px;">Certificates</h3>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                <hr class="experience-divider">
+                <p class="summary" id="Display_Summary">{{certificates_info.certificates}}</p>
+              </div>
+              {% endif %}
+             
+              {% if lang_list %}
+              <div class="languages_sec">
+                <div class="languages-header-container">
+                  <h3 style="font-size: 18px;">Languages</h3>
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="#">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                  </div>
+                </div>
+                <hr class="experience-divider">
+                <ul class="three_col_list">
+                  {% for x in lang_list %}
+                  <li>{{ x }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+             
+              {% endif %}
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="temp-styles">
+        <!-- Existing card content -->
+        <div class="resume-card">
+            <h3>Download Resume</h3>
+            <p>Click the link below to download your resume:</p>
+        </div>
+    
+        <!-- Download button -->
+        <div style="align-items: center; margin-top: 20px; margin-right: 140px;">
+            <div id="downloadBtn" class="download" style="border: 1px solid #222222; text-align: center; height: 5%; border-radius: 10px;">
+                <img style="width: 32px; height: 30px; margin-top: 9%;" src="/static/home_assets/images/download.png">
+                <p style="color: #222222; margin: 0;">Download</p>
+            </div>
+        </div>
+    
+        <!-- Container for image rows -->
+        <div class="image-grid">
+          {% for image_url in temp_data %}
+              <div class="image-item">
+                  <img src="/{{ image_url.template_image }}" alt="Image">
+              </div>
+          {% endfor %}
+      </div>
+      
+    </div>
+    
+    
+    </div>
+  </div>
+  <!-- End Hero Section -->
+
+
+  <!-- JavaScript for tracking steps -->
+  <script>
+    const trackingSteps = document.querySelectorAll('.tracking-steps .step');
+
+    trackingSteps.forEach((step, index) => {
+      step.addEventListener('click', () => {
+        // Remove the active class from all steps
+        trackingSteps.forEach(s => s.classList.remove('active'));
+
+        // Add the active class to the clicked step
+        step.classList.add('active');
+
+        // Optionally, handle the step change logic here
+        console.log(`Step ${index + 1} clicked`);
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Function to handle the download button click event
+      document.getElementById("downloadBtn").addEventListener("click", function () {
+        // Select the visible template
+        var visibleTemplate = document.querySelector('.content_wrapper.template-div[style="display: block;"]');
+
+        // Options for the PDF generation
+        var opt = {
+          margin: 0.5,
+          filename: 'resume.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: {
+            unit: 'in',
+            format: 'a4', // Set the format to A4 size
+            orientation: 'portrait' // Set the orientation to portrait
+          }
+        };
+
+        // Convert HTML to PDF
+        html2pdf()
+          .from(visibleTemplate)
+          .set(opt)
+          .save();
+      });
+
+      // Function to control which div is displayed based on template_html_id
+      function displayTemplate(templateHtmlId) {
+        // Get all divs with the class 'template-div'
+        const templateDivs = document.querySelectorAll('.template-div');
+
+        // Hide all divs
+        templateDivs.forEach(div => {
+          div.style.display = 'none';
+        });
+
+        // Display the div with the corresponding id if it matches the templateHtmlId
+        const templateToDisplay = document.getElementById(templateHtmlId);
+        if (templateToDisplay) {
+          templateToDisplay.style.display = 'block';
+        }
+      }
+
+      // Get the template_html_id from context
+      const templateHtmlId = "{{ template_html_id }}";
+
+      // Call the function to display the appropriate div
+      displayTemplate(templateHtmlId);
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+  <script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/home_assets/js/tiny-slider.js"></script>
+  <script src="/static/home_assets/js/custom.js"></script>
+</body>
 
 </html>

@@ -18,9 +18,55 @@
     padding-bottom: 100px;
 }
 .temp-styles{
-    border: 1px solid rgb(35, 154, 77);
+  
     flex: 1;
+   
 }
+.resume-card {
+    border: 2px solid #222222; /* Add a border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Add padding */
+    width: 400px; /* Set the width */
+    text-align: center; /* Center the text */
+}
+
+/* Styles for the heading */
+.resume-card h3 {
+    margin-bottom: 10px; /* Add spacing below the heading */
+    font-size: 20px; /* Set font size */
+    color: #333; /* Set text color */
+}
+
+/* Styles for the paragraph */
+.resume-card p {
+    margin-bottom: 15px; /* Add spacing below the paragraph */
+    font-size: 14px; /* Set font size */
+    color: #666; /* Set text color */
+}
+
+/* Container for image rows */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap; /* Wrap images in rows */
+    justify-content: center; /* Center the images */
+    margin-top: 20px; /* Add some space above the image grid */
+}
+
+/* Individual image item */
+.image-item {
+    flex: 0 0 50%; /* Each item takes up 50% of the container width */
+    padding: 5px; /* Add some padding around each item */
+    text-align: center; /* Center-align the images */
+}
+
+/* Image styling */
+.image-item img {
+    width: 100%; /* Images take up full width of their container */
+    height: 230px; /* Maintain aspect ratio */
+    border: 2px solid #222222; /* Optional border for images */
+    /* Optional rounded corners */
+}
+
 .subtag{
     font-size: 20px;
   
@@ -34,11 +80,10 @@
 /* Border to the left side when hovered */
 .header:hover {
     border: 3px solid #0d6efd;
-    border-radius: 10px; /* Adjust border style and color as needed */
-    
+    border-radius: 10px; /* Adjust border style and color as needed */   
 }
 
-.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container {
+.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container{
     display: flex; /* Use flexbox to align elements in a row */
     justify-content: space-between; /* Space out the heading and edit icon */
     align-items: center; /* Vertically center the items */
@@ -123,5 +168,126 @@
      /* Adjust border style and color as needed */
 }
 .languages_sec:hover .edit-icon-container{
+    display: block;
+}
+
+/* new template3 styles */
+.nt3-header{
+    display: flex;
+}
+.nt3-summary{
+    flex: 2;
+    padding-right: 10px;
+    margin-right: 15px;
+}
+.nt3-contact{
+    flex: 1;
+   padding-left: 10px;
+   margin-left: 15px;
+}
+
+.nt3-header:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px; /* Adjust border style and color as needed */   
+}
+.nt3-header:hover .edit-icon3 {
+    display: block; /* Show the icon */
+}
+.edit-icon3{
+    display: none;
+}
+.nt3-name{
+    color: #4172bb;
+}
+.nt3-heading{
+    color: #4172bb;
+}
+.nt3-sub-heading{
+    color: #0b0b0b;
+}
+.nt3-work-exp:hover{
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+}
+.nt3-work-exp:hover .edit-icon3 {
+    display: block; /* Show the icon */
+}
+.nt3-project:hover{
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+}
+.nt3-project:hover .edit-icon3 {
+    display: block; /* Show the icon */
+}
+.nt3-edu:hover{
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+}
+.nt3-edu:hover .edit-icon3 {
+    display: block; /* Show the icon */
+}
+.nt3-last{
+    display: flex;
+    justify-content: space-between;
+}
+.nt3-languages:hover{
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+}
+.nt3-languages:hover .edit-icon3 {
+    display: block; /* Show the icon */
+}
+
+
+/* template4  */
+.header-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space out the elements evenly */
+    align-items: center; /* Align items vertically */
+}
+
+/* Style for the name heading */
+.name-heading {
+    font-size: 26px;
+    font-weight: 500;
+   
+    margin: 0; /* Remove default margin */
+}
+
+
+
+/* Show the edit icon when the .header-container is hovered */
+.t4-resume-header:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+}
+/* Initially hide the edit icon */
+/* Initially hide the edit icon */
+.edit-icon4 {
+    display: none;
+    /* Adjust the position as needed */
+   
+    cursor: pointer;
+}
+
+
+
+/* Show the edit icon when the header container is hovered */
+.header-container:hover .edit-icon4 {
+    display: block; /* Display the icon */
+}
+.experience-divider {
+    border: none; /* Remove default border */
+    border-top: 3px solid #201d1d; /* Top border style */
+    margin-top: 5px; /* Adjust spacing between h3 and hr */
+    margin-bottom: 10px; /* Add spacing after hr */
+    width: 100%; /* Set width to fill the container */
+}
+.projects_sec:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+     /* Adjust border style and color as needed */
+}
+.projects_sec:hover .edit-icon-container{
     display: block;
 }

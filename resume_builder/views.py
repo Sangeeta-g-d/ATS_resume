@@ -630,6 +630,12 @@ def template1(request):
     if lang_info:
         languages_known = lang_info.languages_known
         lang_list = [x.strip() for x in languages_known.split(',')]
+
+    # templates 
+
+    temp_data = TemplatesInfo.objects.all()
+
+    
     context = {
         'template_html_id':template_html_id,
         'personal_info':personal_info,
@@ -638,7 +644,8 @@ def template1(request):
         'pro_info':pro_info,
         'skills_list':skills_list,
         'certificates_info':certificates_info,
-        'lang_list':lang_list
+        'lang_list':lang_list,
+        'temp_data':temp_data
         
     }
     return render(request,'template1.html',context)

@@ -262,138 +262,122 @@
             <span class="subtag">Review, edit and download.</span>
             
             <div class="content_wrapper">
-               
                 <div id="dynamicContent">
                   
-                 
-                  <div  id="temp1" class="temp3">
-                    <div   class="temp3-header" style="display: flex;">
-                    <div class="temp3-header-left">
-                        <h3 class="t3-space"> <span id="Display_Fname">Pavan</span> <span id="Display_Lname">Kulkarni </span></h3>
-                        <p class="content-text" id="Display_lnkedin">https://www.linkedin.com/in/sangeeta-dani-2688b6262/</p>
-                    </div>
-                   
-                </div>
-                
-               <div style="display: flex;">
-                <div class="temp3-left">
-                    <div class="personal-info">
-                    <p class="t3-profile-info"><i class="fas fa-phone"></i> &nbsp;&nbsp; <span id="Display_Phoneno"> 9867564534 </span><br>
-                        <i class="far fa-envelope"></i> &nbsp;&nbsp;  <span id="Display_Email"> kushagra34@gmail.com</span><br>
-                       
-                    </p>
-                </div><hr>
-                <div class="t3-skills">
-                    <h4 class="t3-space" style="font-size: 17px;">Skills</h4>
-                    <ul class="t3-ul" id="skillsList">
-                        <li class="t3-content">Python</li>
-                        <li class="t3-content">Good Communication</li>
-                        <li class="t3-content">MS Excel</li>
-                        <li class="t3-content">Django</li>
-                        <li class="t3-content">Time Management</li>
-                    </ul>
-                </div><hr>
-                <div class="t3-edu">
-                    <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Education</h4>
-                    <div class="education-side">
-                      <div class="education1">
-                        <h5 class="t3-subheading" id="displayDegree" style="margin-bottom: 0px;">Bachelor of Science</h5>
-                    
-                    
-                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeFrom">2020</span> | <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px;" id="displayDegreeTo">2023</span><br>
-                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCollege">Kle College of Science</span> <br>
-                     <span class="t3-edu-date" style="font-size: 12px; margin-top: 0px;" id="displayCity">Hubli</span>
-                    </div>
-                  </div>
-                </div><hr>
-                <div class="lang-section">
-                    <h4 class="t3-space" style="font-size: 17px; margin-bottom: 18px;">Languages Known</h4>
-                        <ul class="t3-ul" id="languageList">
-                          <li class="content-text">English</li>
-                          <li class="content-text">Hindi</li>
-                          <li class="content-text">Kannada</li>
 
+                  <div id="temp1">
+                       
+
+                    <div class="resume-wrapper id=extra">
+                      <div class="resume-header">
+                        <h3 style="font-size: 26px; font-weight: 500; color: #f7a336;"><b><span>Abhishek</span> &nbsp;<span id="Display_Lname">K</span></b></h3>
+                        <div class="contact-info">
+                          <p><b>Email :</b> <span id="Display_Email">example@example.com </span> </p>
+                          <p><b>Phone :</b> <span id="Display_Phoneno"> 123-456-7890 </span></p>
+                        </div>
+                        <p ><b>LinkedIn :</b> <a href="https://www.linkedin.com/in/yourprofile"><span id="Display_lnkedin">Your Profile </span></a></p>
+                      </div>
+                    
+                      <div class="summary">
+                        <h2 class="section-title" ><b>Summary</b></h2><hr>
+                        <p style="font-size: 12px;" id="Display_Summary">{{data1.summary}}
+                        </p>
+                      </div>
+                    
+                      <div class="experience">
+                        <h2 class="section-title"><b>Experience</b></h2><hr>
+                        <div class="job">
+                          <p class="job-title" style="font-size: 14px;" id="Display_Designation">
+                            {% if exp_data.designation %}
+                            {{ exp_data.designation }}
+                        {% else %}
+                            Default Designation Information
+                        {% endif %}
+                          </p>
+                         
+                          <p style="font-size: 14px;" id="Display_Cname"><strong>Haegl Technologies PVT LTD </strong></p>
+                          <p style="font-size: 14px; line-height: 1px;"> <span id="Display_From"> From date</span > - <span id="Display_To">To date</span></p>
+                          <p style="font-size: 12px;" id="Display_Description">Description of responsibilities and achievements in this role.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
+                          </p>
+                        </div>
+                        <div  id="experienceContainer"></div>
+                        <!-- Add more job experiences if needed -->
+                      </div>
+                      <div class="experience">
+                        <h2 class="section-title"><b>Projects</b></h2><hr>
+                        <div class="job">
+                          <p class="job-title" style="font-size: 14px;" id="displayProjectName">Resume Builder</p>
+                         
+                          <p style="font-size: 14px;"><strong><span id="displayProjectTools"> Tools used : </span></strong><span id="displayTools"> Python, Django, MySQL, Excel </span></p>
+                          <p style="font-size: 14px; line-height: 1px;"><strong>Link: </strong> <span id="displayProjectLink"> https://www.kickresume.com/dashboard/resumes/ </span></p>
+                          <p style="font-size: 12px;" id="displayProjectDes">Description of responsibilities and achievements in this role.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
+                          </p>
+                        </div>
+                        <div id="projectsContainer"></div>
+                    
+                        <!-- Add more job experiences if needed -->
+                      </div>
+                   
+                    
+                    
+                      <div class="education">
+                        <h2 class="section-title"><b>Education</b></h2><hr>
+                        <div class="degree">
+                          <p style="font-size: 14px; line-height: 15px;" id="displayDegree">
+                            {% if education_data.degree %}
+                                {{ education_data.degree }}
+                            {% else %}
+                                Default Degree Information
+                            {% endif %}
+                        </p>
+                          <p  style="font-size: 14px;line-height: 0%;"><span id="displayDegreeFrom"> 2015  </span> | <span id="displayDegreeTo"> 2017 </span></p>
+                        </div>
+                        
+                          <p ><span id="displayCollege">
+                      </span> -
+                      <span id="displayCity"> Dharawad </span></p>
+                        
+                          <div  id="educationContainer"></div>
+                        <!-- Add more education experiences if needed -->
+                      </div>
+                    
+                      <div class="skills">
+                        <h2 class="section-title"><b>Skills</b></h2><hr>
+                        <div id="skillsList">
+                        <ul>
+                          <li class="skill">Python </li>
+                          <li class="skill">Django</li>
+                          <li class="skill">HTML</li>
+                          <!-- Add more skills if needed -->
                         </ul>
                       </div>
-                <hr>
-                </div>
-                <div class="temp3-right">
-                    <div class="t3-profile-summary">
-                        <h4 class="t3-space t3-profile">Profile</h4>
-                        <p class="t3-content" id="Display_Summary">Enthusiastic recent graduate with a degree in
-                            Computer Science and a passion for software development.
-                            Proficient in Java and Python, with a strong foundation in algorithm design.  Eager to contribute to a dynamic team.
-                            </p>
-                    </div><hr>
-                    <div class="t3-experience">
-                      <div class="work-exp">
-                      <h4 class="t3-space t3-profile">Experience</h4>
-                      <div class="exp1">
-                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="Display_Designation">Data Analyst</h5>
-                        <span class="t3-edu-date" id="Display_Cname" style="font-size: 12px; margin-top: 0px;">Haegl Technologies Private Limited</span> <br>
-                     <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_From">2020</span> - <span class="t3-edu-date" style="font-size: 10px; margin-top: 0px; margin-bottom: 0px;" id="Display_To">2023</span><br>
-                  
-                    <p class="t3-content" id="Display_Description">Prototyped an average of 15 new products in a year, Increased user experience by 20% <br>
-                      Implemented coding best practices that reduced rework by 25% and cost by 12% <br>
-                      Received a website award for Best Navigation and Structure 2019</p>
+                      </div>
                     
-                    </div>
-                    <div class="experience-side" id="experience-side' + experienceCount">
-                      <!-- Placeholder for experience display -->
-                    </div>
-                    </div>
-                    </div><hr>
-                    <div class="t3-project">
-                      <h4 class="t3-space t3-profile">Project</h4>
-                      <div class="pro1">
-                        <h5 class="t3-subheading" style="margin-bottom: 0px;" id="displayProjectName">Fees Management System</h5>
-                        <span style="font-size: 12px;">Tools used | </span>
-                        <span id="displayTools" class="t3-edu-date" style="font-size: 12px; margin-top: 0px;">Python, django, sql, excel</span> <br>
-                                   
-                    <p class="t3-content" id="displayProjectDes">Developed a streamlined and efficient fees processing website. User-friendly web-based Fees management System that automated entire fee processing workflow by integrating secure payment gateway. Students can crack their fees and pay accordingly through Razor pay gateway.</p>
+                      <div  id="languagesKnow" class="hidden">
+                        <h2 class="section-title"><b>Languages Known</b></h2><hr>
+                        <div id="langKnown">
+                          <ul id="languageList"></ul>
+                      </div>
+                      </div>
                     
-                    </div>
-                    <div id="projectsContainer"></div>
-                    </div>
-                    <hr>
-                    <div class="acheivemets-section">
-                      <h4 class="t3-space t3-profile">Achievements</h4>
-                      <ul id="achievementList">
-                        <li class="content-text">Improved product sales by 12%, which led to a 20% increase in annual
-                          revenue.</li>
-                      </ul>
-                    </div>
-                    <hr>
-                    </div>
-                </div>
-               </div>
-               </div>
-               <script>
-                document.getElementById("downloadBtn").addEventListener("click", function() {
-                    // Select the element containing the content you want to download
-                    var element = document.getElementById("temp1");
-                
-                    // Options for the PDF generation
-                    var opt = {
-                        margin: 0.5,
-                        filename: 'resume.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2 },
-                        jsPDF: { 
-                            unit: 'in', 
-                            format: 'a4', // Set the format to A4 size
-                            orientation: 'portrait' // Set the orientation to portrait
-                        }
-                    };
-                
-                    // Convert HTML to PDF
-                    html2pdf()
-                        .from(element)
-                        .set(opt)
-                        .save();
-                });
-                </script>
-                </div>
+                      <div  class="achievements hidden">
+                        <h2 class="section-title"><b>  Achievements</b></h2><hr>
+                        <div>
+                          <ul id="achievementList"></ul>
+                      </div>
+                      </div>
+                    
+                     
+                      
+                                                       </div> 
+                                                      </div>
+            </div>
+            
+          </div>
           
         </div>
        
