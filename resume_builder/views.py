@@ -93,6 +93,37 @@ def add_experience_choice(request):
     return render(request,'add_experience_choice.html',context)
 
 
+def delete_experience(request, experience_id):
+    try:
+        # Get the experience object
+        experience = Experience.objects.get(id=experience_id)
+        # Check if the user owns this experience (optional, depending on your requirements)
+        if experience.user_id_id != request.user.id:
+            # Return an error or redirect to a page indicating unauthorized access
+            pass  # Handle unauthorized access here
+        else:
+            # Delete the experience
+            experience.delete()
+    except Experience.DoesNotExist:
+        # Handle the case where the experience with the given ID does not exist
+        pass  # Handle error gracefully
+
+    # Redirect to a suitable page after deletion
+    return redirect('add_experience_choice')
+
+
+def delete_education(request, education_id):
+    try:
+        education = Education.objects.get(id=education_id)
+        # Check if the user owns this education entry (optional, depending on your requirements)
+        if education.user_id_id != request.user.id:
+            return JsonResponse({'success': False, 'message': 'Unauthorized access'}, status=403)
+        else:
+            education.delete()
+            return JsonResponse({'success': True})
+    except Education.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Education entry not found'}, status=404)
+
 def edit_experience_choice(request):
     user_id=request.user.id
     details=Experience.objects.filter(user_id_id=user_id)
@@ -143,12 +174,12 @@ def personal_info(request, id):
             if user_skills:
                 user_skills.skills = skills
                 user_skills.save()
-                return redirect('work_history')
+                return redirect('add_experience_choice')
         else:
             user = Header.objects.create(first_name=first_name,last_name=last_name,email=email,
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
             if user:
-                return redirect('work_history')
+                return redirect('add_experience_choice')
         if not user_skills:
             data=User_skills.objects.create(skills=skills,user_id_id=user_id)
         
@@ -374,7 +405,7 @@ def extracted_personal_info(request, id):
                               contact_no=contact_no,linkedin_url=linkedin,summary=summary,user_id_id=user_id)
         data=User_skills.objects.create(skills=skills,user_id_id=user_id)
         if user:
-            return redirect('extracted_work_history')
+            return redirect('extracted_experience_choice')
     context = {
         't_image':t_image,'details':details,'ex_details':ex_details
     }

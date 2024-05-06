@@ -11,6 +11,9 @@ urlpatterns = [
     path('personal_info/<int:id>',views.personal_info,name="personal_info"),
     path('extracted_personal_info/<int:id>',views.extracted_personal_info,name="extracted_personal_info"),
     path('work_history',views.work_history,name="work_history"),
+     path('delete_experience/<int:experience_id>/', views.delete_experience, name='delete_experience'),
+    path('delete_education/<int:education_id>/', views.delete_education, name='delete_education'),
+
     path('extracted_work_history',views.extracted_work_history,name="extracted_work_history"),
     path('education',views.education,name="education"),
     path('extra_details',views.extra_details,name="extra_details"),
