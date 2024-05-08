@@ -7,386 +7,429 @@
 */ -->
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
 
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap4" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap4" />
 
-		<!-- Bootstrap CSS -->
-		<link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
-		<link href="/static/home_assets/css/style.css" rel="stylesheet">
-        <link href="/static/home_assets/css/own.css" rel="stylesheet">
-        <link href="/static/home_assets/css/template1.css" rel="stylesheet">
-		<title>Resume Builder</title>
-		<style>
-		/* CSS for the navigation bar */
-		/* CSS for the navigation bar */
-		.custom-navbar {
-    height: 45px; /* Set height to your desired value */
-    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
-    backdrop-filter: blur(15px); /* Adjust the blur effect */
-    position: fixed; /* Keep the navbar fixed at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-}
+    <!-- Bootstrap CSS -->
+    <link href="/static/home_assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
+    <link href="/static/home_assets/css/style.css" rel="stylesheet">
+    <link href="/static/home_assets/css/own.css" rel="stylesheet">
+    <link href="/static/home_assets/css/template1.css" rel="stylesheet">
+    <title>Resume Builder</title>
+    <style>
+        /* CSS for the navigation bar */
+        /* CSS for the navigation bar */
+        .custom-navbar {
+            height: 45px;
+            /* Set height to your desired value */
+            background-color: rgba(255, 255, 255, 0.779) !important;
+            /* Semi-transparent white background */
+            backdrop-filter: blur(15px);
+            /* Adjust the blur effect */
+            position: fixed;
+            /* Keep the navbar fixed at the top */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            /* Ensure it stays on top of other content */
+        }
 
-/* Adjust navbar links */
-.custom-navbar .navbar-nav .nav-link {
-   /* Set text color as desired */
-    line-height: 50px; /* Align links to the center vertically */
-}
+        /* Adjust navbar links */
+        .custom-navbar .navbar-nav .nav-link {
+            /* Set text color as desired */
+            line-height: 50px;
+            /* Align links to the center vertically */
+        }
 
-/* Optional: adjust other elements for compatibility with the smaller navbar height */
-.custom-navbar .navbar-brand,
-.custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
-}
-
-
-
-
-.resume_options {
-    width: 530px;
-	height:280px;
-   
-    border: 2px solid #222222;
-    border-radius: 25px;
-    transition: border-width 0.3s ease; /* Add transition */
-}
-
-.resume_options:hover {
-	border-color:  #0d6efd;;
-    border-width: 5px; /* Increase border width on hover */
-}
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .section-title1 {
-        font-size: 1.5rem; /* Decrease font size for smaller screens */
-    }
-    .resume_options {
-        margin-bottom: 2rem; /* Add some space between options on smaller screens */
-    }
-}
-
-/* Further adjustments for smaller screens if necessary */
-@media (max-width: 576px) {
-    .section-title1 {
-        font-size: 1.2rem; /* Further decrease font size for very small screens */
-    }
-}
-
-
-.container1 {
-    display: flex; /* Sets flexbox layout */
-    height: 100vh; /* Sets the height to full viewport height */
-}
-
-/* Sidebar */
-.sidebar {
-    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
-    height: 100%; /* Makes the sidebar full height of the container */
-    padding: 20px; /* Adds padding to the sidebar */
-    background-color: #222222; /* Sets background color */
-    color: white; /* Sets text color to white */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-    transition: width 0.3s; /* Transition effect when changing width */
-}
-
-.sidebar.hidden {
-    width: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-
-/* Main Content */
-.main-content {
-    flex-grow: 1; /* Allows main content to grow and take up the remaining space */
-    padding: 40px; /* Adds padding to the main content */
-    height: 100%; /* Makes the main content full height of the container */
-    box-sizing: border-box; /* Ensures padding is included in width */
-    overflow-y: auto; /* Allows scrolling if content overflows */
-}
-
-.main-content.full-width {
-    flex-grow: 1;
-    width: 100vw;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .container1 {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    .main-content {
-        flex-grow: 1;
-        width: 100vw;
-    }
-}
-/* Tracking System */
-.tracking-system {
-    margin-top: 90px;
-    padding: 10px;
-    background-color: #4d4d4d;
-    border-radius: 5px;
-}
-
-.tracking-system h3 {
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.tracking-steps {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.step {
-    padding: 10px;
-    margin-bottom: 5px;
-    color: #a7a7a7;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.step:hover {
-    background-color: #8b8b8b;
-    color: #fff;
-}
-
-.step.active {
-    background-color: #8b8b8b;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Step numbers */
-.step-number {
-    background-color: #0d6efd;
-    color: #fff;
-    border-radius: 50%;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* Linking lines */
-.tracking-steps .step:not(:last-child)::after {
-    content: '';
-    height: 40px;
-    border-left: 2px solid #555;
-    display: block;
-    position: absolute;
-    top: calc(50% + 15px);
-    left: 15px;
-    z-index: -1;
-}
-
-/* Arrow mark */
-.tracking-steps .step:not(:last-child)::after {
-    content: '▼'; /* Unicode character for a downward arrow */
-    font-size: 12px;
-    color: #fff;
-    display: block;
-    position: absolute;
-    bottom: -10px;
-    left: calc(50% - 6px); /* Center the arrow */
-}
+        /* Optional: adjust other elements for compatibility with the smaller navbar height */
+        .custom-navbar .navbar-brand,
+        .custom-navbar .navbar-toggler {
+            line-height: 50px;
+            /* Align brand and toggler button */
+        }
 
 
 
-</style>
+
+        .resume_options {
+            width: 530px;
+            height: 280px;
+
+            border: 2px solid #222222;
+            border-radius: 25px;
+            transition: border-width 0.3s ease;
+            /* Add transition */
+        }
+
+        .resume_options:hover {
+            border-color: #0d6efd;
+            ;
+            border-width: 5px;
+            /* Increase border width on hover */
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .section-title1 {
+                font-size: 1.5rem;
+                /* Decrease font size for smaller screens */
+            }
+
+            .resume_options {
+                margin-bottom: 2rem;
+                /* Add some space between options on smaller screens */
+            }
+        }
+
+        /* Further adjustments for smaller screens if necessary */
+        @media (max-width: 576px) {
+            .section-title1 {
+                font-size: 1.2rem;
+                /* Further decrease font size for very small screens */
+            }
+        }
 
 
-		</style>
-	</head>
+        .container1 {
+            display: flex;
+            /* Sets flexbox layout */
+            height: 100vh;
+            /* Sets the height to full viewport height */
+        }
 
-	<body>
+        /* Sidebar */
+        .sidebar {
+            min-width: 253px;
+            /* Adjusts the width of the sidebar as per your preference */
+            height: 100%;
+            /* Makes the sidebar full height of the container */
+            padding: 20px;
+            /* Adds padding to the sidebar */
+            background-color: #222222;
+            /* Sets background color */
+            color: white;
+            /* Sets text color to white */
+            box-sizing: border-box;
+            /* Ensures padding is included in width */
+            overflow-y: auto;
+            /* Allows scrolling if content overflows */
+            transition: width 0.3s;
+            /* Transition effect when changing width */
+        }
 
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li><a class="nav-link" href="shop.html">Choose Templates</a></li>
-						<li><a class="nav-link" href="about.html">Login</a></li>
-						
-					</ul>
-					
-				</div>
-			</div>
-		</nav>
-		
-		<!-- End Header/Navigation -->
-<div class="hero">
-    <div class="final-container">
-        <div class="temp">
-            <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
-            <span class="subtag">Review, edit and download.</span>
-            
-            <div class="content_wrapper">
-                <div id="dynamicContent">
-                  
+        .sidebar.hidden {
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
-                  <div id="temp1">
-                       
 
-                    <div class="resume-wrapper id=extra">
-                      <div class="resume-header">
-                        <h3 style="font-size: 26px; font-weight: 500; color: #f7a336;"><b><span>Abhishek</span> &nbsp;<span id="Display_Lname">K</span></b></h3>
-                        <div class="contact-info">
-                          <p><b>Email :</b> <span id="Display_Email">example@example.com </span> </p>
-                          <p><b>Phone :</b> <span id="Display_Phoneno"> 123-456-7890 </span></p>
-                        </div>
-                        <p ><b>LinkedIn :</b> <a href="https://www.linkedin.com/in/yourprofile"><span id="Display_lnkedin">Your Profile </span></a></p>
-                      </div>
-                    
-                      <div class="summary">
-                        <h2 class="section-title" ><b>Summary</b></h2><hr>
-                        <p style="font-size: 12px;" id="Display_Summary">{{data1.summary}}
-                        </p>
-                      </div>
-                    
-                      <div class="experience">
-                        <h2 class="section-title"><b>Experience</b></h2><hr>
-                        <div class="job">
-                          <p class="job-title" style="font-size: 14px;" id="Display_Designation">
-                            {% if exp_data.designation %}
-                            {{ exp_data.designation }}
-                        {% else %}
-                            Default Designation Information
-                        {% endif %}
-                          </p>
-                         
-                          <p style="font-size: 14px;" id="Display_Cname"><strong>Haegl Technologies PVT LTD </strong></p>
-                          <p style="font-size: 14px; line-height: 1px;"> <span id="Display_From"> From date</span > - <span id="Display_To">To date</span></p>
-                          <p style="font-size: 12px;" id="Display_Description">Description of responsibilities and achievements in this role.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
-                          </p>
-                        </div>
-                        <div  id="experienceContainer"></div>
-                        <!-- Add more job experiences if needed -->
-                      </div>
-                      <div class="experience">
-                        <h2 class="section-title"><b>Projects</b></h2><hr>
-                        <div class="job">
-                          <p class="job-title" style="font-size: 14px;" id="displayProjectName">Resume Builder</p>
-                         
-                          <p style="font-size: 14px;"><strong><span id="displayProjectTools"> Tools used : </span></strong><span id="displayTools"> Python, Django, MySQL, Excel </span></p>
-                          <p style="font-size: 14px; line-height: 1px;"><strong>Link: </strong> <span id="displayProjectLink"> https://www.kickresume.com/dashboard/resumes/ </span></p>
-                          <p style="font-size: 12px;" id="displayProjectDes">Description of responsibilities and achievements in this role.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel massa vitae ex convallis vehicula.
-                          </p>
-                        </div>
-                        <div id="projectsContainer"></div>
-                    
-                        <!-- Add more job experiences if needed -->
-                      </div>
-                   
-                    
-                    
-                      <div class="education">
-                        <h2 class="section-title"><b>Education</b></h2><hr>
-                        <div class="degree">
-                          <p style="font-size: 14px; line-height: 15px;" id="displayDegree">
-                            {% if education_data.degree %}
-                                {{ education_data.degree }}
-                            {% else %}
-                                Default Degree Information
-                            {% endif %}
-                        </p>
-                          <p  style="font-size: 14px;line-height: 0%;"><span id="displayDegreeFrom"> 2015  </span> | <span id="displayDegreeTo"> 2017 </span></p>
-                        </div>
-                        
-                          <p ><span id="displayCollege">
-                      </span> -
-                      <span id="displayCity"> Dharawad </span></p>
-                        
-                          <div  id="educationContainer"></div>
-                        <!-- Add more education experiences if needed -->
-                      </div>
-                    
-                      <div class="skills">
-                        <h2 class="section-title"><b>Skills</b></h2><hr>
-                        <div id="skillsList">
-                        <ul>
-                          <li class="skill">Python </li>
-                          <li class="skill">Django</li>
-                          <li class="skill">HTML</li>
-                          <!-- Add more skills if needed -->
-                        </ul>
-                      </div>
-                      </div>
-                    
-                      <div  id="languagesKnow" class="hidden">
-                        <h2 class="section-title"><b>Languages Known</b></h2><hr>
-                        <div id="langKnown">
-                          <ul id="languageList"></ul>
-                      </div>
-                      </div>
-                    
-                      <div  class="achievements hidden">
-                        <h2 class="section-title"><b>  Achievements</b></h2><hr>
-                        <div>
-                          <ul id="achievementList"></ul>
-                      </div>
-                      </div>
-                    
-                     
-                      
-                                                       </div> 
-                                                      </div>
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            /* Allows main content to grow and take up the remaining space */
+            padding: 40px;
+            /* Adds padding to the main content */
+            height: 100%;
+            /* Makes the main content full height of the container */
+            box-sizing: border-box;
+            /* Ensures padding is included in width */
+            overflow-y: auto;
+            /* Allows scrolling if content overflows */
+        }
+
+        .main-content.full-width {
+            flex-grow: 1;
+            width: 100vw;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container1 {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .main-content {
+                flex-grow: 1;
+                width: 100vw;
+            }
+        }
+
+        /* Tracking System */
+        .tracking-system {
+            margin-top: 90px;
+            padding: 10px;
+            background-color: #4d4d4d;
+            border-radius: 5px;
+        }
+
+        .tracking-system h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .tracking-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step {
+            padding: 10px;
+            margin-bottom: 5px;
+            color: #a7a7a7;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .step:hover {
+            background-color: #8b8b8b;
+            color: #fff;
+        }
+
+        .step.active {
+            background-color: #8b8b8b;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Step numbers */
+        .step-number {
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Linking lines */
+        .tracking-steps .step:not(:last-child)::after {
+            content: '';
+            height: 40px;
+            border-left: 2px solid #555;
+            display: block;
+            position: absolute;
+            top: calc(50% + 15px);
+            left: 15px;
+            z-index: -1;
+        }
+
+        /* Arrow mark */
+        .tracking-steps .step:not(:last-child)::after {
+            content: '▼';
+            /* Unicode character for a downward arrow */
+            font-size: 12px;
+            color: #fff;
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: calc(50% - 6px);
+            /* Center the arrow */
+        }
+    </style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Start Header/Navigation -->
+    <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+                aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsFurni">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li><a class="nav-link" href="shop.html">Choose Templates</a></li>
+                    <li><a class="nav-link" href="about.html">Login</a></li>
+
+                </ul>
+
             </div>
-            
-          </div>
-          
         </div>
-       
-        <div class="temp-styles">styles</div>
-    </div>	  
-		</div>
-		<!-- End Hero Section -->
-		
-			<script>
+    </nav>
+
+    <!-- End Header/Navigation -->
+    <div class="hero">
+        <div class="final-container">
+            <div class="temp">
+                <h2 class="section-title" style="margin-bottom: 15px;">Complete your resume!</h2>
+                <span class="subtag">Review, edit and download.</span>
+
+                <div class="content_wrapper">
+                    <div id="dynamicContent">
+
+                        <div id="temp1">
+
+                            <div class="resume-wrapper ">
+                                <div class="t6-header">
+                                    <div class="t6-name">
+                                        <h3 class="t6-top-heading">VIDYA WANDAKAR</h3>
+                                    </div>
+                                    <div class="t6-personal">
+                                        <span>9878675645</span><br>
+                                        <span>spoorti@gmail.com</span><br>
+                                        <div style="display: flex;">
+                                            <div style="margin-left: 5px;">
+                                                <img src="/static/home_assets/images/linked.png" alt="" width="18px" height="18px">
+                                            </div>
+                                        <span class="t6-linked"><strong>https://www.linkedin.com/in/sangeeta-dani-2688b6262/</strong></span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="t6-summary">
+                                    <p class="t6-para" style="border-left: 4px solid #147b7b;padding-left: 20px; padding-right: 20px;">An accounting officer, I have gained extensive experience in managing financial records, analyzing financial data, and preparing financial statements. I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                </div>
+                                <div class="t6-workexp">
+                                    
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">WORK EXPERIENCE</h3>
+                                        <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                                    </div>
+                                    <div class="exp-section">
+                                    <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                    <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Task manager</h5>
+                                    <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">Accenture</h5>
+                                    <p style="margin-left: 10px; margin-bottom: 0px;"><span>08-2020</span> | <span>08-2022</span></p>
+                                </div>
+                                    <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;"> I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                </div>
+                                <div class="exp-section">
+                                    <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                    <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Task manager</h5>
+                                    <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">Accenture</h5>
+                                    <p style="margin-left: 10px; margin-bottom: 0px;"><span>08-2020</span> | <span>08-2022</span></p>
+                                </div>
+                                    <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;"> I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                </div>
+                                </div>
+                                <div class="t6-projects">
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">PROJECTS</h3>
+                                        <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                                        </div>
+                                        <div class="project-sec">
+                                          
+                                                <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                                <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Fees management system</h5>
+                                               
+                                                <p style="margin-left: 10px; margin-bottom: 0px;"><span>Tools Used</span> | <span>Python, Django, MySQL, HTML, CSS</span></p>
+                                            </div>
+                                                <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;"> I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                           
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="t6-skill">
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">RELEVANT SKILLS</h3>
+                                        <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                                    </div>
+                                    <div style="padding-left: 20px;">
+                                    <ul class="two-col-list">
+                                            <li>Python</li>
+                                            <li>Task Management</li>
+                                            <li>Good Communication</li>
+                                            <li>Time management</li>
+                                            <li>Django</li>
+                                            
+                                            <li>Git GitHub</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                   <div class="t6-education">
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">EDUCATION</h3>
+                                    </div>
+                                    <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                        <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Bachelor of Engineering</h5>
+                                        <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">IBMR College of BE</h5>
+                                        <p style="margin-left: 10px; margin-bottom: 0px;"><span>08-2020</span> | <span>08-2022</span> <span>Hubli</span></p>
+                                    </div>
+                                   </div>
+                                   <div class="t6-certificates">
+                                    <div style="margin-bottom: 20px;">
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">CERTIFICATES</h3> 
+                                    </div>
+                                    <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                       
+                                      
+                                        <p style="margin-left: 10px; margin-bottom: 0px; line-height: 20px;">
+                                            I have worked on reconciling accounts, preparing tax returns, and ensuring
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display: flex; align-items: center;">
+                                        <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">LANGUAGES</h3> 
+                                    </div>
+                                    <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                       <ul style="color: #2f2f2f;">
+                                        <li>Englist</li>
+                                        <li>Hindi</li>
+                                        <li>Telugu</li>
+                                       </ul>
+                                    </div>
+                                </div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="temp-styles">styles</div>
+        </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <script>
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('main-content');
 
@@ -399,8 +442,8 @@
             }
         });
     </script>
-	 <!-- JavaScript for tracking steps -->
-	 <script>
+    <!-- JavaScript for tracking steps -->
+    <script>
         const trackingSteps = document.querySelectorAll('.tracking-steps .step');
 
         trackingSteps.forEach((step, index) => {
@@ -416,11 +459,11 @@
             });
         });
     </script>
-	
-   
-		<script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
-		<script src="/static/home_assets/js/tiny-slider.js"></script>
-		<script src="/static/home_assets/js/custom.js"></script>
-	</body>
+
+
+    <script src="/static/home_assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/home_assets/js/tiny-slider.js"></script>
+    <script src="/static/home_assets/js/custom.js"></script>
+</body>
 
 </html>

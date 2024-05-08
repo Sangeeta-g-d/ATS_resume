@@ -86,10 +86,11 @@
 /* Border to the left side when hovered */
 .header:hover {
     border: 3px solid #0d6efd;
-    border-radius: 10px; /* Adjust border style and color as needed */   
+    border-radius: 10px;
+    padding: 10px; /* Adjust border style and color as needed */   
 }
 
-.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container, .temp3-header-left{
+.experience-header-container,.education-header-container,.project-header-container, .skills-header-container, .certificates-header-container,.languages-header-container, .temp3-header-left, .t3-h,.summary-header-container{
     display: flex; /* Use flexbox to align elements in a row */
     justify-content: space-between; /* Space out the heading and edit icon */
     align-items: center; /* Vertically center the items */
@@ -107,15 +108,17 @@
 
 .header:hover {
     border: 3px solid #0d6efd;
-    border-radius: 10px; /* Adjust border style and color as needed */
+    border-radius: 10px;
+    padding: 10px; /* Adjust border style and color as needed */
 }
 
 /* Show the edit icon when the header is hovered */
 .header:hover .edit-icon {
     display: block; /* Show the icon */
 }
+
 .edit-icon-container {
-    display: none;
+    display: none !important;
     /* You can adjust the size, color, and other styles here */
     cursor: pointer; /* Change the cursor to a pointer on hover */
 }
@@ -126,11 +129,13 @@
 .experience:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .education-side:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .education-side:hover .edit-icon-container{
@@ -139,6 +144,7 @@
 .project-sec:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .project-sec:hover .edit-icon-container{
@@ -147,6 +153,7 @@
 .skills:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .skills:hover .edit-icon-container{
@@ -163,6 +170,7 @@
 .certificate_sec:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .certificate_sec:hover .edit-icon-container{
@@ -171,6 +179,7 @@
 .languages_sec:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .languages_sec:hover .edit-icon-container{
@@ -194,7 +203,8 @@
 
 .nt3-header:hover {
     border: 3px solid #0d6efd;
-    border-radius: 10px; /* Adjust border style and color as needed */   
+    border-radius: 10px;
+    padding: 10px; /* Adjust border style and color as needed */   
 }
 .nt3-header:hover .edit-icon3 {
     display: block; /* Show the icon */
@@ -214,6 +224,7 @@
 .nt3-work-exp:hover{
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
 }
 .nt3-work-exp:hover .edit-icon3 {
     display: block; /* Show the icon */
@@ -221,6 +232,7 @@
 .nt3-project:hover{
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
 }
 .nt3-project:hover .edit-icon3 {
     display: block; /* Show the icon */
@@ -228,6 +240,7 @@
 .nt3-edu:hover{
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
 }
 .nt3-edu:hover .edit-icon3 {
     display: block; /* Show the icon */
@@ -239,6 +252,7 @@
 .nt3-languages:hover{
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
 }
 .nt3-languages:hover .edit-icon3 {
     display: block; /* Show the icon */
@@ -266,6 +280,7 @@
 .t4-resume-header:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
 }
 /* Initially hide the edit icon */
 /* Initially hide the edit icon */
@@ -292,6 +307,7 @@
 .projects_sec:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .projects_sec:hover .edit-icon-container{
@@ -303,6 +319,7 @@
 .temp3-header-left:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .temp3-header-left:hover .edit-icon2 {
@@ -311,6 +328,7 @@
 .personal-info:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .personal-info:hover .edit-icon-container {
@@ -319,6 +337,7 @@
 .t3-profile-summary:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .t3-profile-summary:hover .edit-icon-container {
@@ -327,8 +346,87 @@
 .work-exp:hover {
     border: 3px solid #0d6efd;
     border-radius: 10px;
+    padding: 10px;
      /* Adjust border style and color as needed */
 }
 .work-exp:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
+
+/* template6 styles */
+.t6-header{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 30px;
+}
+.t6-name{
+    flex: 1;
+    padding-right: 20px;
+}
+.t6-personal{
+    flex: 1;
+    padding-left: 100px;
+    text-align: right;
+    word-wrap: break-word;
+    max-width: 100%; 
+}
+.t6-top-heading{
+    color: #147b7b;
+    letter-spacing: 5px;
+}
+
+.t6-linked{
+    font-size: 16px;
+    color: #147b7b;
+    overflow-wrap: break-word;
+}
+.t6-para{
+    line-height: 20px;
+}
+.exp-section{
+    margin-bottom: 20px;
+}
+.two-col-list{
+    column-count: 2;  /* Display the list in three columns */
+    column-gap: 20px; /* Adjust the gap between columns as needed */
+    list-style: none; /* Optional: Remove default list bullet points */
+    padding: 0;       /* Optional: Remove padding */
+    margin-left: 20px; 
+    color: #2f2f2f;  
+}
+.t6-education{
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+   
+}
+.t6-certificates{
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+   
+}
+.t3-h:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+    padding: 10px;
+}
+.t3-h:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
+.summary-header-container:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+    padding: 10px;
+}
+.summary-header-container:hover .edit-icon-container {
+    display: block !important; /* Display the edit icon when hovering over temp3-header-left */
+}
+.t6-workexp:hover {
+    border: 3px solid #0d6efd;
+    border-radius: 10px;
+    padding: 10px;
+}
+.t6-workexp:hover .edit-icon-container {
     display: block !important; /* Display the edit icon when hovering over temp3-header-left */
 }

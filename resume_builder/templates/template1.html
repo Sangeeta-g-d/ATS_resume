@@ -26,6 +26,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-6wogFP+fOG9S2xh8sEX2y4wU/x0r8/mNoFcFlHFN1u+uPnjf/7JOlssSWKnQvSTKNph5oX0gfrlbM9YZqBXk4A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- temp6 font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
   <link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
   <link href="/static/home_assets/css/style.css" rel="stylesheet">
@@ -1137,6 +1141,147 @@
           </div>
 
         </div>
+        <div id="template6" class="content_wrapper template-div">
+          <div id="dynamicContent">
+              <div id="temp1">
+                  <div class="resume-wrapper ">
+                   <div class="t3-h">
+                    
+                      <div class="t6-header">
+                          <div class="t6-name">
+                              <h3 class="t6-top-heading"><span>VIDYA</span> <span>WANDAKAR</span></h3>
+                          </div>
+                          <div class="t6-personal">
+                              <span>9878675645</span><br>
+                              <span>spoorti@gmail.com</span><br>
+                              <div style="display: flex;">
+                                  <div style="margin-left: 5px;">
+                                      <img src="/static/home_assets/images/linked.png" alt="" width="18px" height="18px">
+                                  </div>
+                              <span class="t6-linked"><strong>https://www.linkedin.com/in/sangeeta-dani-2688b6262/</strong></span>
+                          </div>
+                          </div>
+                      </div>
+                      <div title="Edit" class="edit-icon-container">
+                        <a href="/edit_experience_choice/{{template_id}}">
+                            <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                        </a>
+                    </div>
+                    </div>
+                    <div  class="summary-header-container">
+                      <div class="t6-summary">
+                          <p class="t6-para" style="border-left: 4px solid #147b7b;padding-left: 20px; padding-right: 20px;">An accounting officer, I have gained extensive experience in managing financial records, analyzing financial data, and preparing financial statements. I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                      </div>
+                      <div title="Edit" class="edit-icon-container" style="display: none;">
+                        <a href="/edit_personal_info/{{template_id}}">
+                          <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon" >
+                        </a>
+                      </div>
+                    </div>
+                      <div class="t6-workexp">
+                          
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">WORK EXPERIENCE</h3>
+                              <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="/edit_personal_info/{{template_id}}">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                              </div>
+                          </div>
+                          {% for x in exp_info %}
+                          <div class="exp-section">
+                          <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                          <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">{{x.designation}}</h5>
+                          <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">{{x.company_name}}</h5>
+                          <p style="margin-left: 10px; margin-bottom: 0px;"><span>{{x.from_date}}</span> | <span>{{x.to_date}}</span></p>
+                      </div>
+                          <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;">  {{x.description}}</p>
+                      </div>
+                      {% endfor %}
+                     
+                      </div>
+                      <div class="t6-projects">
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">PROJECTS</h3>
+                              <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="/edit_experience_choice/{{template_id}}">
+                                    <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                            </div>
+                              </div>
+                              <div class="project-sec">
+                                
+                                      <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                                      <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Fees management system</h5>
+                                     
+                                      <p style="margin-left: 10px; margin-bottom: 0px;"><span>Tools Used</span> | <span>Python, Django, MySQL, HTML, CSS</span></p>
+                                  </div>
+                                      <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;"> I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                 
+                              </div>
+                          </div>
+
+                      </div>
+                      <div class="t6-skill">
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">RELEVANT SKILLS</h3>
+                              <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                          </div>
+                          <div style="padding-left: 20px;">
+                          <ul class="two-col-list">
+                                  <li>Python</li>
+                                  <li>Task Management</li>
+                                  <li>Good Communication</li>
+                                  <li>Time management</li>
+                                  <li>Django</li>
+                                  
+                                  <li>Git GitHub</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div style="display: flex; justify-content: space-between;">
+                         <div class="t6-education">
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">EDUCATION</h3>
+                          </div>
+                          <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Bachelor of Engineering</h5>
+                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">IBMR College of BE</h5>
+                              <p style="margin-left: 10px; margin-bottom: 0px;"><span>08-2020</span> | <span>08-2022</span> <span>Hubli</span></p>
+                          </div>
+                         </div>
+                         <div class="t6-certificates">
+                          <div style="margin-bottom: 20px;">
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">CERTIFICATES</h3> 
+                          </div>
+                          <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                             
+                            
+                              <p style="margin-left: 10px; margin-bottom: 0px; line-height: 20px;">
+                                  I have worked on reconciling accounts, preparing tax returns, and ensuring
+                              </p>
+                          </div>
+                      </div>
+                      <div>
+                          <div style="display: flex; align-items: center;">
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">LANGUAGES</h3> 
+                          </div>
+                          <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
+                             <ul style="color: #2f2f2f;">
+                              <li>Englist</li>
+                              <li>Hindi</li>
+                              <li>Telugu</li>
+                             </ul>
+                          </div>
+                      </div>
+                         </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
       </div>
 
