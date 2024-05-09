@@ -359,9 +359,9 @@
                   </div>
                 </div>
                 {% for x in exp_info %}
-                <div class="exp-container">
-                  <div class="sub_heading1">
-                    <div>
+                <div class="exp-container" style="margin-bottom: 20px;">
+                  <div class="sub_heading1" style="margin-bottom: 15px;">
+                    <div >
                       <p id="Display_Designation">{{x.designation}}</p>
                     </div>
 
@@ -370,7 +370,7 @@
                           id="Display_To">{{x.to_date}}</span></p>
                     </div>
                   </div>
-                  <p class="sub_heading2" id="Display_Cname">{{x.company_name}}</p>
+                  <p class="sub_heading2" id="Display_Cname" style="margin-bottom: 10px;">{{x.company_name}}</p>
                   <p class="exp" id="Display_Description">
                     {{x.description}}
                   </p>
@@ -396,8 +396,8 @@
                     </div>
                   </div>
                   {% for x in edu_info %}
-                  <div class="education-container">
-                    <div class="sub_heading1">
+                  <div class="education-container" style="margin-bottom: 20px;">
+                    <div class="sub_heading1" style="margin-bottom: 15px;">
                       <div>
                         <p id="displayDegree">{{x.degree}}</p>
                       </div>
@@ -406,12 +406,12 @@
                             id="displayDegreeTo">{{x.to_date}}</span></p>
                       </div>
                     </div>
-                    <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
+                    <p class="sub_heading3" style="margin-bottom: 15px ;" id="displayCollege">{{x.college_name}}</p>
                     {% if x.cgpa %}
-                    <p class="sub_heading3" id="displayCity">CGPA - {{x.cgpa}}</p>
+                    <p class="sub_heading3"  style="margin-bottom: 15px;" id="displayCity">CGPA - {{x.cgpa}}</p>
                     {% endif %}
                     {% if x.city %}
-                    <p class="sub_heading3" id="displayCity">{{x.city}}</p>
+                    <p class="sub_heading3" style="margin-bottom: 15px;"  id="displayCity">{{x.city}}</p>
                     {% endif %}
                   </div>
 
@@ -423,7 +423,7 @@
               <hr>
               {% endif %}
               {% if pro_info %}
-              <div class="projects project-sec">
+              <div class="projects project-sec" >
                 <div class="project-header-container">
                   <h5>Projects</h5>
                   <div title="Edit" class="edit-icon-container">
@@ -433,17 +433,17 @@
                   </div>
                 </div>
                 {% for x in pro_info %}
-                <div>
-                <div class="sub_heading1">
+                <div style="margin-bottom: 20px;">
+                <div class="sub_heading1" style="margin-bottom: 15px;">
                   <div>
                     <p id="displayProjectName">{{x.project_name}}</p>
                   </div>
 
                 </div>
-                <p class="sub_heading2">Tools Used | <span id="displayTools">{{x.tools_used}}</span></p>
+                <p style="margin-bottom: 15px;" class="sub_heading2">Tools Used | <span id="displayTools">{{x.tools_used}}</span></p>
                 {% if x.project_link %}
                 <a href="{{x.project_link}}" style="text-decoration: none;">
-                  <p class="sub_heading2"><span id="displayTools">{{x.project_link}}</span></p>
+                  <p class="sub_heading2" style="margin-bottom: 15px;"><span id="displayTools">{{x.project_link}}</span></p>
                 </a>
                 {% endif %}
                 <p class="projects" id="displayProjectDes">{{x.description}}
@@ -683,7 +683,7 @@
                   </div>
                   {% endif %}
                   <hr>
-
+                  {% if pro_info %}
                   <div class="t3-project projects project-sec">
                     <div class="project-header-container">
                     <h4 class="t3-space t3-profile">Project</h4>
@@ -707,6 +707,7 @@
                     {% endfor %}
 
                   </div>
+                  {% endif %}
                   <hr>
               
                 </div>
@@ -926,7 +927,7 @@
                               <b><span>{{ personal_info.first_name }}</span> &nbsp;<span id="Display_Lname">{{ personal_info.last_name }}</span></b>
                           </h3>
                           <!-- Add the edit icon container here -->
-                          <div class="edit-icon4" title="Edit">
+                          <div style="display: none;" class="edit-icon4" title="Edit">
                               <a href="/edit_personal_info/{{template_id}}">
                                   <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                               </a>
@@ -946,7 +947,7 @@
               
                   <div class="summary">
                       <h3 style="font-size: 18px;">Profile Summary</h3>
-                      <p style="font-size: 12px;">{{ personal_info.summary }}</p>
+                      <p style="font-size: 14px;">{{ personal_info.summary }}</p>
                   </div>
               </div>
               
@@ -967,14 +968,14 @@
               </div>
               <hr class="experience-divider">
                 {% for x in exp_info %}
-                <div class="exp-container">
+                <div class="exp-container" style="margin-bottom: 20px;">
                   <div>
                     <div>
                       <p style="font-size: 18px;">
                         <strong>{{x.designation}}</strong></p>
                     </div>
-                    <p class="sub_heading2" id="Display_Cname"><strong> {{x.company_name}}</strong></p>
-                    <div>
+                    <p class="sub_heading2" id="Display_Cname" style="margin-top: 10px; margin-bottom: 17px; font-size: 16px;">{{x.company_name}}</p>
+                    <div style="margin-bottom: 10px;">
                       <p class="date"><span id="Display_From">{{x.from_date}}</span> | <span
                           id="Display_To">{{x.to_date}}</span></p>
                     </div>
@@ -1049,12 +1050,12 @@
                   </div>
                   <hr class="experience-divider">
                   {% for x in edu_info %}
-                  <div class="education-container">
+                  <div class="education-container" style="margin-bottom: 20px;">
                     <div class="sub_heading1">
-                      <div>
-                        <p ><strong>{{x.degree}}</strong></p>
+                      <div style="margin-bottom: 15px;">
+                        <p><strong>{{x.degree}}</strong></p>
                       </div>
-                      <div>
+                      <div style="margin-bottom: 10px;">
                         {% if x.cgpa %}
                         <p class="date"><span id="displayDegreeFrom">CGPA</span> | <span
                             id="displayDegreeTo">{{x.cgpa}}</span></p>
@@ -1062,13 +1063,13 @@
                       </div>
                     </div>
                     
-                    <p class="date"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span
+                    <p class="date" style="margin-bottom: 15px;"><span id="displayDegreeFrom">{{x.from_date}}</span> | <span
                         id="displayDegreeTo">{{x.to_date}}</span></p>
                        
-                    <p class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
+                    <p style="margin-bottom: 15px;" class="sub_heading3" id="displayCollege">{{x.college_name}}</p>
                     
                     {% if x.city %}
-                    <p class="sub_heading3" id="displayCity">{{x.city}}</p>
+                    <p  style="margin-bottom: 15px;" class="sub_heading3" id="displayCity">{{x.city}}</p>
                     {% endif %}
                   </div>
 
@@ -1141,36 +1142,211 @@
           </div>
 
         </div>
+        <div id="template5" class="content_wrapper template-div">
+          <div id="dynamicContent">
+            <div id="temp5">
+              <div class="resume-wrapper id=extra">
+                <div class="t3-h" style="display: flex; justify-content: space-between;">
+                  {% if personal_info.first_name and personal_info.last_name %}
+               <div>
+                <div class="t5-header">
+                  <h3><span>{{ personal_info.first_name }}</span> <span>{{ personal_info.last_name }}</span> </h3>
+                </div>
+                <div class="t5-basic">
+                  <p><span>&#9993;</span> {{ personal_info.email }}</p>
+                  <p><span>&#9742;</span> {{ personal_info.contact_no }}</p>
+                  {% if personal_info.linkedin_url %}
+                  <p>{{ personal_info.linkedin_url }}</p>
+                  {% endif %}
+                </div>
+                <div class="t5-summary">
+                  <p>
+                 {{ personal_info.summary }}
+                </p>
+                </div>
+              </div>
+              {% endif %}
+              <div title="Edit" class="edit-icon-container">
+                <a href="/edit_personal_info/{{template_id}}">
+                    <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                </a>
+            </div>
+              </div>
+              <!-- work exp -->
+              {% if exp_info %}
+                <div>
+                  <div class="t5-exp">
+                <div style="display: flex; align-items: center; margin-top: 15px;" >
+                  <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Work Experience</b></hp>
+                  <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14); margin-left: 10px; ">
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="/edit_experience_choice/{{template_id}}">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                </div>
+              </div>
+              {% for x in exp_info %}
+              <div style="margin-bottom: 20px;">
+                 
+                      <div style="display:flex; justify-content:space-between; line-height: 38px;">
+                      <p style="font-size: 16px;"><b>{{x.designation}}</b></p>
+                      <p><b><span>{{x.from_date}}</span> - <span>{{x.to_date}}</span></b></p>
+                  </div>
+              <p style="margin: 0; line-height: 22px;">{{x.description}}</p>
+             
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if edu_info %}
+          <div class="t5-education">
+              <div style="display: flex; align-items: center; margin-top: 15px;">
+                  <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Education</b></hp>
+                  <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14); margin-left: 10px;  ">
+                  <div title="Edit" class="edit-icon-container">
+                    <a href="/edit_education_choice/{{template_id}}">
+                        <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                    </a>
+                </div>
+              </div>
+              {% for x in edu_info %}
+              <div>
+                  <div style="display:flex; justify-content:space-between; line-height: 38px;">
+                  <p style="font-size: 16px;"><b>{{x.degree}}</b></p>
+                  <p><b><span>{{x.from_date}}</span> | <span>{{x.to_date}}</span></b></p>
+              </div>
+              <div>
+                  <p>{{x.college_name}} &nbsp;&nbsp;
+                    {% if x.city %} <span>{{x.city}}</span>{% endif %}</p>
+                    {% if x.cgpa %}
+                  <p>CGPA : {{x.cgpa}}</p>
+                  {% endif %}
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+          {% endif %}
+          {% if pro_info %}
+          <div class="t6-projects">
+              <div style="display: flex; align-items: center; margin-top: 15px;">
+                <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Projects</b></hp>
+                <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14); margin-left: 10px;  ">
+                <div title="Edit" class="edit-icon-container">
+                  <a href="/edit_project/{{template_id}}">
+                      <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                  </a>
+              </div>
+            </div>
+            {% for x in pro_info %}
+            <div>
+              
+                <p style="font-size: 16px;line-height: 32px;"><b>{{x.project_name}}</b></p>
+                <p style="line-height: 30px;"><b>Tools Used :</b>{{x.tools_used}}</p>
+            
+            <p style="margin: 0; line-height: 22px;"> {{x.description}}</p>
+            {% if x.project_link %}
+            <a href="{{x.project_link}}" style="text-decoration: none;margin: 0px;">{{x.project_link}}</a>
+            {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if skills_list %}
+        <div class="t6-skill">
+          <div style="display: flex; align-items: center; margin-top: 15px;">
+              <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Skills</b></hp>
+              <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14);margin-left: 13px;  ">
+              <div title="Edit" class="edit-icon-container">
+                <a href="/edit_personal_info/{{template_id}}">
+                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                </a>
+              </div>
+          </div>
+          <ul id="three_col_list">
+            {% for x in skills_list %}
+            <li>{{ x }}</li>
+            {% endfor %}
+          </ul>
+      </div>
+      {% endif %}
+      {% if certificates_info %}
+      <div class="t5-certificates">
+          <div style="display: flex; align-items: center; margin-top: 15px;">
+              <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Certificates</b></hp>
+              <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14); margin-left: 10px;  ">
+              <div title="Edit" class="edit-icon-container">
+                <a href="#">
+                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                </a>
+              </div> 
+          </div>
+          <p style="margin: 0; line-height: 22px;"> {{certificates_info.certificates}}</p>
+         
+      </div>
+      {% endif %}
+      {% if lang_list %}
+      <div class="t5-lang">
+          <div style="display: flex; align-items: center; margin-top: 15px;">
+              <hp style="margin-right: 10px;color:rgb(120, 30, 30); font-size: large;"><b>Languages</b></hp>
+              <hr style="flex-grow: 1; border: none; border-top: 2px solid rgb(64, 14, 14); margin-left: 10px;  ">
+              <div title="Edit" class="edit-icon-container">
+                <a href="#">
+                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                </a>
+              </div> 
+          </div>
+          <ul >
+            {% for x in lang_list %}
+                              <li>{{x}}</li>
+                              {% endfor %}
+              
+          </ul>
+      </div>
+      {% endif %}
+          
+                
+                                                 </div>
+                                               
+                                                </div>
+      </div>
+      
+    </div>
+    
+  </div>
         <div id="template6" class="content_wrapper template-div">
           <div id="dynamicContent">
               <div id="temp1">
                   <div class="resume-wrapper ">
                    <div class="t3-h">
-                    
+                    {% if personal_info.first_name and personal_info.last_name %}
                       <div class="t6-header">
                           <div class="t6-name">
-                              <h3 class="t6-top-heading"><span>VIDYA</span> <span>WANDAKAR</span></h3>
+                              <h3 class="t6-top-heading" style="text-transform: uppercase;"><span>{{ personal_info.first_name }}</span> <span>{{ personal_info.last_name }}</span></h3>
                           </div>
                           <div class="t6-personal">
-                              <span>9878675645</span><br>
-                              <span>spoorti@gmail.com</span><br>
+                              <span>{{ personal_info.contact_no }}</span><br>
+                              <span>{{ personal_info.email }}</span><br>
                               <div style="display: flex;">
+                                {% if personal_info.linkedin_url %}
                                   <div style="margin-left: 5px;">
                                       <img src="/static/home_assets/images/linked.png" alt="" width="18px" height="18px">
                                   </div>
-                              <span class="t6-linked"><strong>https://www.linkedin.com/in/sangeeta-dani-2688b6262/</strong></span>
+                                  {% endif %}
+                              <span class="t6-linked"><strong>{{ personal_info.linkedin_url }}</strong></span>
                           </div>
                           </div>
                       </div>
+                      {% endif %}
                       <div title="Edit" class="edit-icon-container">
-                        <a href="/edit_experience_choice/{{template_id}}">
+                        <a href="/edit_personal_info/{{template_id}}">
                             <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                         </a>
                     </div>
                     </div>
+                    {% if personal_info.summary %}
                     <div  class="summary-header-container">
                       <div class="t6-summary">
-                          <p class="t6-para" style="border-left: 4px solid #147b7b;padding-left: 20px; padding-right: 20px;">An accounting officer, I have gained extensive experience in managing financial records, analyzing financial data, and preparing financial statements. I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                          <p class="t6-para" style="border-left: 4px solid #147b7b;padding-left: 20px; margin-bottom: 25px; padding-right: 20px;">{{personal_info.summary}}</p>
                       </div>
                       <div title="Edit" class="edit-icon-container" style="display: none;">
                         <a href="/edit_personal_info/{{template_id}}">
@@ -1178,13 +1354,15 @@
                         </a>
                       </div>
                     </div>
+                    {% endif %}
+                    {% if exp_info %}
                       <div class="t6-workexp">
                           
                           <div style="display: flex; align-items: center;">
                               <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">WORK EXPERIENCE</h3>
                               <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
                               <div title="Edit" class="edit-icon-container">
-                                <a href="/edit_personal_info/{{template_id}}">
+                                <a href="/edit_experience_choice/{{template_id}}">
                                   <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                                 </a>
                               </div>
@@ -1201,82 +1379,121 @@
                       {% endfor %}
                      
                       </div>
+                      {% endif %}
+                      {% if pro_info %}
                       <div class="t6-projects">
                           <div style="display: flex; align-items: center;">
                               <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">PROJECTS</h3>
                               <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
                               <div title="Edit" class="edit-icon-container">
-                                <a href="/edit_experience_choice/{{template_id}}">
+                                <a href="/edit_project/{{template_id}}">
                                     <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
                                 </a>
                             </div>
                               </div>
-                              <div class="project-sec">
+                              {% for x in pro_info %}
+                              <div class="project-sec-t6" style="margin-bottom: 20px;">
                                 
                                       <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
-                                      <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Fees management system</h5>
+                                      <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">{{x.project_name}}</h5>
                                      
-                                      <p style="margin-left: 10px; margin-bottom: 0px;"><span>Tools Used</span> | <span>Python, Django, MySQL, HTML, CSS</span></p>
+                                      <p style="margin-left: 10px; margin-bottom: 0px;"><span>Tools Used</span> | <span>{{x.tools_used}}</span></p>
                                   </div>
-                                      <p style="margin-top: 0px; margin-left: 20px; line-height: 20px;"> I have worked on reconciling accounts, preparing tax returns, and ensuring compliance with accounting regulations. My attention to detail and ability to work effectively in a team have helped me to consistently deliver accurate and timely results.</p>
+                                      <p style="margin-top: 0px; margin-left: 20px; line-height: 20px; margin-bottom: 0px;">  {{x.description}}</p>
+                                      {% if x.project_link %}
+                                      <a style="margin-top: 0px ;margin-left: 20px; text-decoration: none;" href="{{x.project_link}}">{{x.project_link}}</a>
+                                      {% endif %}
                                  
                               </div>
+                              {% endfor %}
                           </div>
+                          {% endif %}
 
                       </div>
+                      {% if skills_list %}
                       <div class="t6-skill">
                           <div style="display: flex; align-items: center;">
                               <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">RELEVANT SKILLS</h3>
                               <hr style="flex-grow: 1; border: none; border-top: 1px solid #000; margin: 0;">
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="/edit_personal_info/{{template_id}}">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                              </div>
                           </div>
                           <div style="padding-left: 20px;">
                           <ul class="two-col-list">
-                                  <li>Python</li>
-                                  <li>Task Management</li>
-                                  <li>Good Communication</li>
-                                  <li>Time management</li>
-                                  <li>Django</li>
-                                  
-                                  <li>Git GitHub</li>
+                            {% for x in skills_list %}
+                            <li>{{ x }}</li>
+                            {% endfor %}
                               </ul>
                           </div>
                       </div>
+                      {% endif %}
+                      {% if edu_info %}
                       <div style="display: flex; justify-content: space-between;">
                          <div class="t6-education">
                           <div style="display: flex; align-items: center;">
                               <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">EDUCATION</h3>
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="/edit_education_choice/{{template_id}}">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                              </div>
                           </div>
-                          <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
-                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">Bachelor of Engineering</h5>
-                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">IBMR College of BE</h5>
-                              <p style="margin-left: 10px; margin-bottom: 0px;"><span>08-2020</span> | <span>08-2022</span> <span>Hubli</span></p>
+                          {% for x in edu_info %}
+                          <div style="border-left: 4px solid #147b7b; margin-bottom: 20px;">
+                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #147b7b; text-transform: uppercase; margin-bottom: 0px;">{{x.degree}} 
+                            {% if x.cgpa %}
+                          <span> - {{x.cgpa}}
+                            {% endif %}
+                          </span></h5>
+                              <h5 style="margin-right: 10px; margin-left: 10px ; font-size: 16px; color: #000; margin-bottom: 0px;">{{x.college_name}}</h5>
+                              <p style="margin-left: 10px; margin-bottom: 0px;"><span>{{x.from_date}}</span> | <span>{{x.to_date}}</span> {% if x.city %} <span>{{x.city}}</span>
+                              {% endif %}</p>
                           </div>
+                          {% endfor %}
                          </div>
+                         {% endif %}
                          <div class="t6-certificates">
-                          <div style="margin-bottom: 20px;">
+                          {% if certificates_info %}
+                          <div style="margin-bottom: 20px;" class="cer">
                           <div style="display: flex; align-items: center;">
-                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">CERTIFICATES</h3> 
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">CERTIFICATES</h3>
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="#">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                              </div> 
                           </div>
                           <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
                              
                             
                               <p style="margin-left: 10px; margin-bottom: 0px; line-height: 20px;">
-                                  I have worked on reconciling accounts, preparing tax returns, and ensuring
+                                {{certificates_info.certificates}}
                               </p>
                           </div>
                       </div>
-                      <div>
+                      {% endif %}
+                      {% if lang_list %}
+                      <div class="t6-lang">
                           <div style="display: flex; align-items: center;">
-                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">LANGUAGES</h3> 
+                              <h3 style="margin-right: 10px; font-size: 19px; color: #000; margin-bottom: 10px;">LANGUAGES</h3>
+                              <div title="Edit" class="edit-icon-container">
+                                <a href="#">
+                                  <img src="/static/home_assets/images/edit_icon.png" width="30px" height="30px" alt="Edit icon">
+                                </a>
+                              </div> 
                           </div>
                           <div style="border-left: 4px solid #147b7b; margin-bottom: 0px;">
                              <ul style="color: #2f2f2f;">
-                              <li>Englist</li>
-                              <li>Hindi</li>
-                              <li>Telugu</li>
+                              {% for x in lang_list %}
+                              <li>{{x}}</li>
+                              {% endfor %}
                              </ul>
                           </div>
                       </div>
+                      {% endif %}
                          </div>
                       </div>
                   </div>
