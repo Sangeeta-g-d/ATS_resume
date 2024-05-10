@@ -1,0 +1,70 @@
+.custom-navbar {
+    height: 45px; /* Set height to your desired value */
+    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
+    backdrop-filter: blur(15px); /* Adjust the blur effect */
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+/* Adjust navbar links */
+.custom-navbar .navbar-nav .nav-link {
+   /* Set text color as desired */
+    line-height: 50px; /* Align links to the center vertically */
+}
+
+/* Optional: adjust other elements for compatibility with the smaller navbar height */
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-toggler {
+    line-height: 0px !important; /* Align brand and toggler button */
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        height: 60px !important; /* Set height to 65px on mobile screens */
+    }
+}
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background-color: #eff2f1;
+		/* Replace with your desired background color */
+    }
+}
+
+.image{
+        border: 8px solid transparent; /* Initially set border to transparent */
+        transition: border-color 0.3s ease;
+		width:400px;
+		height:400px; /* Add transition for smooth effect */
+    }
+
+    .image:hover {
+        border-color:#dfe6ed; /* Change border color when hovered */
+    }
+	.bb{
+		background:rgb(184, 196, 206);
+		 color: black; 
+		 border-color: #b6d2ed;
+		  position: absolute;
+		   top: 40%; 
+		   left: 50%; 
+		   transform: translate(-50%, -50%);
+		    display: none; width:200px;
+	}
+
+/* resume_options */
+@media (max-width: 576px) {
+    /* Adjust the width and margins of the .resume_options elements */
+    .resume_options {
+        width: 90% !important; /* Adjust the width to your desired value */
+        margin: 0 auto; /* Center the cards */
+    }
+}
+@media (max-width: 576px) {
+    /* Adjust the width and margins of the .resume_options elements */
+    .sidebar {
+       display: none !important;
+    }
+ 
+}

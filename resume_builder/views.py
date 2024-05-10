@@ -22,8 +22,9 @@ def add_template(request):
     if request.method == 'POST':
         view_name = request.POST.get('view_name')
         image = request.FILES.get('image')
-
-        my_model_instance = TemplatesInfo(view_name=view_name, template_image=image)
+        template_id = request.POST.get('template_id')
+        template_price = request.POST.get('template_price')
+        my_model_instance = TemplatesInfo(view_name=view_name, template_image=image,id_name=template_id, price = template_price)
         my_model_instance.save()
 
         # Redirect to a new URL (change as needed)
@@ -70,6 +71,11 @@ def login_view(request):
 
 def index(request):
     return render(request,'index.html')
+
+def user_logout(request):
+    logout(request)
+    # Redirect to a specific page after logout (optional)
+    return redirect('/')
 
 
 def resumes(request):

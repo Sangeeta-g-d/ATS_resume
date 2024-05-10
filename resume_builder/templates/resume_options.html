@@ -21,34 +21,9 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="/static/home_assets/css/responsive.css">
 		<title>Resume Builder</title>
 		<style>
-		/* CSS for the navigation bar */
-		/* CSS for the navigation bar */
-		.custom-navbar {
-    height: 45px; /* Set height to your desired value */
-    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
-    backdrop-filter: blur(15px); /* Adjust the blur effect */
-    position: fixed; /* Keep the navbar fixed at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-}
-
-/* Adjust navbar links */
-.custom-navbar .navbar-nav .nav-link {
-   /* Set text color as desired */
-    line-height: 50px; /* Align links to the center vertically */
-}
-
-/* Optional: adjust other elements for compatibility with the smaller navbar height */
-.custom-navbar .navbar-brand,
-.custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
-}
-
-
-
 
 .resume_options {
     width: 530px;
@@ -129,20 +104,18 @@
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+				<p class="navbar-brand" href="">Resume<span>.</span></p>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
+						
 						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
-						
-						
+						<li class="nav-item">
+							<a class="nav-link" href="/user_logout">Logout</a>
+						</li>
 					</ul>
-					
 				</div>
 			</div>
 		</nav>
@@ -150,25 +123,25 @@
 		<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
-		<div class="hero">
+		<div class="hero" style="margin-top: 50px;">
 			<h2 class="mb-4 section-title1" style="color:#222222;text-align: center; margin-top: 25px;">How do you want to build your resume?</h2>
 			<br>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-12 col-sm-6 col-md-6">
 						<a href="/personal_info/{{id}}" style="text-decoration: none;">
-						<div class="resume_options text-center mb-4">
-							<img style="width: 62px;height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue2.png" ><br><br>
-							<h4>Create a new resume</h4>
-							<p style="font-size: 20px;">We will help you create a resume <br>step by step</p>
-						</div>
-					</a>
+							<div class="resume_options text-center mb-4">
+								<img style="width: 62px; height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue2.png" alt="Create a new resume"><br><br>
+								<h4>Create a new resume</h4>
+								<p style="font-size: 20px;">We will help you create a resume <br>step by step</p>
+							</div>
+						</a>
 					</div>
-					<div class="col-md-6">
+					<div class="col-12 col-sm-6 col-md-6">
 						<div class="resume_options text-center mb-4" id="uploadCard">
-							<img style="width: 62px;height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue11.png"><br><br>
+							<img style="width: 62px; height: 60px; margin-top: 30px;" src="/static/home_assets/images/blue11.png" alt="I already have a resume"><br><br>
 							<h4>I already have a resume</h4>
-							<p style="font-size: 20px;">We'll fill your information so<br> you don'y have to.</p>
+							<p style="font-size: 20px;">We'll fill your information so<br> you don't have to.</p>
 						</div>
 					</div>
 

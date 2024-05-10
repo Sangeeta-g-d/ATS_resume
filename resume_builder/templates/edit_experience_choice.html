@@ -22,48 +22,10 @@
 		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="/static/home_assets/css/responsive.css">
 		<title>Resume Builder</title>
 		<style>
-		/* CSS for the navigation bar */
-		/* CSS for the navigation bar */
-		.custom-navbar {
-    height: 45px; /* Set height to your desired value */
-    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
-    backdrop-filter: blur(15px); /* Adjust the blur effect */
-    position: fixed; /* Keep the navbar fixed at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-}
-
-/* Adjust navbar links */
-.custom-navbar .navbar-nav .nav-link {
-   /* Set text color as desired */
-    line-height: 50px; /* Align links to the center vertically */
-}
-
-/* Optional: adjust other elements for compatibility with the smaller navbar height */
-.custom-navbar .navbar-brand,
-.custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
-}
-
-
-
-
-.resume_options {
-    width: 530px;
-	height:280px;
-   
-    border: 2px solid #222222;
-    border-radius: 25px;
-    transition: border-width 0.3s ease; /* Add transition */
-}
-
-.resume_options:hover {
-	border-color:  #0d6efd;;
-    border-width: 5px; /* Increase border width on hover */
-}
+		
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     .section-title1 {
@@ -89,7 +51,7 @@
 
 /* Sidebar */
 .sidebar {
-    width: 19.5%; /* Adjusts the width of the sidebar as per your preference */
+    min-width: 253px; /* Adjusts the width of the sidebar as per your preference */
     height: 100%; /* Makes the sidebar full height of the container */
     padding: 20px; /* Adds padding to the sidebar */
     background-color: #222222; /* Sets background color */
@@ -250,12 +212,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
+						
 						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
-						
-						
+						<li class="nav-item">
+							<a class="nav-link" href="/user_logout">Logout</a>
+						</li>
 					</ul>
 					
 				</div>

@@ -23,8 +23,6 @@
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
 		<title>Resume Builder</title>
 		<style>
-		/* CSS for the navigation bar */
-		/* CSS for the navigation bar */
 		.custom-navbar {
     height: 45px; /* Set height to your desired value */
     background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
@@ -44,21 +42,22 @@
 /* Optional: adjust other elements for compatibility with the smaller navbar height */
 .custom-navbar .navbar-brand,
 .custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
+    line-height: 0px; /* Align brand and toggler button */
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        height: 60px; /* Set height to 65px on mobile screens */
+    }
+}
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background-color: #eff2f1;
+		/* Replace with your desired background color */
+    }
 }
 
 
-
-
-
-    .image{
-        border: 8px solid transparent; /* Initially set border to transparent */
-        transition: border-color 0.3s ease; /* Add transition for smooth effect */
-    }
-
-    .image:hover {
-        border-color:#dfe6ed; /* Change border color when hovered */
-    }
 	.bb{
 		background:rgb(184, 196, 206);
 		 color: black; 
@@ -69,6 +68,18 @@
 		   transform: translate(-50%, -50%);
 		    display: none; width:200px;
 	}
+	@media (max-width: 576px) {
+    .hero-img {
+        margin-top: 20px;
+		margin-left: 20px !important;
+		width: 100%;
+		height: auto; /* Decrease top margin on mobile screens */
+    }
+}
+img.img-fluid {
+    width: 100%; /* Make the image take up the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
 </style>
 
 
@@ -80,19 +91,18 @@
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Resume<span>.</span></a>
+				<p class="navbar-brand" href="">Resume<span>.</span></p>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
+						
 						<li><a class="nav-link" href="/resumes">Choose Templates</a></li>
-					
+						<li class="nav-item">
+							<a class="nav-link" href="/user_logout">Logout</a>
+						</li>
 					</ul>
-					
 				</div>
 			</div>
 		</nav>
@@ -100,6 +110,7 @@
 		<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
+			<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">
 					<div class="row justify-content-between">
@@ -112,7 +123,7 @@
 						</div>
 						<div class="col-lg-5" style="margin-top: 40px;">
 							<div>
-								<img src="/static/home_assets/images/hero-res.gif" height="380px" width="600px" >
+								<img src="/static/home_assets/images/2-hero.jpg" class="img-fluid" alt="Responsive Image">
 							</div>
 						</div>
 					</div>

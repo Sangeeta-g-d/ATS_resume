@@ -59,6 +59,7 @@ class TemplatesInfo(models.Model):
     template_image = models.ImageField(upload_to='uploaded_images/',default="profile")
     view_name = models.CharField(max_length=300,default='none')
     id_name=models.CharField(max_length=300,default='none')
+    price = models.CharField(max_length=100, default="30")
 
 
 class Resume(models.Model):

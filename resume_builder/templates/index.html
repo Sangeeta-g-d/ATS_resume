@@ -21,53 +21,23 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="/static/home_assets/css/tiny-slider.css" rel="stylesheet">
 		<link href="/static/home_assets/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="/static/home_assets/css/responsive.css">
 		<title>Resume Builder</title>
 		<style>
 		/* CSS for the navigation bar */
-.custom-navbar {
-    height: 45px; /* Set height to your desired value */
-    background-color: rgba(255, 255, 255, 0.779) !important; /* Semi-transparent white background */
-    backdrop-filter: blur(15px); /* Adjust the blur effect */
-    position: fixed; /* Keep the navbar fixed at the top */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other content */
-}
 
-/* Adjust navbar links */
-.custom-navbar .navbar-nav .nav-link {
-   /* Set text color as desired */
-    line-height: 50px; /* Align links to the center vertically */
-}
-
-/* Optional: adjust other elements for compatibility with the smaller navbar height */
-.custom-navbar .navbar-brand,
-.custom-navbar .navbar-toggler {
-    line-height: 50px; /* Align brand and toggler button */
-}
-
-
-
-.image{
-        border: 8px solid transparent; /* Initially set border to transparent */
-        transition: border-color 0.3s ease;
-		width:400px;
-		height:400px; /* Add transition for smooth effect */
+	@media (max-width: 576px) {
+    .hero-img {
+        margin-top: 20px;
+		margin-left: 20px !important;
+		width: 100%;
+		height: auto; /* Decrease top margin on mobile screens */
     }
-
-    .image:hover {
-        border-color:#dfe6ed; /* Change border color when hovered */
-    }
-	.bb{
-		background:rgb(184, 196, 206);
-		 color: black; 
-		 border-color: #b6d2ed;
-		  position: absolute;
-		   top: 40%; 
-		   left: 50%; 
-		   transform: translate(-50%, -50%);
-		    display: none; width:200px;
+	.hero{
+		margin-top: 50px;
 	}
+}
+	
 
 		</style>
 	</head>
@@ -76,7 +46,7 @@
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" aria-label="Furni navigation bar">
 			<div class="container">
-				<a class="navbar-brand" href="">Resume<span>.</span></a>
+				<p class="navbar-brand" href="">Resume<span>.</span></p>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -107,7 +77,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img height="300px" style="margin-top: 50px; margin-left: 100px;" width="500px" src="/static/home_assets/images/heroimg.jpg" >
+								<img height="300px" style="margin-top: 50px; margin-left: 100px;" class="hero-img" src="/static/home_assets/images/heroimg.jpg" >
 							</div>
 						</div>
 					</div>

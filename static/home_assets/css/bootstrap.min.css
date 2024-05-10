@@ -4600,7 +4600,8 @@ fieldset:disabled .btn {
     margin-right: 1rem;
     font-size: 1.25rem;
     text-decoration: none;
-    white-space: nowrap
+    white-space: nowrap;
+    margin-bottom: 0px;
 }
 
 .navbar-nav {
@@ -4628,14 +4629,15 @@ fieldset:disabled .btn {
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
-    align-items: center
+    align-items: center; 
+    
 }
 
 .navbar-toggler {
     padding: .25rem .75rem;
     font-size: 1.25rem;
     line-height: 1;
-    background-color: transparent;
+    background-color: #2f2f2f;
     border: 1px solid transparent;
     border-radius: .25rem;
     transition: box-shadow .15s ease-in-out
