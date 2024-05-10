@@ -5106,10 +5106,7 @@ fieldset:disabled .btn {
     color: #fff
 }
 
-.navbar-dark .navbar-brand:focus,
-.navbar-dark .navbar-brand:hover {
-    color: #fff
-}
+
 
 .navbar-dark .navbar-nav .nav-link {
     color: #282828 !important;
