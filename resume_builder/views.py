@@ -158,15 +158,17 @@ def user_logout(request):
     return redirect('/')
 
 
+@login_required(login_url='/login')
 def resumes(request):
-    id=request.user.id
+    id = request.user.id
     print(id)
     templates = TemplatesInfo.objects.all()
     context = {
-        'templates':templates
+        'templates': templates
     }
-    return render(request,'resumes.html', context)
+    return render(request, 'resumes.html', context)
 
+@login_required(login_url='/login')
 def add_experience_choice(request):
     user_id=request.user.id
     details=Experience.objects.filter(user_id_id=user_id)
@@ -174,6 +176,7 @@ def add_experience_choice(request):
     return render(request,'add_experience_choice.html',context)
 
 
+@login_required(login_url='/login')
 def delete_experience(request, experience_id):
     try:
         # Get the experience object
@@ -193,7 +196,7 @@ def delete_experience(request, experience_id):
     return redirect('/add_experience_choice')
 
 
-
+@login_required(login_url='/login')
 def delete_project(request, project_id):
     print("ddddd",project_id)
     try:
@@ -208,7 +211,7 @@ def delete_project(request, project_id):
     except Project.DoesNotExist:
         return JsonResponse({'success': False, 'message': 'Project not found'}, status=404)
 
-
+@login_required(login_url='/login')
 def delete_education(request, education_id):
     try:
         education = Education.objects.get(id=education_id)
@@ -221,27 +224,28 @@ def delete_education(request, education_id):
     except Education.DoesNotExist:
         return JsonResponse({'success': False, 'message': 'Education entry not found'}, status=404)
 
+@login_required(login_url='/login')
 def edit_experience_choice(request,id):
     user_id=request.user.id
     details=Experience.objects.filter(user_id_id=user_id)
     context={'details':details,'template_id':id}
     return render(request,'edit_experience_choice.html',context)
 
-
+@login_required(login_url='/login')
 def add_education_choice(request):
     user_id=request.user.id
     details=Education.objects.filter(user_id_id=user_id)
     context={'details':details}
     return render(request,'add_education_choice.html',context)
 
-
+@login_required(login_url='/login')
 def edit_education_choice(request,id):
     user_id=request.user.id
     details=Education.objects.filter(user_id_id=user_id)
     context={'details':details,'template_id':id}
     return render(request,'edit_education_choice.html',context)
 
-
+@login_required(login_url='/login')
 def personal_info(request, id):
     request.session['template_id'] = id
     temp_image = TemplatesInfo.objects.get(id=id)
@@ -287,7 +291,7 @@ def personal_info(request, id):
     return render(request,'personal_info.html',context)
 
 
-
+@login_required(login_url='/login')
 def extracted_personal_info(request, id):
     temp_image = TemplatesInfo.objects.get(id=id)
     print(temp_image.template_image)
@@ -330,6 +334,7 @@ def extracted_personal_info(request, id):
     }
     return render(request,'extracted_personal_info.html',context)
 
+@login_required(login_url='/login')
 def edit_personal_info(request,id):
     user_id=request.user.id
     details=Header.objects.get(user_id_id=user_id)
@@ -350,7 +355,7 @@ def edit_personal_info(request,id):
     }
     return render(request,'edit_personal_info.html',context)
 
-
+@login_required(login_url='/login')
 def work_history(request):
     id = request.user.id
     print("hhhhhhhhhhhhhhhhhhhh")
@@ -373,7 +378,7 @@ def work_history(request):
     return render(request, 'work_history.html')
 
 
-
+@login_required(login_url='/login')
 def edit_add_work_history(request,id):
     user_id = request.user.id
     if request.method == 'POST':
@@ -393,6 +398,7 @@ def edit_add_work_history(request,id):
             return redirect('/edit_experience_choice/{}'.format(id))
     return render(request, 'edit_add_work_history.html')
 
+@login_required(login_url='/login')
 def edit_work_history(request,id,template_id):
     print("hhhhhhhhhhhhhh",template_id)
     user_id = request.user.id
@@ -412,6 +418,7 @@ def edit_work_history(request,id,template_id):
     context={'details':details}
     return render(request, 'edit_work_history.html',context)
 
+@login_required(login_url='/login')
 def education(request):
     user_id = request.user.id
     if request.method == 'POST':
@@ -427,7 +434,7 @@ def education(request):
             return redirect('/add_education_choice')
     return render(request,'education.html')
 
-
+@login_required(login_url='/login')
 def edit_education(request,id):
     user_id = request.user.id
     if request.method == 'POST':
@@ -443,7 +450,7 @@ def edit_education(request,id):
             return redirect('/edit_education_choice/{}'.format(id))
     return render(request,'edit_education.html')
 
-
+@login_required(login_url='/login')
 def edit_education_form(request,id,template_id):
     user_id = request.user.id
     details=Education.objects.get(id=id)
@@ -459,7 +466,7 @@ def edit_education_form(request,id,template_id):
     context={'details':details}
     return render(request,'edit_education_form.html',context)
 
-
+@login_required(login_url='/login')
 def extra_details(request):
     template_id = request.session.get('template_id')
     context = {
@@ -467,7 +474,7 @@ def extra_details(request):
     }
     return render(request,'extra_details.html',context)
 
-
+@login_required(login_url='/login')
 def project_details(request):
     id = request.user.id
     if request.method == 'POST':
@@ -479,7 +486,7 @@ def project_details(request):
                                       description=description, user_id_id=id)
         return redirect('/extra_details')
 
-
+@login_required(login_url='/login')
 def certificates(request):
     id = request.user.id
     if request.method == 'POST':
@@ -487,7 +494,7 @@ def certificates(request):
         data = Certificates.objects.create(certificates=certificates,user_id_id=id)
         return redirect('/extra_details')
 
-
+@login_required(login_url='/login')
 def languages(request):
     id = request.user.id
     if request.method == 'POST':
@@ -495,14 +502,14 @@ def languages(request):
         data = Languages.objects.create(languages_known=languages_known,user_id_id=id)
         return redirect('/extra_details')
 
-
+@login_required(login_url='/login')
 def edit_project(request,id):
     user_id=request.user.id
     details=Project.objects.filter(user_id_id=user_id)
     context={'details':details,'template_id':id}
     return render(request,'edit_project.html',context)
 
-
+@login_required(login_url='/login')
 def edit_project_form(request,id,template_id):
     user_id = request.user.id
     details=Project.objects.get(id=id)
@@ -516,6 +523,7 @@ def edit_project_form(request,id,template_id):
     context={'details':details}
     return render(request,'edit_project_form.html',context)
 
+@login_required(login_url='/login')
 def edit_project_details(request,id):
     user_id = request.user.id
     if request.method == 'POST':
@@ -528,7 +536,7 @@ def edit_project_details(request,id):
         return redirect('/edit_project/{}'.format(id))
 
 
-
+@login_required(login_url='/login')
 def extracted_work_history(request):
     user_id = request.user.id
     details=Extracted_ExperienceDetails.objects.filter(user_id_id=user_id).order_by('-id').first()
@@ -548,14 +556,14 @@ def extracted_work_history(request):
     context={'details':details}
     return render(request, 'extracted_work_history.html',context)
 
-
+@login_required(login_url='/login')
 def extracted_experience_choice(request):
     user_id=request.user.id
     details=Experience.objects.filter(user_id_id=user_id)
     context={'id':id,'details':details}
     return render(request,'extracted_experience_choice.html',context)
 
-
+@login_required(login_url='/login')
 def extracted_education(request):
     user_id = request.user.id
     details=Extracted_EducationDetails.objects.filter(user_id_id=user_id).order_by('-id').first()
@@ -573,14 +581,14 @@ def extracted_education(request):
     context={'id':id,'details':details}
     return render(request,'extracted_education.html',context)
 
-
+@login_required(login_url='/login')
 def extracted_education_choice(request):
     user_id=request.user.id
     details=Education.objects.filter(user_id_id=user_id)
     context={'id':id,'details':details}
     return render(request,'extracted_education_choice.html',context)
 
-
+@login_required(login_url='/login')
 def extracted_extra_details(request):
     template_id = request.session.get('template_id')
     print("iiiiiiii",template_id)
@@ -588,7 +596,7 @@ def extracted_extra_details(request):
     return render(request,'extracted_extra_details.html',context)
 
 
-
+@login_required(login_url='/login')
 def resume_options(request, id):
     i = request.user.id
     print(id)
@@ -601,6 +609,7 @@ def resume_options(request, id):
         return redirect('/extracted_personal_info/{}'.format(id))
     return render(request, 'resume_options.html', {'id': id})
 
+@login_required(login_url='/login')
 def extract_and_store_resume_data(resume_path,id, user_id):
     # Extract data from the resume
     images = convert_from_path(resume_path)
@@ -712,7 +721,7 @@ def extract_and_store_resume_data(resume_path,id, user_id):
     return Extracted_ResumeDetails.objects.last()
 
 
-
+@login_required(login_url='/login')
 def extract_degree_details(education_lines):
     degree = ""
     university = ""
@@ -732,7 +741,7 @@ def extract_degree_details(education_lines):
             university = line
     return degree, university, year_of_passing
 
-
+@login_required(login_url='/login')
 def extract_experience_details(experience_lines):
     designation = ""
     company_name = ""
@@ -755,6 +764,7 @@ def extract_experience_details(experience_lines):
                 end_date = match.group()
     return designation, company_name, start_date, end_date
 
+@login_required(login_url='/login')
 def template1(request,id):
     user_id = request.user.id
     template_id = id
