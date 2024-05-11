@@ -41,5 +41,7 @@ urlpatterns = [
     path('edit_project_details/<int:id>',views.edit_project_details,name="edit_project_details"),
     path('edit_project_form/<int:id>/<int:template_id>',views.edit_project_form,name="edit_project_form"),
     path('delete_project/<int:project_id>/', views.delete_project, name='delete_project'),
+    path('auth/google/', views.google_auth, name='google_auth'),
+    path('accounts/google/login/callback/', views.google_auth_callback, name='google_auth_callback'),
     
 ]

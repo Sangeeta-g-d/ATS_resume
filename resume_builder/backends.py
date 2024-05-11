@@ -1,6 +1,8 @@
-from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth import get_user_model
+# backends.py
 
+from django.contrib.auth.backends import ModelBackend
+from .models import NewUser
+from django.contrib.auth import get_user_model
 
 
 class CustomAuthenticationBackend(ModelBackend):
@@ -20,5 +22,11 @@ class CustomAuthenticationBackend(ModelBackend):
         except User.DoesNotExist:
             return None
 
-
+class CustomBackend(ModelBackend):
+    def authenticate(self, request, email=None):
+        try:
+            user = NewUser.objects.get(email=email)
+        except NewUser.DoesNotExist:
+            return None
+        return user
 

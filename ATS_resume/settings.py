@@ -16,6 +16,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
+#google registration
+GOOGLE_OAUTH2_CLIENT_ID = '85681954763-g7sj5cn1teitld0h3ct6edv8m9gloscj.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = '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'
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -28,7 +35,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTHENTICATION_BACKENDS = [
-    'resume_builder.backends.CustomAuthenticationBackend',  # Path to your custom backend
+    'resume_builder.backends.CustomAuthenticationBackend',
+    'resume_builder.backends.CustomBackend',  # Path to your custom backend
     'django.contrib.auth.backends.ModelBackend',
     # Other authentication backends...
 ]

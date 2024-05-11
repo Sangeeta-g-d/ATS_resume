@@ -16,7 +16,87 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer  # Add this
 from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Resume,Extracted_ResumeDetails,Extracted_ExperienceDetails,Extracted_EducationDetails,Project,Certificates,Languages
 from .models import  NewUser,Header,User_skills,Experience,Education,TemplatesInfo,Project,Certificates,Languages
 from datetime import datetime
-# Create your views here.
+from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
+from django.conf import settings
+import requests
+from .models import NewUser
+from django.conf import settings
+import requests
+from django.http import HttpResponseForbidden
+
+from django.shortcuts import redirect
+from google.auth import credentials
+from google.oauth2 import id_token
+
+
+
+
+def google_auth(request):
+    # Redirect user to Google login page
+    redirect_uri = request.build_absolute_uri('/accounts/google/login/callback/')
+    google_oauth2_client_id = settings.GOOGLE_OAUTH2_CLIENT_ID
+    return redirect(f'https://accounts.google.com/o/oauth2/auth?client_id={google_oauth2_client_id}&redirect_uri={redirect_uri}&response_type=code&scope=email')
+
+
+
+def google_auth_callback(request):
+    # Handle Google callback
+    code = request.GET.get('code')
+
+    # Exchange authorization code for tokens
+    token_request_data = {
+        'code': code,
+        'client_id': settings.GOOGLE_OAUTH2_CLIENT_ID,
+        'client_secret': settings.GOOGLE_OAUTH2_CLIENT_SECRET,
+        'redirect_uri': request.build_absolute_uri('/accounts/google/login/callback/'),
+        'grant_type': 'authorization_code'
+    }
+
+    response = requests.post('https://oauth2.googleapis.com/token', data=token_request_data)
+    token_data = response.json()
+
+    # Check if there was an error in retrieving tokens
+    if 'error' in token_data:
+        error_message = token_data.get('error_description', 'Unknown error')
+        print("Error in token exchange:", error_message)
+        return redirect('index')
+
+    # Use token to get user information
+    if 'access_token' in token_data:
+        access_token = token_data['access_token']
+        user_info_response = requests.get('https://www.googleapis.com/oauth2/v1/userinfo', params={'access_token': access_token})
+
+        # Check if there was an error in retrieving user information
+        if user_info_response.status_code != 200:
+            print("Error in fetching user information from Google:", user_info_response.text)
+            return redirect('index')
+
+        user_info = user_info_response.json()
+
+        # Extract relevant user data
+        email = user_info.get('email')
+
+        # Check if the user already exists
+        user = NewUser.objects.filter(email=email).first()
+        if user is None:
+            # If the user does not exist, create a new one
+            user = NewUser.objects.create_user(email=email,username=email)
+            user.save()
+
+        # Authenticate and login the user
+        user = authenticate(request, email=email)
+        print("llllllllllllllllll",user)
+        if user is not None:
+            login(request, user)
+            return redirect('resumes')
+
+    return redirect('resumes')
+
+
+
+
+
 
 def add_template(request):
     if request.method == 'POST':
